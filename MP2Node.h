@@ -18,6 +18,7 @@
 #include "Params.h"
 #include "Message.h"
 #include "Queue.h"
+#include "Trace.h"
 
 /**
  * CLASS NAME: MP2Node
@@ -47,6 +48,8 @@ private:
 	EmulNet * emulNet;
 	// Object of Log
 	Log * log;
+	// Trace class object
+	Trace *trace;
 
 public:
 	MP2Node(Member *memberNode, Params *par, EmulNet *emulNet, Log *log, Address *addressOfMember);
@@ -55,7 +58,7 @@ public:
 	}
 
 	// ring functionalities
-	void updateRing();
+	void updateRing(); 
 	vector<Node> getMembershipList();
 	size_t hashFunction(string key);
 	void findNeighbors();
@@ -88,7 +91,13 @@ public:
 	// stabilization protocol - handle multiple failures
 	void stabilizationProtocol();
 
+	//operator for the check
+	bool compareNode(vector<Node> &node1, vector<Node> &node2);
+
+	bool check();
+
 	~MP2Node();
+
 };
 
 #endif /* MP2NODE_H_ */
