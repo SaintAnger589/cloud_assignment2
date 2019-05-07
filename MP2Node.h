@@ -58,7 +58,7 @@ public:
 	}
 
 	// ring functionalities
-	void updateRing(); 
+	void updateRing();
 	vector<Node> getMembershipList();
 	size_t hashFunction(string key);
 	void findNeighbors();

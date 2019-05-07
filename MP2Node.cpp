@@ -55,7 +55,7 @@ void MP2Node::updateRing() {
 	 * Step 2: Construct the ring
 	 */
 	// Sort the list based on the hashCode
-	
+
 	sort(curMemList.begin(), curMemList.end());
 
 	//change = (this->ring != curMemList);
@@ -72,7 +72,7 @@ void MP2Node::updateRing() {
 	// Run stabilization protocol if the hash table size is greater than zero and if there has been a changed in the ring
 	if (ht->currentSize() > 0 && change){
 	  //this.ring = curMemList;
-	  stabilizationProtocol();	
+	  stabilizationProtocol();
 	}
 }
 
@@ -134,12 +134,12 @@ void MP2Node::clientCreate(string key, string value) {
 	this->trace->funcEntry("clientCreate");
     //construct the createmessage
     Message *newcreatemsg;
-    int msgSize = sizeof(MessageType) 
-                  + sizeof(ReplicaType) 
-                  + 2*sizeof(string) 
-                  + sizeof(Address) 
-                  + sizeof(int) 
-                  + sizeof(bool) 
+    int msgSize = sizeof(MessageType)
+                  + sizeof(ReplicaType)
+                  + 2*sizeof(string)
+                  + sizeof(Address)
+                  + sizeof(int)
+                  + sizeof(bool)
                   + sizeof(string);
     newcreatemsg->type     = CREATE;
     newcreatemsg->replica  = SECONDARY;
@@ -149,7 +149,7 @@ void MP2Node::clientCreate(string key, string value) {
     newcreatemsg->fromAddr = this->memberNode->addr;
     newcreatemsg->transID  = g_transID;
     newcreatemsg->success  = 1;
-    newcreatemsg->delimiter= "::"; 
+    newcreatemsg->delimiter= "::";
     //Finds the replicas of the key
     //vector<Node> repNode;
     hasMyReplicas = findNodes(key);
@@ -175,12 +175,12 @@ void MP2Node::clientRead(string key){
 	 * Implement this
 	 */
     Message *newcreatemsg;
-    int msgSize = sizeof(MessageType) 
-                  + sizeof(ReplicaType) 
-                  + 2*sizeof(string) 
-                  + sizeof(Address) 
-                  + sizeof(int) 
-                  + sizeof(bool) 
+    int msgSize = sizeof(MessageType)
+                  + sizeof(ReplicaType)
+                  + 2*sizeof(string)
+                  + sizeof(Address)
+                  + sizeof(int)
+                  + sizeof(bool)
                   + sizeof(string);
     newcreatemsg->type     = READ;
     newcreatemsg->replica  = SECONDARY;
@@ -190,7 +190,7 @@ void MP2Node::clientRead(string key){
     newcreatemsg->fromAddr = this->memberNode->addr;
     newcreatemsg->transID  = g_transID;
     newcreatemsg->success  = 1;
-    newcreatemsg->delimiter= "::"; 
+    newcreatemsg->delimiter= "::";
     //Finds the replicas of the key
     //vector<Node> repNode;
     hasMyReplicas = findNodes(key);
@@ -216,12 +216,12 @@ void MP2Node::clientUpdate(string key, string value){
 	 * Implement this
 	 */
 	Message *newcreatemsg;
-    int msgSize = sizeof(MessageType) 
-                  + sizeof(ReplicaType) 
-                  + 2*sizeof(string) 
-                  + sizeof(Address) 
-                  + sizeof(int) 
-                  + sizeof(bool) 
+    int msgSize = sizeof(MessageType)
+                  + sizeof(ReplicaType)
+                  + 2*sizeof(string)
+                  + sizeof(Address)
+                  + sizeof(int)
+                  + sizeof(bool)
                   + sizeof(string);
     newcreatemsg->type     = UPDATE;
     newcreatemsg->replica  = SECONDARY;
@@ -231,7 +231,7 @@ void MP2Node::clientUpdate(string key, string value){
     newcreatemsg->fromAddr = this->memberNode->addr;
     newcreatemsg->transID  = g_transID;
     newcreatemsg->success  = 1;
-    newcreatemsg->delimiter= "::"; 
+    newcreatemsg->delimiter= "::";
     //Finds the replicas of the key
     //vector<Node> repNode;
     hasMyReplicas = findNodes(key);
@@ -257,12 +257,12 @@ void MP2Node::clientDelete(string key){
 	 * Implement this
 	 */
 	Message *newcreatemsg;
-    int msgSize = sizeof(MessageType) 
-                  + sizeof(ReplicaType) 
-                  + 2*sizeof(string) 
-                  + sizeof(Address) 
-                  + sizeof(int) 
-                  + sizeof(bool) 
+    int msgSize = sizeof(MessageType)
+                  + sizeof(ReplicaType)
+                  + 2*sizeof(string)
+                  + sizeof(Address)
+                  + sizeof(int)
+                  + sizeof(bool)
                   + sizeof(string);
     newcreatemsg->type     = DELETE;
     newcreatemsg->replica  = SECONDARY;
@@ -272,7 +272,7 @@ void MP2Node::clientDelete(string key){
     newcreatemsg->fromAddr = this->memberNode->addr;
     newcreatemsg->transID  = g_transID;
     newcreatemsg->success  = 1;
-    newcreatemsg->delimiter= "::"; 
+    newcreatemsg->delimiter= "::";
     //Finds the replicas of the key
     //vector<Node> repNode;
     hasMyReplicas = findNodes(key);
@@ -300,6 +300,9 @@ bool MP2Node::createKeyValue(string key, string value, ReplicaType replica) {
 		//tracing this function
 	this->trace->funcEntry("createKeyValue");
 	cout<<"MOD2 : createKeyValue\n";
+	ht->create(key, value);
+	//Making an entry in the Entry class for the transaction
+	Entry *entry = new Entry (value, g_transID, replica);
 }
 
 /**
@@ -315,8 +318,11 @@ string MP2Node::readKey(string key) {
 	 * Implement this
 	 */
 	// Read key from local hash table and return value
+	string res;
+	res = ht->read(key);
 		//tracing this function
 	this->trace->funcEntry("readKey");
+	return res;
 }
 
 /**
@@ -332,6 +338,8 @@ bool MP2Node::updateKeyValue(string key, string value, ReplicaType replica) {
 	 * Implement this
 	 */
 	// Update key in local hash table and return true or false
+	ht->update(key, value);
+
 		//tracing this function
 	this->trace->funcEntry("updateKeyValue");
 }
@@ -349,6 +357,7 @@ bool MP2Node::deletekey(string key) {
 	 * Implement this
 	 */
 	// Delete the key from the local hash table
+	ht->deleteKey(key);
 }
 
 /**
@@ -462,7 +471,7 @@ void MP2Node::stabilizationProtocol() {
 	 * Implement this
 	 */
 
-	//key = 
+	//key =
 }
 
 bool MP2Node::compareNode(vector<Node> &node1, vector<Node> &node2){
