@@ -25,6 +25,7 @@ void handler(int sig) {
  * DESCRIPTION: main function. Start from here
  **********************************/
 int main(int argc, char *argv[]) {
+	cout<<"int main\n";
 	//signal(SIGSEGV, handler);
 	if ( argc != ARGS_COUNT ) {
 		cout<<"Configuration (i.e., *.conf) file File Required"<<endl;
@@ -33,6 +34,7 @@ int main(int argc, char *argv[]) {
 
 	// Create a new application object
 	Application *app = new Application(argv[1]);
+	cout<<"Application object created\n";
 	// Call the run function
 	app->run();
 	// When done delete the application object
@@ -72,7 +74,7 @@ Application::Application(char *infile) {
 		delete addressOfMemberNode;
 	}
 }
-
+  //std::cout<<"node inited\n";
 /**
  * Destructor
  */
@@ -137,6 +139,7 @@ int Application::run()
  * DESCRIPTION:	This function performs all the membership protocol functionalities
  */
 void Application::mp1Run() {
+	cout<<"mp1Run start\n";
 	int i;
 
 	// For all the nodes in the system
@@ -190,6 +193,7 @@ void Application::mp1Run() {
  * 				2) CRUD operations
  */
 void Application::mp2Run() {
+	cout<<"Application : start mp2Run\n";
 	int i;
 
 	// For all the nodes in the system
@@ -370,12 +374,12 @@ void Application::fail() {
  * DESCRIPTION: This function returns the address of the coordinator
  */
 Address Application::getjoinaddr(void){
-	//trace.funcEntry("Application::getjoinaddr");
+	trace.funcEntry("Application::getjoinaddr");
     Address joinaddr;
     joinaddr.init();
     *(int *)(&(joinaddr.addr))=1;
     *(short *)(&(joinaddr.addr[4]))=0;
-    //trace.funcExit("Application::getjoinaddr", SUCCESS);
+    trace.funcExit("Application::getjoinaddr", SUCCESS);
     return joinaddr;
 }
 

@@ -19,6 +19,7 @@
 #include "Message.h"
 #include "Queue.h"
 #include "Trace.h"
+#include "Entry.h"
 
 /**
  * CLASS NAME: MP2Node
@@ -50,6 +51,8 @@ private:
 	Log * log;
 	// Trace class object
 	Trace *trace;
+	// Entry Object
+	Entry *entry;
 
 public:
 	MP2Node(Member *memberNode, Params *par, EmulNet *emulNet, Log *log, Address *addressOfMember);

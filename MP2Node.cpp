@@ -297,12 +297,17 @@ bool MP2Node::createKeyValue(string key, string value, ReplicaType replica) {
 	 * Implement this
 	 */
 	// Insert key, value, replicaType into the hash table
+
+	ht->create(key, value);
+	//adding it into the entry Object
+	entry->value      = value;
+	entry->timestamp  = g_transID;
+	entry->replica    = replica;
+
+
 		//tracing this function
 	this->trace->funcEntry("createKeyValue");
 	cout<<"MOD2 : createKeyValue\n";
-	ht->create(key, value);
-	//Making an entry in the Entry class for the transaction
-	Entry *entry = new Entry (value, g_transID, replica);
 }
 
 /**
@@ -318,8 +323,8 @@ string MP2Node::readKey(string key) {
 	 * Implement this
 	 */
 	// Read key from local hash table and return value
-	string res;
-	res = ht->read(key);
+
+	 string res = ht->read(key);
 		//tracing this function
 	this->trace->funcEntry("readKey");
 	return res;
@@ -338,10 +343,17 @@ bool MP2Node::updateKeyValue(string key, string value, ReplicaType replica) {
 	 * Implement this
 	 */
 	// Update key in local hash table and return true or false
-	ht->update(key, value);
-
 		//tracing this function
+	bool res;
+	res = ht->update(key, value);
+	//updating the entry for the transaction
+	if (res){
+		entry->value = value;
+		entry->timestamp = g_transID;
+		entry->replica = replica;
+	}
 	this->trace->funcEntry("updateKeyValue");
+	return res;
 }
 
 /**
@@ -357,7 +369,9 @@ bool MP2Node::deletekey(string key) {
 	 * Implement this
 	 */
 	// Delete the key from the local hash table
-	ht->deleteKey(key);
+	bool res;
+	res = ht->deleteKey(key);
+	return res;
 }
 
 /**
@@ -393,6 +407,52 @@ void MP2Node::checkMessages() {
 		/*
 		 * Handle the message types here
 		 */
+		 switch(message){
+			 case CREATE:
+			 	//there are no replicas for create. create haveReplicasOf
+				//this.hasMyReplicas = findNodes(message->key);
+
+				//add the key to local Table
+				bool res = createKeyValue(message->key, message->value, message->replica);
+				if (res){
+					//log the values
+					this->log->logCreateSuccess(this->address, res, g_transID, message->key, message->value);
+					//g_transID++;
+				}
+
+				//create message and send to haveReplicasOf
+				//for (nodes:)
+			 break;
+			 case READ:
+				//if the read matches and more then 2 wuorum is formed
+				string res;
+				res = readKey(message->key);
+				this->log->logReadSuccess()
+				//return res;
+
+			 break;
+			 case UPDATE:
+			 	clientUpdate(message->key, message->value);
+			 	bool res = updateKeyValue(message->key, message->value, message->replica);
+			 	if (res){
+			 		this->log->logUpdateSuccess(this->address, res, g_transID, message->key, message->value);
+			 	}
+			 break;
+			 case DELETE:
+			    clientDelete(message->key);
+			    bool res = deletekey(message->key);
+			    if (res){
+			    	this->log->logDeleteSuccess(this->address, res, g_transID, message->key);
+			    }
+			 break;
+			 case REPLY:
+
+
+			 break;
+			 case READREPLY:
+
+			 break;
+		 }
 
 	}
 
