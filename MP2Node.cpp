@@ -776,7 +776,9 @@ void MP2Node::stabilizationProtocol() {
 	/*
 	 * Implement this
 	 */
-  
+	 //this is called when the nodelist is different
+	 
+
 
 }
 
