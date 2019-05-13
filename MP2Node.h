@@ -19,7 +19,6 @@
 #include "Message.h"
 #include "Queue.h"
 #include "Trace.h"
-#include "Entry.h"
 
 /**
  * CLASS NAME: MP2Node
@@ -64,7 +63,6 @@ public:
 	void updateRing();
 	vector<Node> getMembershipList();
 	size_t hashFunction(string key);
-	void findNeighbors();
 
 	// client side CRUD APIs
 	void clientCreate(string key, string value);
@@ -78,9 +76,6 @@ public:
 
 	// handle messages from receiving queue
 	void checkMessages();
-
-	// coordinator dispatches messages to corresponding nodes
-	void dispatchMessages(Message message);
 
 	// find the addresses of nodes that are responsible for a key
 	vector<Node> findNodes(string key);

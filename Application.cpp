@@ -374,12 +374,12 @@ void Application::fail() {
  * DESCRIPTION: This function returns the address of the coordinator
  */
 Address Application::getjoinaddr(void){
-	trace.funcEntry("Application::getjoinaddr");
+	//trace.funcEntry("Application::getjoinaddr");
     Address joinaddr;
     joinaddr.init();
     *(int *)(&(joinaddr.addr))=1;
     *(short *)(&(joinaddr.addr[4]))=0;
-    trace.funcExit("Application::getjoinaddr", SUCCESS);
+    //trace.funcExit("Application::getjoinaddr", SUCCESS);
     return joinaddr;
 }
 

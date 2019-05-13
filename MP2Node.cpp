@@ -54,26 +54,21 @@ void MP2Node::updateRing() {
 	/*
 	 * Step 2: Construct the ring
 	 */
-	// Sort the list based on the hashCode
+	//get the nodes of replicas from the ring from the keys
+	//if the number is less than 2 then run stabilization protocol
 
-	sort(curMemList.begin(), curMemList.end());
-
-	//change = (this->ring != curMemList);
-	change = !compareNode(this->ring, curMemList);
-	//construct the ring
-	//update vector "ring" of the node
-    if (change){
-    	this->ring = curMemList;
-    }
+	vector<Node>num_replicas;
+	//finding replicas from the old ring
+	num_replicas = findNodes(memberNode->ht->hashTable.first);
 
 	/*
 	 * Step 3: Run the stabilization protocol IF REQUIRED
 	 */
-	// Run stabilization protocol if the hash table size is greater than zero and if there has been a changed in the ring
-	if (ht->currentSize() > 0 && change){
-	  //this.ring = curMemList;
-	  stabilizationProtocol();
-	}
+	 if (num_replicas < 2){
+		 //run stabilization
+		 stabilizationProtocol();
+		 //this will update the ring and replicas of the
+	 }
 }
 
 /**
@@ -688,13 +683,13 @@ void MP2Node::checkMessages() {
 
 					switch(tran_performed[message->transID]){
 						case UPDATE:
-						 this->log->logUpdateFail(memberNode->addr, true, g_transID, message->key, message->value);
+						 this->log->logUpdateFail(memberNode->addr, true, g_transID, &message.key, &message->value);
 						break;
 						case READ:
-						 this->log->logReadFail(memberNode->addr, true, g_transID, message->key, message->value);
+						 this->log->logReadFail(memberNode->addr, true, g_transID, message.key, message.value);
 						break;
 						case DELETE:
-						 this->log->logDeleteFail(memberNode->addr, true, g_transID, message->key, message->value);
+						 this->log->logDeleteFail(memberNode->addr, true, g_transID, message.key, message.value);
 						break;
 					}
 				}
@@ -776,8 +771,37 @@ void MP2Node::stabilizationProtocol() {
 	/*
 	 * Implement this
 	 */
-	 //this is called when the nodelist is different
-	 
+   std::map<string, string>::iterator it;
+	 vector<Node>num_replicas;
+	 for (it = ht->hashTable.begin(); it != ht->hashTable.end();it++){
+		 num_replicas = findNodes(it->first);
+		 for(replica: num_replicas){
+			 if (replica.nodeAddress != memberNode->addr){
+				 //create a createmessage
+				 Message *newcreatemsg;
+				 int msgSize = sizeof(MessageType)
+												 + sizeof(ReplicaType)
+												 + 2*sizeof(string)
+												 + sizeof(Address)
+												 + sizeof(int)
+												 + sizeof(bool)
+												 + sizeof(string);
+					 newcreatemsg->type     = CREATE;
+					 newcreatemsg->replica  = replica;
+					 newcreatemsg->key      = it.first;
+					 newcreatemsg->value    = it.second;
+					 //creating address
+					 newcreatemsg->fromAddr = this->memberNode->addr;
+					 newcreatemsg->transID  = g_transID;
+					 newcreatemsg->success  = 1;
+					 newcreatemsg->delimiter= "::";
+					 //send create message to the node1
+					 emulNet->ENsend(&memberNode->addr, replica.nodeAddress, (char *)newcreatemsg, msgSize);
+			 }
+		 }
+		 //assign replicas vector
+		 this->haveReplicasOf = num_replicas;
+	 }
 
 
 }
