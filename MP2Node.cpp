@@ -414,7 +414,7 @@ void MP2Node::checkMessages() {
 		 map <int, MessageType> tran_performed;
 		 string read_message;
 		 switch(msg->type){
-			 case CREATE:
+			 case CREATE:{
 			 	//there are no replicas for create. create haveReplicasOf
 				//this.hasMyReplicas = findNodes(message->key);
 
@@ -441,7 +441,8 @@ void MP2Node::checkMessages() {
 				}
 
 			 break;
-			 case READ:
+		 }
+			 case READ:{
 			 	//send message of read to the servers
 				//clientRead(message->key);
 				//if the read matches and more then 2 wuorum is formed
@@ -492,6 +493,7 @@ void MP2Node::checkMessages() {
 							emulNet->ENsend(&memberNode->addr, &msg->fromAddr, (char *)newcreatemsg, msgSize);
 					}
 			 break;
+		 }
 			 case UPDATE:
 			   //check if the replicas are present
 				 //semd reply on receiving update if the given key is present.
@@ -555,7 +557,7 @@ void MP2Node::checkMessages() {
 					 }
 				 }
 				 if (flag == 0){
-					 success_calc.insert(msg->transID, 1);
+					 success_calc.insert(std::pair<int, int>(msg->transID, 1));
 				 }
 			 } else {
 				 int flag = 0;
@@ -566,7 +568,7 @@ void MP2Node::checkMessages() {
 					 }
 				 }
 				 if (flag == 0){
-					 failure_calc.insert(msg->transID, 1);
+					 failure_calc.insert(std::pair<int, int>(msg->transID, 1));
 				 }
 			 }
 
