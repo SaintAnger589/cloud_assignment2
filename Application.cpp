@@ -31,7 +31,7 @@ int main(int argc, char *argv[]) {
 		cout<<"Configuration (i.e., *.conf) file File Required"<<endl;
 		return FAILURE;
 	}
-
+  cout<<"Creating Application Object\n";
 	// Create a new application object
 	Application *app = new Application(argv[1]);
 	cout<<"Application object created\n";
@@ -56,7 +56,7 @@ Application::Application(char *infile) {
 	en1 = new EmulNet(par);
 	mp1 = (MP1Node **) malloc(par->EN_GPSZ * sizeof(MP1Node *));
 	mp2 = (MP2Node **) malloc(par->EN_GPSZ * sizeof(MP2Node *));
-
+  //cout<<"Constructor finished\n";
 	/*
 	 * Init all nodes
 	 */
@@ -73,6 +73,7 @@ Application::Application(char *infile) {
 		log->LOG(&(mp2[i]->getMemberNode()->addr), "APP MP2");
 		delete addressOfMemberNode;
 	}
+	//cout<<"All Node Inited\n";
 }
   //std::cout<<"node inited\n";
 /**
@@ -103,7 +104,7 @@ int Application::run()
 	// boolean indicating if all nodes have joined
 	bool allNodesJoined = false;
 	srand(time(NULL));
-
+  //cout<<"Starting mp1Run\n";
 	// As time runs along
 	for( par->globaltime = 0; par->globaltime < TOTAL_RUNNING_TIME; ++par->globaltime ) {
 		// Run the membership protocol
@@ -114,6 +115,7 @@ int Application::run()
 			timeWhenAllNodesHaveJoined = par->getcurrtime();
 			allNodesJoined = true;
 		}
+		//cout<<"Starting Mp2Run\n";
 		if ( par->getcurrtime() > timeWhenAllNodesHaveJoined + 50 ) {
 			// Call the KV store functionalities
 			mp2Run();
@@ -139,7 +141,7 @@ int Application::run()
  * DESCRIPTION:	This function performs all the membership protocol functionalities
  */
 void Application::mp1Run() {
-	cout<<"mp1Run start\n";
+	//cout<<"mp1Run start\n";
 	int i;
 
 	// For all the nodes in the system
@@ -193,7 +195,7 @@ void Application::mp1Run() {
  * 				2) CRUD operations
  */
 void Application::mp2Run() {
-	cout<<"Application : start mp2Run\n";
+	//cout<<"Application : start mp2Run\n";
 	int i;
 
 	// For all the nodes in the system

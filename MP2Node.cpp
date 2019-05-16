@@ -16,6 +16,7 @@ MP2Node::MP2Node(Member *memberNode, Params *par, EmulNet * emulNet, Log * log, 
 	ht = new HashTable();
 	this->memberNode->addr = *address;
 	//trace creation
+	this->trace = new Trace();
 	this->trace->traceFileCreate();
 }
 
@@ -778,6 +779,7 @@ void MP2Node::stabilizationProtocol() {
 	/*
 	 * Implement this
 	 */
+	 this->trace->funcEntry("stabilizationProtocol");
    std::map<string, string>::iterator it;
 	 vector<Node>num_replicas;
 	 for (it = ht->hashTable.begin(); it != ht->hashTable.end();it++){
