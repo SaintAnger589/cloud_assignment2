@@ -212,11 +212,11 @@ void Application::mp2Run() {
 		if ( par->getcurrtime() > (int)(par->STEP_RATE*i) && !mp2[i]->getMemberNode()->bFailed ) {
 			if ( mp2[i]->getMemberNode()->inited && mp2[i]->getMemberNode()->inGroup ) {
 				// Step 1
-				cout<<"Application : running updateRing()\n";
+				//cout<<"Application : running updateRing()\n";
 				mp2[i]->updateRing();
 			}
 			// Step 2
-			cout<<"Application: running recvLoop()";
+			//cout<<"Application: running recvLoop()\n";
 			mp2[i]->recvLoop();
 		}
 	}

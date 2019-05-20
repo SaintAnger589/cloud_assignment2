@@ -163,8 +163,11 @@ int MP1Node::finishUpThisNode(){
    /*
     * Your code goes here
     */
+
     initMemberListTable(memberNode);
-    delete memberNode;
+    //delete memberNode;
+    this->memberNode = new Member();
+    return 1;
 }
 
 /**

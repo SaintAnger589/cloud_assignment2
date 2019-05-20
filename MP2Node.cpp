@@ -51,11 +51,13 @@ void MP2Node::updateRing() {
 	 *  Step 1. Get the current membership list from Membership Protocol / MP1
 	 */
 	curMemList = getMembershipList();
+	//cout<<"updateRing: after curMemList\n";
   //printNode (curMemList);
 	/*
 	 * Step 2: Construct the ring
 	 */
 	 this->ring = curMemList;
+	 //cout<<"updateRing: after ring creation\n";
 	//get the nodes of replicas from the ring from the keys
 	//if the number is less than 2 then run stabilization protocol
 
@@ -64,6 +66,7 @@ void MP2Node::updateRing() {
 
 	for(std::map<string,string>::iterator it = this->ht->hashTable.begin(); it != this->ht->hashTable.end();++it){
 		num_replicas = findNodes(it->first);
+		//cout<<"updateRing: after num_replicas\n";
 
  	  if (num_replicas.size() < 2){
  		  //run stabilization
@@ -437,7 +440,7 @@ void MP2Node::checkMessages() {
 		 * Handle the message types here
 		 */
 		 bool is_coodinator = ((msg->fromAddr == memberNode->addr) && (msg->replica == PRIMARY));
-		 cout<<"This is coordinator = "<<is_coodinator<<"\n";
+		 //cout<<"This is coordinator = "<<is_coodinator<<"\n";
 		 map <int, int> success_calc; //for transID, count
 		 map <int, int> failure_calc; //for transID, count
 		 map <int, MessageType> tran_performed;
@@ -449,32 +452,34 @@ void MP2Node::checkMessages() {
 
 				//add the key to local Table
 
-				cout<<"Results of the create operation = "<<res<<"\n";
-				cout<<"res = "<<res<<"\n";
-				cout<<"is_coodinator = "<<is_coodinator<<"\n";
+				//cout<<"is_coodinator = "<<is_coodinator<<"\n";
+				bool res = false;
+				if (!(this->getMemberNode()->bFailed)){
+				  res = createKeyValue(msg->key, msg->value, msg->replica);
+				}
 				if (is_coodinator){
-					bool res = createKeyValue(msg->key, msg->value, msg->replica);
+
 					if (res){
 					  //clientCreate(message->key, message->value);
 						//log the values
-						cout<<"Logging coordinator success message\n";
+						//cout<<"Logging coordinator success message\n";
 							this->log->logCreateSuccess(&memberNode->addr, true, msg->transID, msg->key, msg->value);
 							//g_transID++;
 					} else {
-						cout<<"Logging coordinator failure message\n";
+						//cout<<"Logging coordinator failure message\n";
 						this->log->logCreateFail(&memberNode->addr, true, msg->transID, msg->key, msg->value);
 					}
 				} else {
 					//not a coordinator
 					//make a message and send reply that the node is ready to accept
 					if (res){
-						cout<<"Logging copies success message\n";
+						//cout<<"Logging copies success message\n";
 						//clientCreate(message->key, message->value);
 						//log the values
 							this->log->logCreateSuccess(&memberNode->addr, false, msg->transID, msg->key, msg->value);
 							//g_transID++;
 					} else {
-						cout<<"Logging copies failure message\n";
+						//cout<<"Logging copies failure message\n";
 						this->log->logCreateFail(&memberNode->addr, false, msg->transID, msg->key, msg->value);
 					}
 				}
@@ -746,7 +751,7 @@ void MP2Node::checkMessages() {
 				break;
 		 }
 	 this->trace->funcEntry("Leaving checkMessages");
-   cout<<"Leaving checkMessages\n";
+   //cout<<"Leaving checkMessages\n";
 	}
 
 	/*
