@@ -236,23 +236,12 @@ void MP2Node::clientUpdate(string key, string value){
 	/*
 	 * Implement this
 	 */
-	Message *newcreatemsg;
-    int msgSize = sizeof(MessageType)
-                  + sizeof(ReplicaType)
-                  + 2*sizeof(string)
-                  + sizeof(Address)
-                  + sizeof(int)
-                  + sizeof(bool)
-                  + sizeof(string);
-    newcreatemsg->type     = UPDATE;
-    newcreatemsg->replica  = SECONDARY;
-    newcreatemsg->key      = key;
-    newcreatemsg->value    = value;
-    //creating address
-    newcreatemsg->fromAddr = this->memberNode->addr;
-    newcreatemsg->transID  = g_transID;
-    newcreatemsg->success  = 1;
-    newcreatemsg->delimiter= "::";
+
+	  Message *newcreatemsg = new Message(g_transID, this->memberNode->addr, UPDATE, key, value);
+		int msgSize = sizeof(MessageType) //message type = UPDATE
+                  + 2*sizeof(string)  //key, value
+                  + sizeof(Address)   //address
+                  + sizeof(int);      //transID
     //Finds the replicas of the key
     //vector<Node> repNode;
     hasMyReplicas = findNodes(key);
