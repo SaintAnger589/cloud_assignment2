@@ -51,25 +51,27 @@ void MP2Node::updateRing() {
 	 *  Step 1. Get the current membership list from Membership Protocol / MP1
 	 */
 	curMemList = getMembershipList();
-
+  //printNode (curMemList);
 	/*
 	 * Step 2: Construct the ring
 	 */
+	 this->ring = curMemList;
 	//get the nodes of replicas from the ring from the keys
 	//if the number is less than 2 then run stabilization protocol
 
 	vector<Node>num_replicas;
 	//finding replicas from the old ring
-	num_replicas = findNodes(this->ht->hashTable.begin()->first);
 
-	/*
-	 * Step 3: Run the stabilization protocol IF REQUIRED
-	 */
-	 if (num_replicas.size() < 2){
-		 //run stabilization
-		 stabilizationProtocol();
-		 //this will update the ring and replicas of the
-	 }
+	for(std::map<string,string>::iterator it = this->ht->hashTable.begin(); it != this->ht->hashTable.end();++it){
+		num_replicas = findNodes(it->first);
+
+ 	  if (num_replicas.size() < 2){
+ 		  //run stabilization
+			cout<<"Running stabilization protocol\n";
+ 		  stabilizationProtocol();
+ 		  //this will update the ring and replicas of the
+ 	  }
+	}
 }
 
 /**
@@ -98,6 +100,19 @@ vector<Node> MP2Node::getMembershipList() {
 	return curMemList;
 }
 
+void MP2Node::printNode(vector<Node> &list){
+	int len = list.size();
+	int i;
+	for (i=0;i<len;i++){
+		printAddress(&list[i].nodeAddress);
+	}
+}
+
+void MP2Node::printAddress(Address *addr)
+{
+    printf("%d.%d.%d.%d:%d \n",  addr->addr[0],addr->addr[1],addr->addr[2],
+                                                       addr->addr[3], *(short*)&addr->addr[4]) ;
+}
 /**
  * FUNCTION NAME: hashFunction
  *
@@ -128,31 +143,38 @@ void MP2Node::clientCreate(string key, string value) {
 	 */
 		//tracing this function
 	this->trace->funcEntry("clientCreate");
+	cout<<"g_transID = "<<g_transID<<"\n";
+
+	hasMyReplicas = findNodes(key);
+	if (DEBUGLOG){
+		cout<<"clientCreate: replicas of the keys\n";
+		printNode (hasMyReplicas);
+	}
     //construct the createmessage
-    Message *newcreatemsg;
-    int msgSize = sizeof(MessageType)
+		int temp_count = 0;
+		for(Node node: hasMyReplicas){
+		cout<<"Starting sending create message\n";
+    Message *newcreatemsg = new Message(g_transID, this->memberNode->addr, CREATE, key, value, ReplicaType(temp_count++));
+		g_transID++;
+		int msgSize = sizeof(MessageType)
                   + sizeof(ReplicaType)
                   + 2*sizeof(string)
                   + sizeof(Address)
                   + sizeof(int)
-                  + sizeof(bool)
                   + sizeof(string);
-    newcreatemsg->type     = CREATE;
-    newcreatemsg->replica  = SECONDARY;
-    newcreatemsg->key      = key;
-    newcreatemsg->value    = value;
-    //creating address
-    newcreatemsg->fromAddr = this->memberNode->addr;
-    newcreatemsg->transID  = g_transID;
-    newcreatemsg->success  = 1;
-    newcreatemsg->delimiter= "::";
+
     //Finds the replicas of the key
     //vector<Node> repNode;
-    hasMyReplicas = findNodes(key);
+
     //sends a message to the replicas
     //memberNode->dispatchMessages(*newcreatemsg);
-    for(Node node: hasMyReplicas){
+
     	Address *tempAddr = &node.nodeAddress;
+			if (DEBUGLOG){
+				cout<<"clientCreate: sendint to address\n";
+				printAddress (tempAddr);
+			}
+
       emulNet->ENsend(&memberNode->addr, tempAddr, (char *)newcreatemsg, msgSize);
     }
 }
@@ -293,17 +315,22 @@ bool MP2Node::createKeyValue(string key, string value, ReplicaType replica) {
 	 * Implement this
 	 */
 	// Insert key, value, replicaType into the hash table
-
-	ht->create(key, value);
+  this->trace->funcEntry("createKeyValue");
+	bool res = ht->create(key, value);
+	cout<<"Created local entry in the node\n";
 	//adding it into the entry Object
-	entry->value      = value;
-	entry->timestamp  = g_transID;
-	entry->replica    = replica;
+	//Creating a new entry Object
+	if (res){
+	  this->entry = new Entry(value, par->getcurrtime(), replica);
+	}
+	//entering in its own haveReplicasOf
+	//this->haveReplicasOf.push_back()
 
 
 		//tracing this function
 	this->trace->funcEntry("createKeyValue");
 	cout<<"MOD2 : createKeyValue\n";
+	return res;
 }
 
 /**
@@ -384,7 +411,7 @@ void MP2Node::checkMessages() {
 	 */
 	char * data;
 	int size;
-
+	this->trace->funcEntry("checkMessages");
 
 	/*
 	 * Declare your local variables here
@@ -409,7 +436,8 @@ void MP2Node::checkMessages() {
 		/*
 		 * Handle the message types here
 		 */
-		 bool is_coodinator = (msg->fromAddr == memberNode->addr);
+		 bool is_coodinator = ((msg->fromAddr == memberNode->addr) && (msg->replica == PRIMARY));
+		 cout<<"This is coordinator = "<<is_coodinator<<"\n";
 		 map <int, int> success_calc; //for transID, count
 		 map <int, int> failure_calc; //for transID, count
 		 map <int, MessageType> tran_performed;
@@ -420,29 +448,40 @@ void MP2Node::checkMessages() {
 				//this.hasMyReplicas = findNodes(message->key);
 
 				//add the key to local Table
-				bool res = createKeyValue(msg->key, msg->value, msg->replica);
+
+				cout<<"Results of the create operation = "<<res<<"\n";
+				cout<<"res = "<<res<<"\n";
+				cout<<"is_coodinator = "<<is_coodinator<<"\n";
 				if (is_coodinator){
+					bool res = createKeyValue(msg->key, msg->value, msg->replica);
 					if (res){
 					  //clientCreate(message->key, message->value);
 						//log the values
-							this->log->logCreateSuccess(&memberNode->addr, true, g_transID, msg->key, msg->value);
-							g_transID++;
+						cout<<"Logging coordinator success message\n";
+							this->log->logCreateSuccess(&memberNode->addr, true, msg->transID, msg->key, msg->value);
+							//g_transID++;
 					} else {
-						this->log->logCreateFail(&memberNode->addr, true, g_transID, msg->key, msg->value);
+						cout<<"Logging coordinator failure message\n";
+						this->log->logCreateFail(&memberNode->addr, true, msg->transID, msg->key, msg->value);
 					}
 				} else {
+					//not a coordinator
+					//make a message and send reply that the node is ready to accept
 					if (res){
+						cout<<"Logging copies success message\n";
 						//clientCreate(message->key, message->value);
 						//log the values
-							this->log->logCreateSuccess(&memberNode->addr, false, g_transID, msg->key, msg->value);
-							g_transID++;
+							this->log->logCreateSuccess(&memberNode->addr, false, msg->transID, msg->key, msg->value);
+							//g_transID++;
 					} else {
-						this->log->logCreateFail(&memberNode->addr, false, g_transID, msg->key, msg->value);
+						cout<<"Logging copies failure message\n";
+						this->log->logCreateFail(&memberNode->addr, false, msg->transID, msg->key, msg->value);
 					}
 				}
 
-			 break;
-		 }
+
+		   }
+		   break;
 			 case READ:{
 			 	//send message of read to the servers
 				//clientRead(message->key);
@@ -493,8 +532,9 @@ void MP2Node::checkMessages() {
 							//sends a REPLY message to the coordinator
 							emulNet->ENsend(&memberNode->addr, &msg->fromAddr, (char *)newcreatemsg, msgSize);
 					}
+
+		   }
 			 break;
-		 }
 			 case UPDATE:
 			   //check if the replicas are present
 				 //semd reply on receiving update if the given key is present.
@@ -549,6 +589,7 @@ void MP2Node::checkMessages() {
 			 //assumption , reply is sent only to coordinatorAddr
 			 //update
 			 //get quorum_calc
+			 cout<<"Reply message to the Coordinator\n";
 			 if (msg->success){
 				 int flag = 0;
 				 for (std::map<int,int>::iterator it=success_calc.begin(); it!=success_calc.end(); ++it){
@@ -653,6 +694,7 @@ void MP2Node::checkMessages() {
 
 			 break;
 			 case READREPLY:
+			 cout<<"ReadReply from the coordinator to the REPLY\n";
 			 	if (msg->success){
 					//remove from success_calc and tran_performed
 					map<int,int>::iterator it_success;
@@ -701,8 +743,10 @@ void MP2Node::checkMessages() {
 					}
 					tran_performed.erase(it_trans);
 				}
+				break;
 		 }
-
+	 this->trace->funcEntry("Leaving checkMessages");
+   cout<<"Leaving checkMessages\n";
 	}
 
 	/*

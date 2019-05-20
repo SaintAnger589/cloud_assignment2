@@ -94,6 +94,9 @@ public:
 
 	bool check();
 
+	void printNode(vector<Node>&);
+	void printAddress(Address *addr);
+
 	~MP2Node();
 
 };

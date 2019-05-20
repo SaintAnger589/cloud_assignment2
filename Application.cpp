@@ -56,6 +56,7 @@ Application::Application(char *infile) {
 	en1 = new EmulNet(par);
 	mp1 = (MP1Node **) malloc(par->EN_GPSZ * sizeof(MP1Node *));
 	mp2 = (MP2Node **) malloc(par->EN_GPSZ * sizeof(MP2Node *));
+	//this->trace = new Trace();
   //cout<<"Constructor finished\n";
 	/*
 	 * Init all nodes
@@ -116,14 +117,17 @@ int Application::run()
 			allNodesJoined = true;
 		}
 		//cout<<"Starting Mp2Run\n";
+		//cout<<"timeWhenAllNodesHaveJoined = "<<timeWhenAllNodesHaveJoined<<"\n";
 		if ( par->getcurrtime() > timeWhenAllNodesHaveJoined + 50 ) {
+			//cout<<"Running MP2Run from Application at time = "<<par->getcurrtime()<<"\n";
 			// Call the KV store functionalities
 			mp2Run();
 		}
+		//cout<<"Outside mp2Run\n";
 		// Fail some nodes
 		//fail();
 	}
-
+  cout<<"Starting CleanUp\n";
 	// Clean up
 	en->ENcleanup();
 	en1->ENcleanup();
@@ -208,9 +212,11 @@ void Application::mp2Run() {
 		if ( par->getcurrtime() > (int)(par->STEP_RATE*i) && !mp2[i]->getMemberNode()->bFailed ) {
 			if ( mp2[i]->getMemberNode()->inited && mp2[i]->getMemberNode()->inGroup ) {
 				// Step 1
+				cout<<"Application : running updateRing()\n";
 				mp2[i]->updateRing();
 			}
 			// Step 2
+			cout<<"Application: running recvLoop()";
 			mp2[i]->recvLoop();
 		}
 	}
@@ -340,6 +346,8 @@ void Application::mp2Run() {
  * Note: this is used only by MP1
  */
 void Application::fail() {
+	//this->trace->funcEntry("Application::fail()");
+	cout<<"Application::Fail()\n";
 	int i, removed;
 
 	// fail half the members at time t=400
@@ -377,6 +385,8 @@ void Application::fail() {
  */
 Address Application::getjoinaddr(void){
 	//trace.funcEntry("Application::getjoinaddr");
+	//this->trace->funcEntry("Application::getjoinaddr");
+
     Address joinaddr;
     joinaddr.init();
     *(int *)(&(joinaddr.addr))=1;

@@ -17,6 +17,7 @@
 #include "MP2Node.h"
 #include "Node.h"
 #include "common.h"
+#include "Trace.h"
 
 /**
  * global variables
@@ -58,6 +59,7 @@ private:
 	MP2Node **mp2;
 	Params *par;
 	map<string, string> testKVPairs;
+	Trace *trace;
 public:
 	Application(char *);
 	virtual ~Application();
