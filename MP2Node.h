@@ -52,6 +52,8 @@ private:
 	Trace *trace;
 	// Entry Object
 	Entry *entry;
+  //map <int, MessageType> tran_performed;
+
 
 public:
 	MP2Node(Member *memberNode, Params *par, EmulNet *emulNet, Log *log, Address *addressOfMember);
