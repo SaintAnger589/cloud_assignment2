@@ -11,2206 +11,709 @@ Application object created
 4-th introduced node is assigned with the address: 5:0
 9-th introduced node is assigned with the address: 10:0
 8-th introduced node is assigned with the address: 9:0
-g_transID = 0
-clientCreate: replicas of the keys
-1.0.0.0:0 
-3.0.0.0:0 
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-g_transID = 3
-clientCreate: replicas of the keys
-1.0.0.0:0 
-3.0.0.0:0 
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-g_transID = 6
-clientCreate: replicas of the keys
-1.0.0.0:0 
-3.0.0.0:0 
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-g_transID = 9
-clientCreate: replicas of the keys
-7.0.0.0:0 
-1.0.0.0:0 
-9.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-7.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-9.0.0.0:0 
-g_transID = 12
-clientCreate: replicas of the keys
-3.0.0.0:0 
-2.0.0.0:0 
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-g_transID = 15
-clientCreate: replicas of the keys
-3.0.0.0:0 
-2.0.0.0:0 
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-g_transID = 18
-clientCreate: replicas of the keys
-3.0.0.0:0 
-2.0.0.0:0 
-7.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-7.0.0.0:0 
-g_transID = 21
-clientCreate: replicas of the keys
-1.0.0.0:0 
-3.0.0.0:0 
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-g_transID = 24
-clientCreate: replicas of the keys
-1.0.0.0:0 
-9.0.0.0:0 
-8.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-9.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-8.0.0.0:0 
-g_transID = 27
-clientCreate: replicas of the keys
-7.0.0.0:0 
-1.0.0.0:0 
-9.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-7.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-9.0.0.0:0 
-g_transID = 30
-clientCreate: replicas of the keys
-1.0.0.0:0 
-9.0.0.0:0 
-8.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-9.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-8.0.0.0:0 
-g_transID = 33
-clientCreate: replicas of the keys
-3.0.0.0:0 
-2.0.0.0:0 
-8.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-8.0.0.0:0 
-g_transID = 36
-clientCreate: replicas of the keys
-5.0.0.0:0 
-4.0.0.0:0 
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-5.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-4.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-g_transID = 39
-clientCreate: replicas of the keys
-7.0.0.0:0 
-1.0.0.0:0 
-9.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-7.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-9.0.0.0:0 
-g_transID = 42
-clientCreate: replicas of the keys
-7.0.0.0:0 
-1.0.0.0:0 
-9.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-7.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-9.0.0.0:0 
-g_transID = 45
-clientCreate: replicas of the keys
-1.0.0.0:0 
-3.0.0.0:0 
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-g_transID = 48
-clientCreate: replicas of the keys
-2.0.0.0:0 
-3.0.0.0:0 
-4.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-4.0.0.0:0 
-g_transID = 51
-clientCreate: replicas of the keys
-3.0.0.0:0 
-4.0.0.0:0 
-5.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-4.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-5.0.0.0:0 
-g_transID = 54
-clientCreate: replicas of the keys
-1.0.0.0:0 
-3.0.0.0:0 
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-g_transID = 57
-clientCreate: replicas of the keys
-1.0.0.0:0 
-2.0.0.0:0 
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-g_transID = 60
-clientCreate: replicas of the keys
-3.0.0.0:0 
-2.0.0.0:0 
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-g_transID = 63
-clientCreate: replicas of the keys
-5.0.0.0:0 
-4.0.0.0:0 
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-5.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-4.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-g_transID = 66
-clientCreate: replicas of the keys
-3.0.0.0:0 
-2.0.0.0:0 
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-g_transID = 69
-clientCreate: replicas of the keys
-3.0.0.0:0 
-2.0.0.0:0 
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-g_transID = 72
-clientCreate: replicas of the keys
-1.0.0.0:0 
-3.0.0.0:0 
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-g_transID = 75
-clientCreate: replicas of the keys
-2.0.0.0:0 
-3.0.0.0:0 
-4.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-4.0.0.0:0 
-g_transID = 78
-clientCreate: replicas of the keys
-1.0.0.0:0 
-3.0.0.0:0 
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-g_transID = 81
-clientCreate: replicas of the keys
-3.0.0.0:0 
-2.0.0.0:0 
-8.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-8.0.0.0:0 
-g_transID = 84
-clientCreate: replicas of the keys
-7.0.0.0:0 
-1.0.0.0:0 
-9.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-7.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-9.0.0.0:0 
-g_transID = 87
-clientCreate: replicas of the keys
-5.0.0.0:0 
-4.0.0.0:0 
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-5.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-4.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-g_transID = 90
-clientCreate: replicas of the keys
-9.0.0.0:0 
-8.0.0.0:0 
-7.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-9.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-8.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-7.0.0.0:0 
-g_transID = 93
-clientCreate: replicas of the keys
-2.0.0.0:0 
-3.0.0.0:0 
-4.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-4.0.0.0:0 
-g_transID = 96
-clientCreate: replicas of the keys
-7.0.0.0:0 
-1.0.0.0:0 
-9.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-7.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-9.0.0.0:0 
-g_transID = 99
-clientCreate: replicas of the keys
-9.0.0.0:0 
-8.0.0.0:0 
-7.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-9.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-8.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-7.0.0.0:0 
-g_transID = 102
-clientCreate: replicas of the keys
-3.0.0.0:0 
-2.0.0.0:0 
-4.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-4.0.0.0:0 
-g_transID = 105
-clientCreate: replicas of the keys
-1.0.0.0:0 
-9.0.0.0:0 
-8.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-9.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-8.0.0.0:0 
-g_transID = 108
-clientCreate: replicas of the keys
-1.0.0.0:0 
-9.0.0.0:0 
-8.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-9.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-8.0.0.0:0 
-g_transID = 111
-clientCreate: replicas of the keys
-7.0.0.0:0 
-1.0.0.0:0 
-9.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-7.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-9.0.0.0:0 
-g_transID = 114
-clientCreate: replicas of the keys
-3.0.0.0:0 
-2.0.0.0:0 
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-g_transID = 117
-clientCreate: replicas of the keys
-7.0.0.0:0 
-1.0.0.0:0 
-9.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-7.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-9.0.0.0:0 
-g_transID = 120
-clientCreate: replicas of the keys
-3.0.0.0:0 
-2.0.0.0:0 
-7.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-7.0.0.0:0 
-g_transID = 123
-clientCreate: replicas of the keys
-2.0.0.0:0 
-3.0.0.0:0 
-4.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-4.0.0.0:0 
-g_transID = 126
-clientCreate: replicas of the keys
-3.0.0.0:0 
-2.0.0.0:0 
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-g_transID = 129
-clientCreate: replicas of the keys
-5.0.0.0:0 
-1.0.0.0:0 
-4.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-5.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-4.0.0.0:0 
-g_transID = 132
-clientCreate: replicas of the keys
-3.0.0.0:0 
-2.0.0.0:0 
-7.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-7.0.0.0:0 
-g_transID = 135
-clientCreate: replicas of the keys
-7.0.0.0:0 
-1.0.0.0:0 
-9.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-7.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-9.0.0.0:0 
-g_transID = 138
-clientCreate: replicas of the keys
-3.0.0.0:0 
-2.0.0.0:0 
-7.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-7.0.0.0:0 
-g_transID = 141
-clientCreate: replicas of the keys
-1.0.0.0:0 
-3.0.0.0:0 
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-g_transID = 144
-clientCreate: replicas of the keys
-1.0.0.0:0 
-2.0.0.0:0 
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-g_transID = 147
-clientCreate: replicas of the keys
-1.0.0.0:0 
-3.0.0.0:0 
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-g_transID = 150
-clientCreate: replicas of the keys
-3.0.0.0:0 
-4.0.0.0:0 
-5.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-4.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-5.0.0.0:0 
-g_transID = 153
-clientCreate: replicas of the keys
-6.0.0.0:0 
-5.0.0.0:0 
-4.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-6.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-5.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-4.0.0.0:0 
-g_transID = 156
-clientCreate: replicas of the keys
-9.0.0.0:0 
-8.0.0.0:0 
-7.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-9.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-8.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-7.0.0.0:0 
-g_transID = 159
-clientCreate: replicas of the keys
-2.0.0.0:0 
-3.0.0.0:0 
-4.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-4.0.0.0:0 
-g_transID = 162
-clientCreate: replicas of the keys
-5.0.0.0:0 
-4.0.0.0:0 
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-5.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-4.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-g_transID = 165
-clientCreate: replicas of the keys
-3.0.0.0:0 
-2.0.0.0:0 
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-g_transID = 168
-clientCreate: replicas of the keys
-6.0.0.0:0 
-5.0.0.0:0 
-4.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-6.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-5.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-4.0.0.0:0 
-g_transID = 171
-clientCreate: replicas of the keys
-3.0.0.0:0 
-2.0.0.0:0 
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-g_transID = 174
-clientCreate: replicas of the keys
-3.0.0.0:0 
-2.0.0.0:0 
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-g_transID = 177
-clientCreate: replicas of the keys
-6.0.0.0:0 
-5.0.0.0:0 
-4.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-6.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-5.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-4.0.0.0:0 
-g_transID = 180
-clientCreate: replicas of the keys
-7.0.0.0:0 
-1.0.0.0:0 
-9.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-7.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-9.0.0.0:0 
-g_transID = 183
-clientCreate: replicas of the keys
-5.0.0.0:0 
-4.0.0.0:0 
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-5.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-4.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-g_transID = 186
-clientCreate: replicas of the keys
-3.0.0.0:0 
-2.0.0.0:0 
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-g_transID = 189
-clientCreate: replicas of the keys
-1.0.0.0:0 
-2.0.0.0:0 
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-g_transID = 192
-clientCreate: replicas of the keys
-7.0.0.0:0 
-1.0.0.0:0 
-9.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-7.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-9.0.0.0:0 
-g_transID = 195
-clientCreate: replicas of the keys
-1.0.0.0:0 
-3.0.0.0:0 
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-g_transID = 198
-clientCreate: replicas of the keys
-2.0.0.0:0 
-3.0.0.0:0 
-4.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-4.0.0.0:0 
-g_transID = 201
-clientCreate: replicas of the keys
-2.0.0.0:0 
-3.0.0.0:0 
-4.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-4.0.0.0:0 
-g_transID = 204
-clientCreate: replicas of the keys
-1.0.0.0:0 
-2.0.0.0:0 
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-g_transID = 207
-clientCreate: replicas of the keys
-1.0.0.0:0 
-9.0.0.0:0 
-8.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-9.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-8.0.0.0:0 
-g_transID = 210
-clientCreate: replicas of the keys
-3.0.0.0:0 
-4.0.0.0:0 
-5.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-4.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-5.0.0.0:0 
-g_transID = 213
-clientCreate: replicas of the keys
-9.0.0.0:0 
-8.0.0.0:0 
-7.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-9.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-8.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-7.0.0.0:0 
-g_transID = 216
-clientCreate: replicas of the keys
-7.0.0.0:0 
-1.0.0.0:0 
-9.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-7.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-9.0.0.0:0 
-g_transID = 219
-clientCreate: replicas of the keys
-5.0.0.0:0 
-1.0.0.0:0 
-4.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-5.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-4.0.0.0:0 
-g_transID = 222
-clientCreate: replicas of the keys
-3.0.0.0:0 
-4.0.0.0:0 
-5.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-4.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-5.0.0.0:0 
-g_transID = 225
-clientCreate: replicas of the keys
-5.0.0.0:0 
-4.0.0.0:0 
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-5.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-4.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-g_transID = 228
-clientCreate: replicas of the keys
-1.0.0.0:0 
-4.0.0.0:0 
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-4.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-g_transID = 231
-clientCreate: replicas of the keys
-1.0.0.0:0 
-3.0.0.0:0 
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-g_transID = 234
-clientCreate: replicas of the keys
-9.0.0.0:0 
-8.0.0.0:0 
-7.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-9.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-8.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-7.0.0.0:0 
-g_transID = 237
-clientCreate: replicas of the keys
-3.0.0.0:0 
-2.0.0.0:0 
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-g_transID = 240
-clientCreate: replicas of the keys
-1.0.0.0:0 
-3.0.0.0:0 
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-g_transID = 243
-clientCreate: replicas of the keys
-7.0.0.0:0 
-1.0.0.0:0 
-9.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-7.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-9.0.0.0:0 
-g_transID = 246
-clientCreate: replicas of the keys
-2.0.0.0:0 
-3.0.0.0:0 
-4.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-4.0.0.0:0 
-g_transID = 249
-clientCreate: replicas of the keys
-2.0.0.0:0 
-3.0.0.0:0 
-4.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-4.0.0.0:0 
-g_transID = 252
-clientCreate: replicas of the keys
-3.0.0.0:0 
-2.0.0.0:0 
-7.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-7.0.0.0:0 
-g_transID = 255
-clientCreate: replicas of the keys
-1.0.0.0:0 
-3.0.0.0:0 
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-g_transID = 258
-clientCreate: replicas of the keys
-3.0.0.0:0 
-2.0.0.0:0 
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-g_transID = 261
-clientCreate: replicas of the keys
-2.0.0.0:0 
-3.0.0.0:0 
-4.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-4.0.0.0:0 
-g_transID = 264
-clientCreate: replicas of the keys
-1.0.0.0:0 
-2.0.0.0:0 
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-g_transID = 267
-clientCreate: replicas of the keys
-5.0.0.0:0 
-4.0.0.0:0 
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-5.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-4.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-g_transID = 270
-clientCreate: replicas of the keys
-3.0.0.0:0 
-2.0.0.0:0 
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-g_transID = 273
-clientCreate: replicas of the keys
-3.0.0.0:0 
-2.0.0.0:0 
-4.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-4.0.0.0:0 
-g_transID = 276
-clientCreate: replicas of the keys
-3.0.0.0:0 
-2.0.0.0:0 
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-g_transID = 279
-clientCreate: replicas of the keys
-1.0.0.0:0 
-3.0.0.0:0 
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-g_transID = 282
-clientCreate: replicas of the keys
-1.0.0.0:0 
-3.0.0.0:0 
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-g_transID = 285
-clientCreate: replicas of the keys
-5.0.0.0:0 
-1.0.0.0:0 
-4.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-5.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-4.0.0.0:0 
-g_transID = 288
-clientCreate: replicas of the keys
-2.0.0.0:0 
-3.0.0.0:0 
-4.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-4.0.0.0:0 
-g_transID = 291
-clientCreate: replicas of the keys
-1.0.0.0:0 
-3.0.0.0:0 
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-1.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-g_transID = 294
-clientCreate: replicas of the keys
-2.0.0.0:0 
-3.0.0.0:0 
-4.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-2.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-4.0.0.0:0 
-g_transID = 297
-clientCreate: replicas of the keys
-5.0.0.0:0 
-4.0.0.0:0 
-3.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-5.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-4.0.0.0:0 
-Starting sending create message
-clientCreate: sendint to address
-3.0.0.0:0 
+clientCreate: setting trans_d = 0 to key = 02ed2
+clientCreate: This Node = 8.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: setting trans_d = 1 to key = 0C6Xn
+clientCreate: This Node = 8.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: setting trans_d = 2 to key = 0l3C3
+clientCreate: This Node = 6.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: setting trans_d = 3 to key = 161N3
+clientCreate: This Node = 10.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 4 to key = 16evp
+clientCreate: This Node = 6.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: setting trans_d = 5 to key = 2hgoB
+clientCreate: This Node = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: Replica in vector = 5.0.0.0:0 
+clientCreate: setting trans_d = 6 to key = 44roH
+clientCreate: This Node = 3.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 7 to key = 4Xngf
+clientCreate: This Node = 5.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: setting trans_d = 8 to key = 5Tm9f
+clientCreate: This Node = 5.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: setting trans_d = 9 to key = 6GLQ4
+clientCreate: This Node = 10.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 10 to key = 6Kk00
+clientCreate: This Node = 8.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: setting trans_d = 11 to key = 7OcGg
+clientCreate: This Node = 8.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: setting trans_d = 12 to key = 8kER3
+clientCreate: This Node = 3.0.0.0:0 
+clientCreate: Replica in vector = 1.0.0.0:0 
+clientCreate: Replica in vector = 2.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: setting trans_d = 13 to key = 9nPP0
+clientCreate: This Node = 4.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: setting trans_d = 14 to key = AyoRr
+clientCreate: This Node = 9.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 15 to key = BihxP
+clientCreate: This Node = 1.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: setting trans_d = 16 to key = CC8ij
+clientCreate: This Node = 6.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: setting trans_d = 17 to key = Cmzv8
+clientCreate: This Node = 3.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: setting trans_d = 18 to key = D38iV
+clientCreate: This Node = 9.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 19 to key = DHGBM
+clientCreate: This Node = 4.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: setting trans_d = 20 to key = ErH2C
+clientCreate: This Node = 3.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: setting trans_d = 21 to key = FardF
+clientCreate: This Node = 6.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 22 to key = GCgFm
+clientCreate: This Node = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: setting trans_d = 23 to key = GYJtT
+clientCreate: This Node = 2.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: setting trans_d = 24 to key = HrNy3
+clientCreate: This Node = 4.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: setting trans_d = 25 to key = J4F8V
+clientCreate: This Node = 8.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: setting trans_d = 26 to key = JLSyi
+clientCreate: This Node = 4.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: setting trans_d = 27 to key = JeNZq
+clientCreate: This Node = 10.0.0.0:0 
+clientCreate: Replica in vector = 2.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: setting trans_d = 28 to key = JlvgA
+clientCreate: This Node = 1.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 29 to key = K6YdK
+clientCreate: This Node = 2.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 30 to key = K8VZG
+clientCreate: This Node = 9.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: setting trans_d = 31 to key = K9K49
+clientCreate: This Node = 6.0.0.0:0 
+clientCreate: Replica in vector = 2.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: setting trans_d = 32 to key = L0lW5
+clientCreate: This Node = 4.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: setting trans_d = 33 to key = LBMzi
+clientCreate: This Node = 9.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: setting trans_d = 34 to key = MGHCd
+clientCreate: This Node = 7.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: Replica in vector = 5.0.0.0:0 
+clientCreate: setting trans_d = 35 to key = MmPBW
+clientCreate: This Node = 9.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: setting trans_d = 36 to key = N3oKw
+clientCreate: This Node = 2.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: setting trans_d = 37 to key = NIBlZ
+clientCreate: This Node = 9.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 38 to key = NyVom
+clientCreate: This Node = 9.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: Replica in vector = 5.0.0.0:0 
+clientCreate: Replica in vector = 1.0.0.0:0 
+clientCreate: setting trans_d = 39 to key = O8zdA
+clientCreate: This Node = 3.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 40 to key = P9rl8
+clientCreate: This Node = 10.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: setting trans_d = 41 to key = QGjAG
+clientCreate: This Node = 3.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: setting trans_d = 42 to key = Rq07c
+clientCreate: This Node = 2.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 43 to key = STwjn
+clientCreate: This Node = 7.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 44 to key = Sejzj
+clientCreate: This Node = 7.0.0.0:0 
+clientCreate: Replica in vector = 5.0.0.0:0 
+clientCreate: Replica in vector = 1.0.0.0:0 
+clientCreate: Replica in vector = 2.0.0.0:0 
+clientCreate: setting trans_d = 45 to key = TE95s
+clientCreate: This Node = 7.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: setting trans_d = 46 to key = TJ1cO
+clientCreate: This Node = 9.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: setting trans_d = 47 to key = ULZ7Z
+clientCreate: This Node = 1.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 48 to key = V7QFQ
+clientCreate: This Node = 6.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: setting trans_d = 49 to key = VfP7W
+clientCreate: This Node = 7.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: setting trans_d = 50 to key = XNjOt
+clientCreate: This Node = 2.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: setting trans_d = 51 to key = Y8uth
+clientCreate: This Node = 4.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: setting trans_d = 52 to key = Z3D7M
+clientCreate: This Node = 3.0.0.0:0 
+clientCreate: Replica in vector = 1.0.0.0:0 
+clientCreate: Replica in vector = 2.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: setting trans_d = 53 to key = a1PHn
+clientCreate: This Node = 10.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: Replica in vector = 5.0.0.0:0 
+clientCreate: Replica in vector = 1.0.0.0:0 
+clientCreate: setting trans_d = 54 to key = a7rYB
+clientCreate: This Node = 3.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: setting trans_d = 55 to key = aKTMT
+clientCreate: This Node = 10.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: setting trans_d = 56 to key = apmJJ
+clientCreate: This Node = 9.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: setting trans_d = 57 to key = b4rSp
+clientCreate: This Node = 7.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: setting trans_d = 58 to key = bs2xp
+clientCreate: This Node = 6.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 59 to key = dG9HZ
+clientCreate: This Node = 6.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 60 to key = dLf0f
+clientCreate: This Node = 8.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: setting trans_d = 61 to key = dUsMR
+clientCreate: This Node = 8.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 62 to key = dcXP3
+clientCreate: This Node = 1.0.0.0:0 
+clientCreate: Replica in vector = 2.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: setting trans_d = 63 to key = eiYLs
+clientCreate: This Node = 8.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: Replica in vector = 5.0.0.0:0 
+clientCreate: Replica in vector = 1.0.0.0:0 
+clientCreate: setting trans_d = 64 to key = gIyAr
+clientCreate: This Node = 10.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: setting trans_d = 65 to key = gvvXh
+clientCreate: This Node = 2.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 66 to key = hIbtj
+clientCreate: This Node = 4.0.0.0:0 
+clientCreate: Replica in vector = 2.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: setting trans_d = 67 to key = hbWbV
+clientCreate: This Node = 7.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 68 to key = iJhCd
+clientCreate: This Node = 5.0.0.0:0 
+clientCreate: Replica in vector = 2.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: setting trans_d = 69 to key = jUKqG
+clientCreate: This Node = 3.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: setting trans_d = 70 to key = kkdAu
+clientCreate: This Node = 2.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: setting trans_d = 71 to key = ljPKd
+clientCreate: This Node = 6.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: setting trans_d = 72 to key = mELJd
+clientCreate: This Node = 4.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 73 to key = mZhmV
+clientCreate: This Node = 2.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: Replica in vector = 5.0.0.0:0 
+clientCreate: Replica in vector = 1.0.0.0:0 
+clientCreate: setting trans_d = 74 to key = n1pkc
+clientCreate: This Node = 3.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: setting trans_d = 75 to key = n5ID3
+clientCreate: This Node = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: setting trans_d = 76 to key = nh8ls
+clientCreate: This Node = 10.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: setting trans_d = 77 to key = o6Wgj
+clientCreate: This Node = 6.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: setting trans_d = 78 to key = oomhK
+clientCreate: This Node = 3.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 79 to key = qSMwA
+clientCreate: This Node = 8.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 80 to key = qWgXr
+clientCreate: This Node = 8.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: setting trans_d = 81 to key = rhl2Q
+clientCreate: This Node = 6.0.0.0:0 
+clientCreate: Replica in vector = 1.0.0.0:0 
+clientCreate: Replica in vector = 2.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: setting trans_d = 82 to key = sUeOI
+clientCreate: This Node = 1.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: Replica in vector = 5.0.0.0:0 
+clientCreate: Replica in vector = 2.0.0.0:0 
+clientCreate: setting trans_d = 83 to key = tO4P5
+clientCreate: This Node = 2.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: setting trans_d = 84 to key = tamEy
+clientCreate: This Node = 2.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 85 to key = tfATZ
+clientCreate: This Node = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: setting trans_d = 86 to key = uXjNL
+clientCreate: This Node = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: setting trans_d = 87 to key = vPToV
+clientCreate: This Node = 10.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 88 to key = vYQgp
+clientCreate: This Node = 7.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: Replica in vector = 5.0.0.0:0 
+clientCreate: Replica in vector = 1.0.0.0:0 
+clientCreate: setting trans_d = 89 to key = w1y4U
+clientCreate: This Node = 9.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 90 to key = w8EKC
+clientCreate: This Node = 3.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: Replica in vector = 5.0.0.0:0 
+clientCreate: Replica in vector = 1.0.0.0:0 
+clientCreate: setting trans_d = 91 to key = w9JMO
+clientCreate: This Node = 2.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: setting trans_d = 92 to key = wBlHD
+clientCreate: This Node = 5.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: setting trans_d = 93 to key = wFplq
+clientCreate: This Node = 8.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: setting trans_d = 94 to key = wWawr
+clientCreate: This Node = 3.0.0.0:0 
+clientCreate: Replica in vector = 5.0.0.0:0 
+clientCreate: Replica in vector = 1.0.0.0:0 
+clientCreate: Replica in vector = 2.0.0.0:0 
+clientCreate: setting trans_d = 95 to key = wZgLg
+clientCreate: This Node = 5.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 96 to key = xNufK
+clientCreate: This Node = 10.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 97 to key = yNWUj
+clientCreate: This Node = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: Replica in vector = 5.0.0.0:0 
+clientCreate: Replica in vector = 1.0.0.0:0 
+clientCreate: setting trans_d = 98 to key = zhN6E
+clientCreate: This Node = 10.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: Replica in vector = 5.0.0.0:0 
+clientCreate: Replica in vector = 1.0.0.0:0 
+clientCreate: setting trans_d = 99 to key = zibrE
+clientCreate: This Node = 7.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
 
 Sent 100 create messages to the ring
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-Created local entry in the node
-MOD2 : createKeyValue
-
-Updating a valid key.... ... .. . .
-size of haveReplicasOf = 0
-UPDATE: read_message = 
-UPDATE: able_to_update = 0
-UPDATE: message absent, sending Failure REPLY
-size of haveReplicasOf = 3
-UPDATE: repkeys.nodeAddress = 3.0.0.0:0 
-
-memberNode->addr = 5.0.0.0:0 
-
-UPDATE: repkeys.nodeAddress = 2.0.0.0:0 
-
-memberNode->addr = 5.0.0.0:0 
-
-UPDATE: repkeys.nodeAddress = 1.0.0.0:0 
-
-memberNode->addr = 5.0.0.0:0 
-
-UPDATE: read_message = 
-UPDATE: able_to_update = 0
-UPDATE: message absent, sending Failure REPLY
-size of haveReplicasOf = 3
-UPDATE: repkeys.nodeAddress = 3.0.0.0:0 
-
-memberNode->addr = 4.0.0.0:0 
-
-UPDATE: repkeys.nodeAddress = 2.0.0.0:0 
-
-memberNode->addr = 4.0.0.0:0 
-
-UPDATE: repkeys.nodeAddress = 1.0.0.0:0 
-
-memberNode->addr = 4.0.0.0:0 
-
-UPDATE: read_message = 
-UPDATE: able_to_update = 0
-UPDATE: message absent, sending Failure REPLY
-
-Failed a replica node
-
-Updating a valid key.... ... .. . .
-size of haveReplicasOf = 3
-UPDATE: repkeys.nodeAddress = 1.0.0.0:0 
-
-memberNode->addr = 2.0.0.0:0 
-
-UPDATE: repkeys.nodeAddress = 2.0.0.0:0 
-
-memberNode->addr = 2.0.0.0:0 
-
-UPDATE: repkeys.nodeAddress = 3.0.0.0:0 
-
-memberNode->addr = 2.0.0.0:0 
-
-UPDATE: read_message = value30
-UPDATE: able_to_update = 1
-UPDATE: message present, sending Success REPLY
-size of haveReplicasOf = 3
-UPDATE: repkeys.nodeAddress = 2.0.0.0:0 
-
-memberNode->addr = 1.0.0.0:0 
-
-UPDATE: repkeys.nodeAddress = 3.0.0.0:0 
-
-memberNode->addr = 1.0.0.0:0 
-
-UPDATE: repkeys.nodeAddress = 4.0.0.0:0 
-
-memberNode->addr = 1.0.0.0:0 
-
-UPDATE: read_message = value30
-UPDATE: able_to_update = 0
-UPDATE: message present, sending Success REPLY
-
-Failed a replica node
-
-Failed a replica node
-
-Updating a valid key.... ... .. . .
-size of haveReplicasOf = 3
-UPDATE: repkeys.nodeAddress = 1.0.0.0:0 
-
-memberNode->addr = 9.0.0.0:0 
-
-UPDATE: repkeys.nodeAddress = 9.0.0.0:0 
-
-memberNode->addr = 9.0.0.0:0 
-
-UPDATE: repkeys.nodeAddress = 8.0.0.0:0 
-
-memberNode->addr = 9.0.0.0:0 
-
-UPDATE: read_message = 
-UPDATE: able_to_update = 1
-UPDATE: message absent, sending Failure REPLY
-size of haveReplicasOf = 3
-UPDATE: repkeys.nodeAddress = 5.0.0.0:0 
-
-memberNode->addr = 7.0.0.0:0 
-
-UPDATE: repkeys.nodeAddress = 1.0.0.0:0 
-
-memberNode->addr = 7.0.0.0:0 
-
-UPDATE: repkeys.nodeAddress = 4.0.0.0:0 
-
-memberNode->addr = 7.0.0.0:0 
-
-UPDATE: read_message = 
-UPDATE: able_to_update = 0
-UPDATE: message absent, sending Failure REPLY
-
-Updating a valid key.... ... .. . .
-size of haveReplicasOf = 3
-UPDATE: repkeys.nodeAddress = 1.0.0.0:0 
-
-memberNode->addr = 9.0.0.0:0 
-
-UPDATE: repkeys.nodeAddress = 9.0.0.0:0 
-
-memberNode->addr = 9.0.0.0:0 
-
-UPDATE: repkeys.nodeAddress = 8.0.0.0:0 
-
-memberNode->addr = 9.0.0.0:0 
-
-UPDATE: read_message = 
-UPDATE: able_to_update = 1
-UPDATE: message absent, sending Failure REPLY
-size of haveReplicasOf = 3
-UPDATE: repkeys.nodeAddress = 5.0.0.0:0 
-
-memberNode->addr = 7.0.0.0:0 
-
-UPDATE: repkeys.nodeAddress = 1.0.0.0:0 
-
-memberNode->addr = 7.0.0.0:0 
-
-UPDATE: repkeys.nodeAddress = 4.0.0.0:0 
-
-memberNode->addr = 7.0.0.0:0 
-
-UPDATE: read_message = 
-UPDATE: able_to_update = 0
-UPDATE: message absent, sending Failure REPLY
-
-Failed a non-replica node
-
-Updating a valid key.... ... .. . .
-
-Updating a valid key.... ... .. . .
-size of haveReplicasOf = 3
-UPDATE: repkeys.nodeAddress = 1.0.0.0:0 
-
-memberNode->addr = 9.0.0.0:0 
-
-UPDATE: repkeys.nodeAddress = 9.0.0.0:0 
-
-memberNode->addr = 9.0.0.0:0 
-
-UPDATE: repkeys.nodeAddress = 8.0.0.0:0 
-
-memberNode->addr = 9.0.0.0:0 
-
-UPDATE: read_message = 
-UPDATE: able_to_update = 1
-UPDATE: message absent, sending Failure REPLY
-size of haveReplicasOf = 3
-UPDATE: repkeys.nodeAddress = 1.0.0.0:0 
-
-memberNode->addr = 8.0.0.0:0 
-
-UPDATE: repkeys.nodeAddress = 3.0.0.0:0 
-
-memberNode->addr = 8.0.0.0:0 
-
-UPDATE: repkeys.nodeAddress = 2.0.0.0:0 
-
-memberNode->addr = 8.0.0.0:0 
-
-UPDATE: read_message = 
-UPDATE: able_to_update = 0
-UPDATE: message absent, sending Failure REPLY
-size of haveReplicasOf = 3
-UPDATE: repkeys.nodeAddress = 3.0.0.0:0 
-
-memberNode->addr = 5.0.0.0:0 
-
-UPDATE: repkeys.nodeAddress = 2.0.0.0:0 
-
-memberNode->addr = 5.0.0.0:0 
-
-UPDATE: repkeys.nodeAddress = 1.0.0.0:0 
-
-memberNode->addr = 5.0.0.0:0 
-
-UPDATE: read_message = 
-UPDATE: able_to_update = 0
-UPDATE: message absent, sending Failure REPLY
-Starting CleanUp
+
+Deleting 50 valid keys.... ... .. . .
+thisNode = 1.0.0.0:0 
+clientDelete: transID to search = -1
+clientUpdate: key to search = 0C6Xn
+
+thisNode = 3.0.0.0:0 
+clientDelete: transID to search = 2
+clientUpdate: key to search = 0l3C3
+
+thisNode = 1.0.0.0:0 
+clientDelete: transID to search = -1
+clientUpdate: key to search = 161N3
+
+thisNode = 10.0.0.0:0 
+clientDelete: transID to search = -1
+clientUpdate: key to search = 16evp
+
+thisNode = 1.0.0.0:0 
+clientDelete: transID to search = -1
+clientUpdate: key to search = 2hgoB
+
+thisNode = 2.0.0.0:0 
+clientDelete: transID to search = -1
+clientUpdate: key to search = 44roH
+
+thisNode = 10.0.0.0:0 
+clientDelete: transID to search = -1
+clientUpdate: key to search = 4Xngf
+
+thisNode = 9.0.0.0:0 
+clientDelete: transID to search = -1
+clientUpdate: key to search = 5Tm9f
+
+thisNode = 7.0.0.0:0 
+clientDelete: transID to search = -1
+clientUpdate: key to search = 6GLQ4
+
+thisNode = 6.0.0.0:0 
+clientDelete: transID to search = 10
+clientUpdate: key to search = 6Kk00
+
+thisNode = 1.0.0.0:0 
+clientDelete: transID to search = -1
+clientUpdate: key to search = 7OcGg
+
+thisNode = 9.0.0.0:0 
+clientDelete: transID to search = -1
+clientUpdate: key to search = 8kER3
+
+thisNode = 10.0.0.0:0 
+clientDelete: transID to search = -1
+clientUpdate: key to search = 9nPP0
+
+thisNode = 6.0.0.0:0 
+clientDelete: transID to search = -1
+clientUpdate: key to search = AyoRr
+
+thisNode = 6.0.0.0:0 
+clientDelete: transID to search = -1
+clientUpdate: key to search = BihxP
+
+thisNode = 7.0.0.0:0 
+clientDelete: transID to search = 16
+clientUpdate: key to search = CC8ij
+
+thisNode = 6.0.0.0:0 
+clientDelete: transID to search = 17
+clientUpdate: key to search = Cmzv8
+
+thisNode = 8.0.0.0:0 
+clientDelete: transID to search = -1
+clientUpdate: key to search = D38iV
+
+thisNode = 4.0.0.0:0 
+clientDelete: transID to search = 19
+clientUpdate: key to search = DHGBM
+
+thisNode = 5.0.0.0:0 
+clientDelete: transID to search = -1
+clientUpdate: key to search = ErH2C
+
+thisNode = 10.0.0.0:0 
+clientDelete: transID to search = 21
+clientUpdate: key to search = FardF
+
+thisNode = 10.0.0.0:0 
+clientDelete: transID to search = -1
+clientUpdate: key to search = GCgFm
+
+thisNode = 6.0.0.0:0 
+clientDelete: transID to search = 23
+clientUpdate: key to search = GYJtT
+
+thisNode = 8.0.0.0:0 
+clientDelete: transID to search = 24
+clientUpdate: key to search = HrNy3
+
+thisNode = 2.0.0.0:0 
+clientDelete: transID to search = -1
+clientUpdate: key to search = J4F8V
+
+thisNode = 7.0.0.0:0 
+clientDelete: transID to search = -1
+clientUpdate: key to search = JLSyi
+
+thisNode = 6.0.0.0:0 
+clientDelete: transID to search = -1
+clientUpdate: key to search = JeNZq
+
+thisNode = 8.0.0.0:0 
+clientDelete: transID to search = -1
+clientUpdate: key to search = JlvgA
+
+thisNode = 3.0.0.0:0 
+clientDelete: transID to search = 29
+clientUpdate: key to search = K6YdK
+
+thisNode = 7.0.0.0:0 
+clientDelete: transID to search = 30
+clientUpdate: key to search = K8VZG
+
+thisNode = 4.0.0.0:0 
+clientDelete: transID to search = -1
+clientUpdate: key to search = K9K49
+
+thisNode = 9.0.0.0:0 
+clientDelete: transID to search = -1
+clientUpdate: key to search = L0lW5
+
+thisNode = 5.0.0.0:0 
+clientDelete: transID to search = -1
+clientUpdate: key to search = LBMzi
+
+thisNode = 8.0.0.0:0 
+clientDelete: transID to search = -1
+clientUpdate: key to search = MGHCd
+
+thisNode = 4.0.0.0:0 
+clientDelete: transID to search = 35
+clientUpdate: key to search = MmPBW
+
+thisNode = 8.0.0.0:0 
+clientDelete: transID to search = -1
+clientUpdate: key to search = N3oKw
+
+thisNode = 2.0.0.0:0 
+clientDelete: transID to search = -1
+clientUpdate: key to search = NIBlZ
+
+thisNode = 4.0.0.0:0 
+clientDelete: transID to search = 38
+clientUpdate: key to search = NyVom
+
+thisNode = 7.0.0.0:0 
+clientDelete: transID to search = -1
+clientUpdate: key to search = O8zdA
+
+thisNode = 2.0.0.0:0 
+clientDelete: transID to search = -1
+clientUpdate: key to search = P9rl8
+
+thisNode = 5.0.0.0:0 
+clientDelete: transID to search = -1
+clientUpdate: key to search = QGjAG
+
+thisNode = 3.0.0.0:0 
+clientDelete: transID to search = 42
+clientUpdate: key to search = Rq07c
+
+thisNode = 9.0.0.0:0 
+clientDelete: transID to search = 43
+clientUpdate: key to search = STwjn
+
+thisNode = 6.0.0.0:0 
+clientDelete: transID to search = -1
+clientUpdate: key to search = Sejzj
+
+thisNode = 2.0.0.0:0 
+clientDelete: transID to search = -1
+clientUpdate: key to search = TE95s
+
+thisNode = 5.0.0.0:0 
+clientDelete: transID to search = -1
+clientUpdate: key to search = TJ1cO
+
+thisNode = 2.0.0.0:0 
+clientDelete: transID to search = -1
+clientUpdate: key to search = ULZ7Z
+
+thisNode = 7.0.0.0:0 
+clientDelete: transID to search = 48
+clientUpdate: key to search = V7QFQ
+
+thisNode = 9.0.0.0:0 
+clientDelete: transID to search = -1
+clientUpdate: key to search = VfP7W
+
+thisNode = 5.0.0.0:0 
+clientDelete: transID to search = -1
+clientUpdate: key to search = XNjOt
+
+
+Deleting an invalid key.... ... .. . .

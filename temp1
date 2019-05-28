@@ -1,0 +1,1438 @@
+int main
+Creating Application Object
+Application object created
+3-th introduced node is assigned with the address: 4:0
+2-th introduced node is assigned with the address: 3:0
+1-th introduced node is assigned with the address: 2:0
+0-th introduced node is assigned with the address: 1:0
+7-th introduced node is assigned with the address: 8:0
+6-th introduced node is assigned with the address: 7:0
+5-th introduced node is assigned with the address: 6:0
+4-th introduced node is assigned with the address: 5:0
+9-th introduced node is assigned with the address: 10:0
+8-th introduced node is assigned with the address: 9:0
+clientCreate: setting trans_d = 0 to key = 0Z6qf
+clientCreate: This Node = 3.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: setting trans_d = 1 to key = 0uUoU
+clientCreate: This Node = 3.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: Replica in vector = 5.0.0.0:0 
+clientCreate: Replica in vector = 1.0.0.0:0 
+clientCreate: setting trans_d = 2 to key = 18nCx
+clientCreate: This Node = 7.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: setting trans_d = 3 to key = 1IpEJ
+clientCreate: This Node = 5.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: setting trans_d = 4 to key = 1vS2o
+clientCreate: This Node = 2.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: setting trans_d = 5 to key = 2IshE
+clientCreate: This Node = 8.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 6 to key = 37dWS
+clientCreate: This Node = 7.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: Replica in vector = 5.0.0.0:0 
+clientCreate: Replica in vector = 1.0.0.0:0 
+clientCreate: setting trans_d = 7 to key = 4QJ2R
+clientCreate: This Node = 9.0.0.0:0 
+clientCreate: Replica in vector = 2.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: setting trans_d = 8 to key = 60vkx
+clientCreate: This Node = 9.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 9 to key = 6Hzi7
+clientCreate: This Node = 6.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: setting trans_d = 10 to key = 6PkHk
+clientCreate: This Node = 9.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: setting trans_d = 11 to key = 6yD38
+clientCreate: This Node = 8.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: setting trans_d = 12 to key = 788BN
+clientCreate: This Node = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: setting trans_d = 13 to key = 7z1Nz
+clientCreate: This Node = 9.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: Replica in vector = 5.0.0.0:0 
+clientCreate: Replica in vector = 1.0.0.0:0 
+clientCreate: setting trans_d = 14 to key = 8Jo4q
+clientCreate: This Node = 1.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: setting trans_d = 15 to key = Agfx3
+clientCreate: This Node = 1.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: setting trans_d = 16 to key = BCt2z
+clientCreate: This Node = 5.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 17 to key = BGkLv
+clientCreate: This Node = 3.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: setting trans_d = 18 to key = BfQUi
+clientCreate: This Node = 4.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: setting trans_d = 19 to key = CfO7O
+clientCreate: This Node = 3.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: setting trans_d = 20 to key = CpCcd
+clientCreate: This Node = 1.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 21 to key = DZ6zJ
+clientCreate: This Node = 8.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: setting trans_d = 22 to key = EdoOC
+clientCreate: This Node = 6.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: setting trans_d = 23 to key = Eqwj4
+clientCreate: This Node = 7.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 24 to key = Fkxkw
+clientCreate: This Node = 8.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 25 to key = FpHxc
+clientCreate: This Node = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: setting trans_d = 26 to key = Fqi6t
+clientCreate: This Node = 2.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 27 to key = GUr5s
+clientCreate: This Node = 10.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 28 to key = GXVCO
+clientCreate: This Node = 1.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: setting trans_d = 29 to key = Hukmz
+clientCreate: This Node = 8.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: setting trans_d = 30 to key = IYmmM
+clientCreate: This Node = 10.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: setting trans_d = 31 to key = IwR7w
+clientCreate: This Node = 9.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 32 to key = KFhii
+clientCreate: This Node = 1.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: Replica in vector = 5.0.0.0:0 
+clientCreate: Replica in vector = 2.0.0.0:0 
+clientCreate: setting trans_d = 33 to key = Ku6tU
+clientCreate: This Node = 3.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: setting trans_d = 34 to key = MwYEc
+clientCreate: This Node = 6.0.0.0:0 
+clientCreate: Replica in vector = 2.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: setting trans_d = 35 to key = NNbcJ
+clientCreate: This Node = 2.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: Replica in vector = 5.0.0.0:0 
+clientCreate: Replica in vector = 1.0.0.0:0 
+clientCreate: setting trans_d = 36 to key = Po18J
+clientCreate: This Node = 1.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: Replica in vector = 5.0.0.0:0 
+clientCreate: Replica in vector = 2.0.0.0:0 
+clientCreate: setting trans_d = 37 to key = Pr4QL
+clientCreate: This Node = 5.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: setting trans_d = 38 to key = QMlUK
+clientCreate: This Node = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: setting trans_d = 39 to key = TTPSl
+clientCreate: This Node = 1.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 40 to key = TWuvD
+clientCreate: This Node = 9.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 41 to key = Uc3xW
+clientCreate: This Node = 7.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: setting trans_d = 42 to key = VhX4Q
+clientCreate: This Node = 8.0.0.0:0 
+clientCreate: Replica in vector = 2.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: setting trans_d = 43 to key = WIVE0
+clientCreate: This Node = 5.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: setting trans_d = 44 to key = WVVEr
+clientCreate: This Node = 6.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 45 to key = Xxh1F
+clientCreate: This Node = 8.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: setting trans_d = 46 to key = YBAZ6
+clientCreate: This Node = 7.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 47 to key = YMuXj
+clientCreate: This Node = 3.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: setting trans_d = 48 to key = ZlyfN
+clientCreate: This Node = 4.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: Replica in vector = 5.0.0.0:0 
+clientCreate: Replica in vector = 1.0.0.0:0 
+clientCreate: setting trans_d = 49 to key = aF3tm
+clientCreate: This Node = 9.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: setting trans_d = 50 to key = amxXS
+clientCreate: This Node = 5.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 51 to key = b1YED
+clientCreate: This Node = 3.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: setting trans_d = 52 to key = b2o2c
+clientCreate: This Node = 9.0.0.0:0 
+clientCreate: Replica in vector = 2.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: setting trans_d = 53 to key = bTLX0
+clientCreate: This Node = 5.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 54 to key = bYeC4
+clientCreate: This Node = 8.0.0.0:0 
+clientCreate: Replica in vector = 2.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: setting trans_d = 55 to key = bfAhV
+clientCreate: This Node = 10.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: setting trans_d = 56 to key = cA3LG
+clientCreate: This Node = 8.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: setting trans_d = 57 to key = cm2MK
+clientCreate: This Node = 3.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 58 to key = dgcrg
+clientCreate: This Node = 5.0.0.0:0 
+clientCreate: Replica in vector = 2.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: setting trans_d = 59 to key = f4Tkm
+clientCreate: This Node = 4.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: Replica in vector = 5.0.0.0:0 
+clientCreate: setting trans_d = 60 to key = fICev
+clientCreate: This Node = 6.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 61 to key = fIi8X
+clientCreate: This Node = 3.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: Replica in vector = 5.0.0.0:0 
+clientCreate: Replica in vector = 1.0.0.0:0 
+clientCreate: setting trans_d = 62 to key = fnTFB
+clientCreate: This Node = 2.0.0.0:0 
+clientCreate: Replica in vector = 2.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: setting trans_d = 63 to key = gGp7i
+clientCreate: This Node = 4.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: setting trans_d = 64 to key = gMStW
+clientCreate: This Node = 7.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: setting trans_d = 65 to key = gou4w
+clientCreate: This Node = 10.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: setting trans_d = 66 to key = h3T6A
+clientCreate: This Node = 6.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: setting trans_d = 67 to key = j71Hg
+clientCreate: This Node = 3.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: Replica in vector = 5.0.0.0:0 
+clientCreate: Replica in vector = 1.0.0.0:0 
+clientCreate: setting trans_d = 68 to key = jVabQ
+clientCreate: This Node = 1.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: setting trans_d = 69 to key = lInZK
+clientCreate: This Node = 6.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: Replica in vector = 5.0.0.0:0 
+clientCreate: setting trans_d = 70 to key = lz4EB
+clientCreate: This Node = 2.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 71 to key = mqjau
+clientCreate: This Node = 1.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 72 to key = myCh0
+clientCreate: This Node = 6.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 73 to key = oITbP
+clientCreate: This Node = 5.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 74 to key = p45cG
+clientCreate: This Node = 5.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 75 to key = pUr16
+clientCreate: This Node = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: setting trans_d = 76 to key = pYALm
+clientCreate: This Node = 10.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 77 to key = pzWjj
+clientCreate: This Node = 3.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: Replica in vector = 5.0.0.0:0 
+clientCreate: Replica in vector = 1.0.0.0:0 
+clientCreate: setting trans_d = 78 to key = qPabg
+clientCreate: This Node = 8.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: setting trans_d = 79 to key = qk7i7
+clientCreate: This Node = 1.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: Replica in vector = 5.0.0.0:0 
+clientCreate: setting trans_d = 80 to key = qqwrB
+clientCreate: This Node = 4.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: Replica in vector = 5.0.0.0:0 
+clientCreate: Replica in vector = 1.0.0.0:0 
+clientCreate: setting trans_d = 81 to key = qxTIx
+clientCreate: This Node = 5.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 82 to key = r8tNr
+clientCreate: This Node = 9.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: setting trans_d = 83 to key = rk9PJ
+clientCreate: This Node = 5.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 84 to key = s0FBX
+clientCreate: This Node = 6.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: setting trans_d = 85 to key = tYFuh
+clientCreate: This Node = 3.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: setting trans_d = 86 to key = uMx1l
+clientCreate: This Node = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: setting trans_d = 87 to key = uRSZQ
+clientCreate: This Node = 2.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: setting trans_d = 88 to key = uYxCa
+clientCreate: This Node = 6.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 89 to key = vHpOz
+clientCreate: This Node = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: Replica in vector = 7.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: setting trans_d = 90 to key = vM0UY
+clientCreate: This Node = 3.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: Replica in vector = 5.0.0.0:0 
+clientCreate: setting trans_d = 91 to key = vYtpF
+clientCreate: This Node = 9.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 92 to key = w5E2y
+clientCreate: This Node = 5.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: Replica in vector = 5.0.0.0:0 
+clientCreate: Replica in vector = 1.0.0.0:0 
+clientCreate: setting trans_d = 93 to key = wGF0e
+clientCreate: This Node = 10.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+clientCreate: setting trans_d = 94 to key = wXSq4
+clientCreate: This Node = 9.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: Replica in vector = 5.0.0.0:0 
+clientCreate: setting trans_d = 95 to key = wYfws
+clientCreate: This Node = 10.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: setting trans_d = 96 to key = xaJ5G
+clientCreate: This Node = 9.0.0.0:0 
+clientCreate: Replica in vector = 8.0.0.0:0 
+clientCreate: Replica in vector = 6.0.0.0:0 
+clientCreate: Replica in vector = 4.0.0.0:0 
+clientCreate: setting trans_d = 97 to key = xecOi
+clientCreate: This Node = 7.0.0.0:0 
+clientCreate: Replica in vector = 2.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: setting trans_d = 98 to key = yKblV
+clientCreate: This Node = 5.0.0.0:0 
+clientCreate: Replica in vector = 1.0.0.0:0 
+clientCreate: Replica in vector = 2.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: setting trans_d = 99 to key = zeJYH
+clientCreate: This Node = 5.0.0.0:0 
+clientCreate: Replica in vector = 10.0.0.0:0 
+clientCreate: Replica in vector = 9.0.0.0:0 
+clientCreate: Replica in vector = 3.0.0.0:0 
+
+Sent 100 create messages to the ring
+
+Deleting 50 valid keys.... ... .. . .
+thisNode = 7.0.0.0:0 
+clientDelete: transID to search = -1
+clientDelete: key to search = 0uUoU
+
+thisNode = 2.0.0.0:0 
+clientDelete: transID to search = -1
+clientDelete: key to search = 18nCx
+
+thisNode = 6.0.0.0:0 
+clientDelete: transID to search = -1
+clientDelete: key to search = 1IpEJ
+
+thisNode = 4.0.0.0:0 
+clientDelete: transID to search = -1
+clientDelete: key to search = 1vS2o
+
+thisNode = 5.0.0.0:0 
+clientDelete: transID to search = -1
+clientDelete: key to search = 2IshE
+
+thisNode = 6.0.0.0:0 
+clientDelete: transID to search = -1
+clientDelete: key to search = 37dWS
+
+thisNode = 1.0.0.0:0 
+clientDelete: transID to search = -1
+clientDelete: key to search = 4QJ2R
+
+thisNode = 8.0.0.0:0 
+clientDelete: transID to search = -1
+clientDelete: key to search = 60vkx
+
+thisNode = 3.0.0.0:0 
+clientDelete: transID to search = 9
+clientDelete: key to search = 6Hzi7
+
+thisNode = 5.0.0.0:0 
+clientDelete: transID to search = -1
+clientDelete: key to search = 6PkHk
+
+thisNode = 6.0.0.0:0 
+clientDelete: transID to search = -1
+clientDelete: key to search = 6yD38
+
+thisNode = 4.0.0.0:0 
+clientDelete: transID to search = -1
+clientDelete: key to search = 788BN
+
+thisNode = 9.0.0.0:0 
+clientDelete: transID to search = 13
+clientDelete: key to search = 7z1Nz
+
+thisNode = 10.0.0.0:0 
+clientDelete: transID to search = -1
+clientDelete: key to search = 8Jo4q
+
+thisNode = 3.0.0.0:0 
+clientDelete: transID to search = -1
+clientDelete: key to search = Agfx3
+
+thisNode = 9.0.0.0:0 
+clientDelete: transID to search = 16
+clientDelete: key to search = BCt2z
+
+thisNode = 2.0.0.0:0 
+clientDelete: transID to search = -1
+clientDelete: key to search = BGkLv
+
+thisNode = 9.0.0.0:0 
+clientDelete: transID to search = -1
+clientDelete: key to search = BfQUi
+
+thisNode = 4.0.0.0:0 
+clientDelete: transID to search = -1
+clientDelete: key to search = CfO7O
+
+thisNode = 2.0.0.0:0 
+clientDelete: transID to search = -1
+clientDelete: key to search = CpCcd
+
+thisNode = 6.0.0.0:0 
+clientDelete: transID to search = 21
+clientDelete: key to search = DZ6zJ
+
+thisNode = 10.0.0.0:0 
+clientDelete: transID to search = -1
+clientDelete: key to search = EdoOC
+
+thisNode = 3.0.0.0:0 
+clientDelete: transID to search = 23
+clientDelete: key to search = Eqwj4
+
+thisNode = 3.0.0.0:0 
+clientDelete: transID to search = 24
+clientDelete: key to search = Fkxkw
+
+thisNode = 3.0.0.0:0 
+clientDelete: transID to search = -1
+clientDelete: key to search = FpHxc
+
+thisNode = 7.0.0.0:0 
+clientDelete: transID to search = -1
+clientDelete: key to search = Fqi6t
+
+thisNode = 3.0.0.0:0 
+clientDelete: transID to search = 27
+clientDelete: key to search = GUr5s
+
+thisNode = 10.0.0.0:0 
+clientDelete: transID to search = -1
+clientDelete: key to search = GXVCO
+
+thisNode = 3.0.0.0:0 
+clientDelete: transID to search = -1
+clientDelete: key to search = Hukmz
+
+thisNode = 9.0.0.0:0 
+clientDelete: transID to search = -1
+clientDelete: key to search = IYmmM
+
+thisNode = 3.0.0.0:0 
+clientDelete: transID to search = 31
+clientDelete: key to search = IwR7w
+
+thisNode = 6.0.0.0:0 
+clientDelete: transID to search = -1
+clientDelete: key to search = KFhii
+
+thisNode = 1.0.0.0:0 
+clientDelete: transID to search = -1
+clientDelete: key to search = Ku6tU
+
+thisNode = 10.0.0.0:0 
+clientDelete: transID to search = 34
+clientDelete: key to search = MwYEc
+
+thisNode = 6.0.0.0:0 
+clientDelete: transID to search = -1
+clientDelete: key to search = NNbcJ
+
+thisNode = 4.0.0.0:0 
+clientDelete: transID to search = 36
+clientDelete: key to search = Po18J
+
+thisNode = 10.0.0.0:0 
+clientDelete: transID to search = -1
+clientDelete: key to search = Pr4QL
+
+thisNode = 4.0.0.0:0 
+clientDelete: transID to search = -1
+clientDelete: key to search = QMlUK
+
+thisNode = 9.0.0.0:0 
+clientDelete: transID to search = 39
+clientDelete: key to search = TTPSl
+
+thisNode = 1.0.0.0:0 
+clientDelete: transID to search = -1
+clientDelete: key to search = TWuvD
+
+thisNode = 8.0.0.0:0 
+clientDelete: transID to search = -1
+clientDelete: key to search = Uc3xW
+
+thisNode = 2.0.0.0:0 
+clientDelete: transID to search = 42
+clientDelete: key to search = VhX4Q
+
+thisNode = 4.0.0.0:0 
+clientDelete: transID to search = -1
+clientDelete: key to search = WIVE0
+
+thisNode = 5.0.0.0:0 
+clientDelete: transID to search = -1
+clientDelete: key to search = WVVEr
+
+thisNode = 2.0.0.0:0 
+clientDelete: transID to search = -1
+clientDelete: key to search = Xxh1F
+
+thisNode = 2.0.0.0:0 
+clientDelete: transID to search = -1
+clientDelete: key to search = YBAZ6
+
+thisNode = 9.0.0.0:0 
+clientDelete: transID to search = -1
+clientDelete: key to search = YMuXj
+
+thisNode = 5.0.0.0:0 
+clientDelete: transID to search = 48
+clientDelete: key to search = ZlyfN
+
+thisNode = 2.0.0.0:0 
+clientDelete: transID to search = -1
+clientDelete: key to search = aF3tm
+
+thisNode = 9.0.0.0:0 
+clientDelete: transID to search = 50
+clientDelete: key to search = amxXS
+
+
+Deleting an invalid key.... ... .. . .
+thisNode = 7.0.0.0:0 
+clientDelete: transID to search = -1
+clientDelete: key to search = invalidKey
+
+DELETE: msg->key = TTPSl
+sending REPLY to=9.0.0.0:0 
+
+DELETE: msg->key = Fkxkw
+sending REPLY to=3.0.0.0:0 
+
+DELETE: msg->key = BCt2z
+sending REPLY to=9.0.0.0:0 
+
+DELETE: msg->key = amxXS
+sending REPLY to=9.0.0.0:0 
+
+DELETE: msg->key = IwR7w
+sending REPLY to=3.0.0.0:0 
+
+DELETE: msg->key = MwYEc
+sending REPLY to=10.0.0.0:0 
+
+DELETE: msg->key = GUr5s
+sending REPLY to=3.0.0.0:0 
+
+DELETE: msg->key = VhX4Q
+sending REPLY to=2.0.0.0:0 
+
+DELETE: msg->key = Eqwj4
+sending REPLY to=3.0.0.0:0 
+
+DELETE: msg->key = VhX4Q
+sending REPLY to=2.0.0.0:0 
+
+DELETE: msg->key = Fkxkw
+sending REPLY to=3.0.0.0:0 
+
+DELETE: msg->key = TTPSl
+sending REPLY to=9.0.0.0:0 
+
+DELETE: msg->key = Eqwj4
+sending REPLY to=3.0.0.0:0 
+
+DELETE: msg->key = MwYEc
+sending REPLY to=10.0.0.0:0 
+
+DELETE: msg->key = GUr5s
+sending REPLY to=3.0.0.0:0 
+
+DELETE: msg->key = BCt2z
+sending REPLY to=9.0.0.0:0 
+
+DELETE: msg->key = IwR7w
+sending REPLY to=3.0.0.0:0 
+
+DELETE: msg->key = amxXS
+sending REPLY to=9.0.0.0:0 
+
+DELETE: msg->key = DZ6zJ
+sending REPLY to=6.0.0.0:0 
+
+DELETE: msg->key = 6Hzi7
+sending REPLY to=3.0.0.0:0 
+
+DELETE: msg->key = 6Hzi7
+sending REPLY to=3.0.0.0:0 
+
+DELETE: msg->key = DZ6zJ
+sending REPLY to=6.0.0.0:0 
+
+DELETE: msg->key = ZlyfN
+sending REPLY to=5.0.0.0:0 
+
+DELETE: msg->key = Po18J
+sending REPLY to=4.0.0.0:0 
+
+DELETE: msg->key = 7z1Nz
+sending REPLY to=9.0.0.0:0 
+
+DELETE: msg->key = Po18J
+sending REPLY to=4.0.0.0:0 
+
+DELETE: msg->key = ZlyfN
+sending REPLY to=5.0.0.0:0 
+
+DELETE: msg->key = DZ6zJ
+sending REPLY to=6.0.0.0:0 
+
+DELETE: msg->key = 7z1Nz
+sending REPLY to=9.0.0.0:0 
+
+DELETE: msg->key = amxXS
+sending REPLY to=9.0.0.0:0 
+
+DELETE: msg->key = TTPSl
+sending REPLY to=9.0.0.0:0 
+
+DELETE: msg->key = IwR7w
+sending REPLY to=3.0.0.0:0 
+
+DELETE: msg->key = GUr5s
+sending REPLY to=3.0.0.0:0 
+
+DELETE: msg->key = Fkxkw
+sending REPLY to=3.0.0.0:0 
+
+DELETE: msg->key = Eqwj4
+sending REPLY to=3.0.0.0:0 
+
+DELETE: msg->key = BCt2z
+sending REPLY to=9.0.0.0:0 
+
+DELETE: msg->key = 6Hzi7
+sending REPLY to=3.0.0.0:0 
+
+DELETE: msg->key = VhX4Q
+sending REPLY to=2.0.0.0:0 
+
+DELETE: msg->key = MwYEc
+sending REPLY to=10.0.0.0:0 
+
+DELETE: msg->key = ZlyfN
+sending REPLY to=5.0.0.0:0 
+
+DELETE: msg->key = Po18J
+sending REPLY to=4.0.0.0:0 
+
+DELETE: msg->key = 7z1Nz
+sending REPLY to=9.0.0.0:0 
+
+REPLY: message = 34::10:0::4::1
+msg->transID = 34
+REPLY: this node address =10.0.0.0:0 
+REPLY: from Address =10.0.0.0:0 
+REPLY: temp_key = 2IshE
+Reply message to the Coordinator
+REPLY: msg->success = 1
+REPLY: cmdtb->getTrans(temp_key) = 2
+
+par->getcurrtime() = 152
+cmdtb->getTransTimestamp(temp_key) = -1
+Checking the quorum
+REPLY: temp_failure = 1
+REPLY: temp_success = -1
+REPLY: message = 34::2:0::4::1
+msg->transID = 34
+REPLY: this node address =10.0.0.0:0 
+REPLY: from Address =2.0.0.0:0 
+REPLY: temp_key = 2IshE
+Reply message to the Coordinator
+REPLY: msg->success = 1
+REPLY: cmdtb->getTrans(temp_key) = 2
+
+par->getcurrtime() = 152
+cmdtb->getTransTimestamp(temp_key) = -1
+Checking the quorum
+REPLY: temp_failure = 2
+REPLY: temp_success = -1
+REPLY: message = 34::9:0::4::1
+msg->transID = 34
+REPLY: this node address =10.0.0.0:0 
+REPLY: from Address =9.0.0.0:0 
+REPLY: temp_key = 2IshE
+Reply message to the Coordinator
+REPLY: msg->success = 1
+REPLY: cmdtb->getTrans(temp_key) = 2
+
+par->getcurrtime() = 152
+cmdtb->getTransTimestamp(temp_key) = -1
+Checking the quorum
+REPLY: temp_failure = 3
+REPLY: temp_success = -1
+REPLY: message = 39::3:0::4::1
+msg->transID = 39
+REPLY: this node address =9.0.0.0:0 
+REPLY: from Address =3.0.0.0:0 
+REPLY: temp_key = 2IshE
+Reply message to the Coordinator
+REPLY: msg->success = 1
+REPLY: cmdtb->getTrans(temp_key) = 2
+
+par->getcurrtime() = 152
+cmdtb->getTransTimestamp(temp_key) = -1
+Checking the quorum
+REPLY: temp_failure = 1
+REPLY: temp_success = -1
+REPLY: message = 50::3:0::4::1
+msg->transID = 50
+REPLY: this node address =9.0.0.0:0 
+REPLY: from Address =3.0.0.0:0 
+REPLY: temp_key = 2IshE
+Reply message to the Coordinator
+REPLY: msg->success = 1
+REPLY: cmdtb->getTrans(temp_key) = 2
+
+par->getcurrtime() = 152
+cmdtb->getTransTimestamp(temp_key) = -1
+Checking the quorum
+REPLY: temp_failure = 2
+REPLY: temp_success = -1
+REPLY: message = 39::9:0::4::1
+msg->transID = 39
+REPLY: this node address =9.0.0.0:0 
+REPLY: from Address =9.0.0.0:0 
+REPLY: temp_key = 2IshE
+Reply message to the Coordinator
+REPLY: msg->success = 1
+REPLY: cmdtb->getTrans(temp_key) = 2
+
+par->getcurrtime() = 152
+cmdtb->getTransTimestamp(temp_key) = -1
+Checking the quorum
+REPLY: temp_failure = 3
+REPLY: temp_success = -1
+REPLY: message = 13::4:0::4::1
+msg->transID = 13
+REPLY: this node address =9.0.0.0:0 
+REPLY: from Address =4.0.0.0:0 
+REPLY: temp_key = 2IshE
+Reply message to the Coordinator
+REPLY: msg->success = 1
+REPLY: cmdtb->getTrans(temp_key) = 2
+
+par->getcurrtime() = 152
+cmdtb->getTransTimestamp(temp_key) = -1
+Checking the quorum
+REPLY: temp_failure = 4
+REPLY: temp_success = -1
+REPLY: message = 50::9:0::4::1
+msg->transID = 50
+REPLY: this node address =9.0.0.0:0 
+REPLY: from Address =9.0.0.0:0 
+REPLY: temp_key = 2IshE
+Reply message to the Coordinator
+REPLY: msg->success = 1
+REPLY: cmdtb->getTrans(temp_key) = 2
+
+par->getcurrtime() = 152
+cmdtb->getTransTimestamp(temp_key) = -1
+Checking the quorum
+REPLY: temp_failure = 5
+REPLY: temp_success = -1
+REPLY: message = 16::3:0::4::1
+msg->transID = 16
+REPLY: this node address =9.0.0.0:0 
+REPLY: from Address =3.0.0.0:0 
+REPLY: temp_key = 2IshE
+Reply message to the Coordinator
+REPLY: msg->success = 1
+REPLY: cmdtb->getTrans(temp_key) = 2
+
+par->getcurrtime() = 152
+cmdtb->getTransTimestamp(temp_key) = -1
+Checking the quorum
+REPLY: temp_failure = 6
+REPLY: temp_success = -1
+REPLY: message = 13::1:0::4::1
+msg->transID = 13
+REPLY: this node address =9.0.0.0:0 
+REPLY: from Address =1.0.0.0:0 
+REPLY: temp_key = 2IshE
+Reply message to the Coordinator
+REPLY: msg->success = 1
+REPLY: cmdtb->getTrans(temp_key) = 2
+
+par->getcurrtime() = 152
+cmdtb->getTransTimestamp(temp_key) = -1
+Checking the quorum
+REPLY: temp_failure = 7
+REPLY: temp_success = -1
+REPLY: message = 16::9:0::4::1
+msg->transID = 16
+REPLY: this node address =9.0.0.0:0 
+REPLY: from Address =9.0.0.0:0 
+REPLY: temp_key = 2IshE
+Reply message to the Coordinator
+REPLY: msg->success = 1
+REPLY: cmdtb->getTrans(temp_key) = 2
+
+par->getcurrtime() = 152
+cmdtb->getTransTimestamp(temp_key) = -1
+Checking the quorum
+REPLY: temp_failure = 8
+REPLY: temp_success = -1
+REPLY: message = 50::10:0::4::1
+msg->transID = 50
+REPLY: this node address =9.0.0.0:0 
+REPLY: from Address =10.0.0.0:0 
+REPLY: temp_key = 2IshE
+Reply message to the Coordinator
+REPLY: msg->success = 1
+REPLY: cmdtb->getTrans(temp_key) = 2
+
+par->getcurrtime() = 152
+cmdtb->getTransTimestamp(temp_key) = -1
+Checking the quorum
+REPLY: temp_failure = 9
+REPLY: temp_success = -1
+REPLY: message = 16::10:0::4::1
+msg->transID = 16
+REPLY: this node address =9.0.0.0:0 
+REPLY: from Address =10.0.0.0:0 
+REPLY: temp_key = 2IshE
+Reply message to the Coordinator
+REPLY: msg->success = 1
+REPLY: cmdtb->getTrans(temp_key) = 2
+
+par->getcurrtime() = 152
+cmdtb->getTransTimestamp(temp_key) = -1
+Checking the quorum
+REPLY: temp_failure = 10
+REPLY: temp_success = -1
+REPLY: message = 13::5:0::4::1
+msg->transID = 13
+REPLY: this node address =9.0.0.0:0 
+REPLY: from Address =5.0.0.0:0 
+REPLY: temp_key = 2IshE
+Reply message to the Coordinator
+REPLY: msg->success = 1
+REPLY: cmdtb->getTrans(temp_key) = 2
+
+par->getcurrtime() = 152
+cmdtb->getTransTimestamp(temp_key) = -1
+Checking the quorum
+REPLY: temp_failure = 11
+REPLY: temp_success = -1
+REPLY: message = 39::10:0::4::1
+msg->transID = 39
+REPLY: this node address =9.0.0.0:0 
+REPLY: from Address =10.0.0.0:0 
+REPLY: temp_key = 2IshE
+Reply message to the Coordinator
+REPLY: msg->success = 1
+REPLY: cmdtb->getTrans(temp_key) = 2
+
+par->getcurrtime() = 152
+cmdtb->getTransTimestamp(temp_key) = -1
+Checking the quorum
+REPLY: temp_failure = 12
+REPLY: temp_success = -1
+REPLY: message = 21::4:0::4::1
+msg->transID = 21
+REPLY: this node address =6.0.0.0:0 
+REPLY: from Address =4.0.0.0:0 
+REPLY: temp_key = 0Z6qf
+Reply message to the Coordinator
+REPLY: msg->success = 1
+REPLY: cmdtb->getTrans(temp_key) = 2
+
+par->getcurrtime() = 152
+cmdtb->getTransTimestamp(temp_key) = -1
+Checking the quorum
+REPLY: temp_failure = 1
+REPLY: temp_success = -1
+REPLY: message = 21::8:0::4::1
+msg->transID = 21
+REPLY: this node address =6.0.0.0:0 
+REPLY: from Address =8.0.0.0:0 
+REPLY: temp_key = 0Z6qf
+Reply message to the Coordinator
+REPLY: msg->success = 1
+REPLY: cmdtb->getTrans(temp_key) = 2
+
+par->getcurrtime() = 152
+cmdtb->getTransTimestamp(temp_key) = -1
+Checking the quorum
+REPLY: temp_failure = 2
+REPLY: temp_success = -1
+REPLY: message = 21::6:0::4::1
+msg->transID = 21
+REPLY: this node address =6.0.0.0:0 
+REPLY: from Address =6.0.0.0:0 
+REPLY: temp_key = 0Z6qf
+Reply message to the Coordinator
+REPLY: msg->success = 1
+REPLY: cmdtb->getTrans(temp_key) = 2
+
+par->getcurrtime() = 152
+cmdtb->getTransTimestamp(temp_key) = -1
+Checking the quorum
+REPLY: temp_failure = 3
+REPLY: temp_success = -1
+REPLY: message = 48::5:0::4::1
+msg->transID = 48
+REPLY: this node address =5.0.0.0:0 
+REPLY: from Address =5.0.0.0:0 
+REPLY: temp_key = 0uUoU
+Reply message to the Coordinator
+REPLY: msg->success = 1
+REPLY: cmdtb->getTrans(temp_key) = 2
+
+par->getcurrtime() = 152
+cmdtb->getTransTimestamp(temp_key) = -1
+Checking the quorum
+REPLY: temp_failure = 1
+REPLY: temp_success = -1
+REPLY: message = 48::1:0::4::1
+msg->transID = 48
+REPLY: this node address =5.0.0.0:0 
+REPLY: from Address =1.0.0.0:0 
+REPLY: temp_key = 0uUoU
+Reply message to the Coordinator
+REPLY: msg->success = 1
+REPLY: cmdtb->getTrans(temp_key) = 2
+
+par->getcurrtime() = 152
+cmdtb->getTransTimestamp(temp_key) = -1
+Checking the quorum
+REPLY: temp_failure = 2
+REPLY: temp_success = -1
+REPLY: message = 48::4:0::4::1
+msg->transID = 48
+REPLY: this node address =5.0.0.0:0 
+REPLY: from Address =4.0.0.0:0 
+REPLY: temp_key = 0uUoU
+Reply message to the Coordinator
+REPLY: msg->success = 1
+REPLY: cmdtb->getTrans(temp_key) = 2
+
+par->getcurrtime() = 152
+cmdtb->getTransTimestamp(temp_key) = -1
+Checking the quorum
+REPLY: temp_failure = 3
+REPLY: temp_success = -1
+REPLY: message = 36::5:0::4::1
+msg->transID = 36
+REPLY: this node address =4.0.0.0:0 
+REPLY: from Address =5.0.0.0:0 
+REPLY: temp_key = 0Z6qf
+Reply message to the Coordinator
+REPLY: msg->success = 1
+REPLY: cmdtb->getTrans(temp_key) = 2
+
+par->getcurrtime() = 152
+cmdtb->getTransTimestamp(temp_key) = -1
+Checking the quorum
+REPLY: temp_failure = 1
+REPLY: temp_success = -1
+REPLY: message = 36::1:0::4::1
+msg->transID = 36
+REPLY: this node address =4.0.0.0:0 
+REPLY: from Address =1.0.0.0:0 
+REPLY: temp_key = 0Z6qf
+Reply message to the Coordinator
+REPLY: msg->success = 1
+REPLY: cmdtb->getTrans(temp_key) = 2
+
+par->getcurrtime() = 152
+cmdtb->getTransTimestamp(temp_key) = -1
+Checking the quorum
+REPLY: temp_failure = 2
+REPLY: temp_success = -1
+REPLY: message = 36::4:0::4::1
+msg->transID = 36
+REPLY: this node address =4.0.0.0:0 
+REPLY: from Address =4.0.0.0:0 
+REPLY: temp_key = 0Z6qf
+Reply message to the Coordinator
+REPLY: msg->success = 1
+REPLY: cmdtb->getTrans(temp_key) = 2
+
+par->getcurrtime() = 152
+cmdtb->getTransTimestamp(temp_key) = -1
+Checking the quorum
+REPLY: temp_failure = 3
+REPLY: temp_success = -1
+REPLY: message = 9::3:0::4::1
+msg->transID = 9
+REPLY: this node address =3.0.0.0:0 
+REPLY: from Address =3.0.0.0:0 
+REPLY: temp_key = 0Z6qf
+Reply message to the Coordinator
+REPLY: msg->success = 1
+REPLY: cmdtb->getTrans(temp_key) = 2
+
+par->getcurrtime() = 152
+cmdtb->getTransTimestamp(temp_key) = -1
+Checking the quorum
+REPLY: temp_failure = 1
+REPLY: temp_success = -1
+REPLY: message = 23::3:0::4::1
+msg->transID = 23
+REPLY: this node address =3.0.0.0:0 
+REPLY: from Address =3.0.0.0:0 
+REPLY: temp_key = 0Z6qf
+Reply message to the Coordinator
+REPLY: msg->success = 1
+REPLY: cmdtb->getTrans(temp_key) = 2
+
+par->getcurrtime() = 152
+cmdtb->getTransTimestamp(temp_key) = -1
+Checking the quorum
+REPLY: temp_failure = 2
+REPLY: temp_success = -1
+REPLY: message = 24::3:0::4::1
+msg->transID = 24
+REPLY: this node address =3.0.0.0:0 
+REPLY: from Address =3.0.0.0:0 
+REPLY: temp_key = 0Z6qf
+Reply message to the Coordinator
+REPLY: msg->success = 1
+REPLY: cmdtb->getTrans(temp_key) = 2
+
+par->getcurrtime() = 152
+cmdtb->getTransTimestamp(temp_key) = -1
+Checking the quorum
+REPLY: temp_failure = 3
+REPLY: temp_success = -1
+REPLY: message = 27::3:0::4::1
+msg->transID = 27
+REPLY: this node address =3.0.0.0:0 
+REPLY: from Address =3.0.0.0:0 
+REPLY: temp_key = 0Z6qf
+Reply message to the Coordinator
+REPLY: msg->success = 1
+REPLY: cmdtb->getTrans(temp_key) = 2
+
+par->getcurrtime() = 152
+cmdtb->getTransTimestamp(temp_key) = -1
+Checking the quorum
+REPLY: temp_failure = 4
+REPLY: temp_success = -1
+REPLY: message = 31::3:0::4::1
+msg->transID = 31
+REPLY: this node address =3.0.0.0:0 
+REPLY: from Address =3.0.0.0:0 
+REPLY: temp_key = 0Z6qf
+Reply message to the Coordinator
+REPLY: msg->success = 1
+REPLY: cmdtb->getTrans(temp_key) = 2
+
+par->getcurrtime() = 152
+cmdtb->getTransTimestamp(temp_key) = -1
+Checking the quorum
+REPLY: temp_failure = 5
+REPLY: temp_success = -1
+REPLY: message = 9::7:0::4::1
+msg->transID = 9
+REPLY: this node address =3.0.0.0:0 
+REPLY: from Address =7.0.0.0:0 
+REPLY: temp_key = 0Z6qf
+Reply message to the Coordinator
+REPLY: msg->success = 1
+REPLY: cmdtb->getTrans(temp_key) = 2
+
+par->getcurrtime() = 152
+cmdtb->getTransTimestamp(temp_key) = -1
+Checking the quorum
+REPLY: temp_failure = 6
+REPLY: temp_success = -1
+REPLY: message = 9::8:0::4::1
+msg->transID = 9
+REPLY: this node address =3.0.0.0:0 
+REPLY: from Address =8.0.0.0:0 
+REPLY: temp_key = 0Z6qf
+Reply message to the Coordinator
+REPLY: msg->success = 1
+REPLY: cmdtb->getTrans(temp_key) = 2
+
+par->getcurrtime() = 152
+cmdtb->getTransTimestamp(temp_key) = -1
+Checking the quorum
+REPLY: temp_failure = 7
+REPLY: temp_success = -1
+REPLY: message = 31::9:0::4::1
+msg->transID = 31
+REPLY: this node address =3.0.0.0:0 
+REPLY: from Address =9.0.0.0:0 
+REPLY: temp_key = 0Z6qf
+Reply message to the Coordinator
+REPLY: msg->success = 1
+REPLY: cmdtb->getTrans(temp_key) = 2
+
+par->getcurrtime() = 152
+cmdtb->getTransTimestamp(temp_key) = -1
+Checking the quorum
+REPLY: temp_failure = 8
+REPLY: temp_success = -1
+REPLY: message = 27::9:0::4::1
+msg->transID = 27
+REPLY: this node address =3.0.0.0:0 
+REPLY: from Address =9.0.0.0:0 
+REPLY: temp_key = 0Z6qf
+Reply message to the Coordinator
+REPLY: msg->success = 1
+REPLY: cmdtb->getTrans(temp_key) = 2
+
+par->getcurrtime() = 152
+cmdtb->getTransTimestamp(temp_key) = -1
+Checking the quorum
+REPLY: temp_failure = 9
+REPLY: temp_success = -1
+REPLY: message = 23::9:0::4::1
+msg->transID = 23
+REPLY: this node address =3.0.0.0:0 
+REPLY: from Address =9.0.0.0:0 
+REPLY: temp_key = 0Z6qf
+Reply message to the Coordinator
+REPLY: msg->success = 1
+REPLY: cmdtb->getTrans(temp_key) = 2
+
+par->getcurrtime() = 152
+cmdtb->getTransTimestamp(temp_key) = -1
+Checking the quorum
+REPLY: temp_failure = 10
+REPLY: temp_success = -1
+REPLY: message = 24::9:0::4::1
+msg->transID = 24
+REPLY: this node address =3.0.0.0:0 
+REPLY: from Address =9.0.0.0:0 
+REPLY: temp_key = 0Z6qf
+Reply message to the Coordinator
+REPLY: msg->success = 1
+REPLY: cmdtb->getTrans(temp_key) = 2
+
+par->getcurrtime() = 152
+cmdtb->getTransTimestamp(temp_key) = -1
+Checking the quorum
+REPLY: temp_failure = 11
+REPLY: temp_success = -1
+REPLY: message = 23::10:0::4::1
+msg->transID = 23
+REPLY: this node address =3.0.0.0:0 
+REPLY: from Address =10.0.0.0:0 
+REPLY: temp_key = 0Z6qf
+Reply message to the Coordinator
+REPLY: msg->success = 1
+REPLY: cmdtb->getTrans(temp_key) = 2
+
+par->getcurrtime() = 152
+cmdtb->getTransTimestamp(temp_key) = -1
+Checking the quorum
+REPLY: temp_failure = 12
+REPLY: temp_success = -1
+REPLY: message = 27::10:0::4::1
+msg->transID = 27
+REPLY: this node address =3.0.0.0:0 
+REPLY: from Address =10.0.0.0:0 
+REPLY: temp_key = 0Z6qf
+Reply message to the Coordinator
+REPLY: msg->success = 1
+REPLY: cmdtb->getTrans(temp_key) = 2
+
+par->getcurrtime() = 152
+cmdtb->getTransTimestamp(temp_key) = -1
+Checking the quorum
+REPLY: temp_failure = 13
+REPLY: temp_success = -1
+REPLY: message = 31::10:0::4::1
+msg->transID = 31
+REPLY: this node address =3.0.0.0:0 
+REPLY: from Address =10.0.0.0:0 
+REPLY: temp_key = 0Z6qf
+Reply message to the Coordinator
+REPLY: msg->success = 1
+REPLY: cmdtb->getTrans(temp_key) = 2
+
+par->getcurrtime() = 152
+cmdtb->getTransTimestamp(temp_key) = -1
+Checking the quorum
+REPLY: temp_failure = 14
+REPLY: temp_success = -1
+REPLY: message = 24::10:0::4::1
+msg->transID = 24
+REPLY: this node address =3.0.0.0:0 
+REPLY: from Address =10.0.0.0:0 
+REPLY: temp_key = 0Z6qf
+Reply message to the Coordinator
+REPLY: msg->success = 1
+REPLY: cmdtb->getTrans(temp_key) = 2
+
+par->getcurrtime() = 152
+cmdtb->getTransTimestamp(temp_key) = -1
+Checking the quorum
+REPLY: temp_failure = 15
+REPLY: temp_success = -1
+REPLY: message = 42::2:0::4::1
+msg->transID = 42
+REPLY: this node address =2.0.0.0:0 
+REPLY: from Address =2.0.0.0:0 
+REPLY: temp_key = 1vS2o
+Reply message to the Coordinator
+REPLY: msg->success = 1
+REPLY: cmdtb->getTrans(temp_key) = 2
+
+par->getcurrtime() = 152
+cmdtb->getTransTimestamp(temp_key) = -1
+Checking the quorum
+REPLY: temp_failure = 1
+REPLY: temp_success = -1
+REPLY: message = 42::9:0::4::1
+msg->transID = 42
+REPLY: this node address =2.0.0.0:0 
+REPLY: from Address =9.0.0.0:0 
+REPLY: temp_key = 1vS2o
+Reply message to the Coordinator
+REPLY: msg->success = 1
+REPLY: cmdtb->getTrans(temp_key) = 2
+
+par->getcurrtime() = 152
+cmdtb->getTransTimestamp(temp_key) = -1
+Checking the quorum
+REPLY: temp_failure = 2
+REPLY: temp_success = -1
+REPLY: message = 42::10:0::4::1
+msg->transID = 42
+REPLY: this node address =2.0.0.0:0 
+REPLY: from Address =10.0.0.0:0 
+REPLY: temp_key = 1vS2o
+Reply message to the Coordinator
+REPLY: msg->success = 1
+REPLY: cmdtb->getTrans(temp_key) = 2
+
+par->getcurrtime() = 152
+cmdtb->getTransTimestamp(temp_key) = -1
+Checking the quorum
+REPLY: temp_failure = 3
+REPLY: temp_success = -1
+Starting CleanUp

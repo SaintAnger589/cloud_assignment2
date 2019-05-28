@@ -74,6 +74,7 @@ public:
 	void deleteTest();
 	void readTest();
 	void updateTest();
+	void printAddress(Address *addr);
 };
 
 #endif /* _APPLICATION_H__ */

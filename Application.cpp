@@ -485,7 +485,7 @@ void Application::deleteTest() {
 	string invalidKey = "invalidKey";
 	// Step 2.a. Find a node that is alive
 	number = findARandomNodeThatIsAlive();
-
+	
 	// Step 2.b. Issue a delete operation
 	log->LOG(&mp2[number]->getMemberNode()->addr, "DELETE OPERATION KEY: %s at time: %d", invalidKey.c_str(), par->getcurrtime());
 	mp2[number]->clientDelete(invalidKey);
@@ -735,6 +735,12 @@ void Application::readTest() {
 
 }
 
+void Application::printAddress(Address *addr)
+{
+    printf("%d.%d.%d.%d:%d \n",  addr->addr[0],addr->addr[1],addr->addr[2],
+                                                       addr->addr[3], *(short*)&addr->addr[4]) ;
+}
+
 /**
  * FUNCTION NAME: updateTest
  *
@@ -761,6 +767,12 @@ void Application::updateTest() {
 
 		// Step 1.b Do a update operation
 		cout<<endl<<"Updating a valid key.... ... .. . ."<<endl;
+		//printting addresses
+		Address *tempAddr = &mp2[number]->getMemberNode()->addr;
+		cout<<"Application: address = ";
+		printAddress(tempAddr);
+		//cout<<"Application: key = "<<it->first.c_str()<<"\n";
+		cout<<"Application: newValue = "<<newValue.c_str()<<"\n";
 		log->LOG(&mp2[number]->getMemberNode()->addr, "UPDATE OPERATION KEY: %s VALUE: %s at time: %d", it->first.c_str(), newValue.c_str(), par->getcurrtime());
 		mp2[number]->clientUpdate(it->first, newValue);
 	}
