@@ -23,37 +23,28 @@ class CommandTable {
 private:
   Params *par;
 public:
-  map<string, int> transID_key_map;
-	map<string, MessageType> tran_performed;
-  map<string, int> success_calc;
-  map<string, int> failure_calc;
-  map<string, int> trans_timestamp;
+  map<int, transaction_performed*> transID_map;
+
+  typedef struct transaction_performed{
+    MessageType type;
+    int timestamp;
+    string key;
+  } transaction_performed;
 
   //public
   CommandTable(Params *par);
   /*
   * get function
   */
-  int getTransId(string key);
-  string getKeyFromId(int id);
-  MessageType getTrans(string key);
-  int getTransTimestamp(string key);
-  int getsuccessCount(string key);
-  int getFailureCount(string key);
+  transaction_performed* getTrans(int transID);
   /*
   * set function
   */
-  bool setTransId(string key, int transID);
-  void setTrans(string key, MessageType type);
-  bool setsuccessCount(string key);
-  bool setFailureCount(string key);
+   void setTransTable(int transID, string key, MessageType type);
   /*
   * remove function
   */
-  bool removeTransId(string key);
-  bool removeTrans(string key);
-  bool removesuccessCount(string key);
-  bool removeFailureCount(string key);
+
   virtual ~CommandTable();
 };
 

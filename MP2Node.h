@@ -19,7 +19,6 @@
 #include "Message.h"
 #include "Queue.h"
 #include "Trace.h"
-#include "CommandTable.h"
 
 /**
  * CLASS NAME: MP2Node
@@ -53,8 +52,17 @@ private:
 	Trace *trace;
 	// Entry Object
 	Entry *entry;
-	//for logging the command and key transID map
-	CommandTable *cmdtb;
+
+	typedef struct transaction_performed{
+		MessageType type;
+		int timestamp;
+		string key;
+		string value;
+		int success_count;
+		int failure_count;
+	} transaction_performed;
+	map<int, transaction_performed*> transID_map;
+
 
 public:
 	MP2Node(Member *memberNode, Params *par, EmulNet *emulNet, Log *log, Address *addressOfMember);
@@ -92,14 +100,10 @@ public:
 	// stabilization protocol - handle multiple failures
 	void stabilizationProtocol();
 
-	//operator for the check
-	bool compareNode(vector<Node> &node1, vector<Node> &node2);
-
-	void checkTimeout(Message *msg);
-	bool check();
-
 	void printNode(vector<Node>&);
 	void printAddress(Address *addr);
+
+	int setTransTable(int transID, string key, MessageType type, string value);
 
 	~MP2Node();
 
@@ -108,65 +112,3 @@ public:
 
 
 #endif /* MP2NODE_H_ */
-
-
-// #ifndef COMMANTABLE_H_
-// #define COMMANTABLE_H_
-// /**
-//  * Header files
-//  */
-// #include "stdincludes.h"
-// #include "Params.h"
-// #include "Trace.h"
-// #include "Message.h"
-
-
-// /**
-//  * CLASS NAME: CommandTable
-//  *
-//  * DESCRIPTION: This class encapsulates the mapping for the transId
-//                 and key for each node:
-//  * 				1) mapping of the transId and key
-//  * 				2) Each Transaction performed on the node for each transID
-//  */
-//
-// class CommandTable {
-// private:
-//   Params *par;
-// public:
-//   map<string, int> transID_key_map;
-// 	map<string, MessageType> tran_performed;
-//   map<string, int> success_calc;
-//   map<string, int> failure_calc;
-//   map<string, int> trans_timestamp;
-//
-//   //public
-//   CommandTable(Params *par);
-//   /*
-//   * get function
-//   */
-//   int getTransId(string key);
-//   string getKeyFromId(int id);
-//   MessageType getTrans(string key);
-//   int getTransTimestamp(string key);
-//   int getsuccessCount(string key);
-//   int getFailureCount(string key);
-//   /*
-//   * set function
-//   */
-//   bool setTransId(string key, int transID);
-//   void setTrans(string key, MessageType type);
-//   bool setsuccessCount(string key);
-//   bool setFailureCount(string key);
-//   /*
-//   * remove function
-//   */
-//   bool removeTransId(string key);
-//   bool removeTrans(string key);
-//   bool removesuccessCount(string key);
-//   bool removeFailureCount(string key);
-//   virtual ~CommandTable();
-// };
-//
-//
-// #endif /* COMMANTABLE_H_ */

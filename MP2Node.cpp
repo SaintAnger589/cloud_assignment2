@@ -18,8 +18,6 @@ MP2Node::MP2Node(Member *memberNode, Params *par, EmulNet * emulNet, Log * log, 
 	//trace creation
 	this->trace = new Trace();
 	this->trace->traceFileCreate();
-	this->cmdtb = new CommandTable(par);
-	int dbg_cnt = 0;
 }
 
 /**
@@ -28,7 +26,6 @@ MP2Node::MP2Node(Member *memberNode, Params *par, EmulNet * emulNet, Log * log, 
 MP2Node::~MP2Node() {
 	delete ht;
 	delete memberNode;
-	delete cmdtb;
 	this->trace->traceFileClose();
 }
 
@@ -135,6 +132,20 @@ size_t MP2Node::hashFunction(string key) {
 	return ret%RING_SIZE;
 }
 
+int MP2Node::setTransTable(int transID, string key, MessageType type, string value){
+	int id = transID;
+	auto tp = new transaction_performed{
+		type          : type,
+    timestamp     : par->getcurrtime(),
+		key           : key,
+		value         : value,
+		success_count : 0,
+		failure_count : 0
+	};
+	transID_map.emplace(id, tp);
+	g_transID++;
+	return id;
+}
 /**
  * FUNCTION NAME: clientCreate
  *
@@ -151,31 +162,21 @@ void MP2Node::clientCreate(string key, string value) {
 		//tracing this function
 	this->trace->funcEntry("clientCreate");
 
-	cmdtb->setTransId(key, g_transID);
+	//creating entry in the transactionTable
+	int id;
+	id = setTransTable(g_transID, key, CREATE, value);
 
 	bool res = createKeyValue(key, value, PRIMARY);
 	//logging the value1
-	this->log->logCreateSuccess(&memberNode->addr, true, g_transID, key, value);
-	cout<<"clientCreate: setting trans_d = "<<cmdtb->getTransId(key)<<" to key = "<<key<<"\n";
-
-	Address *tempAddr = &this->memberNode->addr;
-	cout<<"clientCreate: This Node = ";
-	printAddress(tempAddr);
-
+	this->log->logCreateSuccess(&memberNode->addr, true, id, key, value);
 	hasMyReplicas = findNodes(key);
-    //construct the createmessage
-		int temp_count = 0;
-
-		for(Node node: hasMyReplicas){
-		  cout<<"clientCreate: Replica in vector = ";
-			tempAddr = &node.nodeAddress;
-			printAddress(tempAddr);
-    Message *newcreatemsg = new Message(g_transID, this->memberNode->addr, CREATE, key, value, ReplicaType(temp_count++));
-		//g_transID++;
-    	tempAddr = &node.nodeAddress;
-      emulNet->ENsend(&memberNode->addr, tempAddr, (char *)newcreatemsg, sizeof(Message));
-    }
-		g_transID++;
+	int temp_count = 0;
+	Address *tempAddr;
+	for(Node node: hasMyReplicas){
+    Message *newcreatemsg = new Message(id, this->memberNode->addr, CREATE, key, value, ReplicaType(temp_count++));
+    tempAddr = &node.nodeAddress;
+    emulNet->ENsend(&memberNode->addr, tempAddr, (char *)newcreatemsg, sizeof(Message));
+  }
 }
 
 /**
@@ -191,26 +192,14 @@ void MP2Node::clientRead(string key){
 	/*
 	 * Implement this
 	 */
-	 cout<<"thisNode = ";
-	 Address *tempAddr = &memberNode->addr;
-	 printAddress(tempAddr);
-	 cout<<"inside clientRead\n";
-	 cout<<"clientRead: key = "<<key<<"\n";
-	 int transaction_id = cmdtb->getTransId(key);
-	 cout<<"clientRead: transaction_id = "<<transaction_id<<"\n";
-	 if ( transaction_id != -1 ){
-		 cout<<"Sending the READ message\n";
-    Message *newcreatemsg = new Message(transaction_id, this->memberNode->addr, READ, key);
-		cmdtb->setTrans(key, READ);
-		//Finds the replicas of the key
-    hasMyReplicas = findNodes(key);
-		//printNode(hasMyReplicas);
-    //sends a message to the replicas
-    for(Node node: hasMyReplicas){
-    	Address *tempAddr = &node.nodeAddress;
-      emulNet->ENsend(&memberNode->addr, tempAddr, (char *)newcreatemsg, sizeof(Message));
-    }
-	}
+	 int id = setTransTable(g_transID, key, READ, "");
+   Message *newcreatemsg = new Message(id, this->memberNode->addr, READ, key);
+	 //Finds the replicas of the key
+   hasMyReplicas = findNodes(key);
+	 for(Node node: hasMyReplicas){
+     Address *tempAddr = &node.nodeAddress;
+     emulNet->ENsend(&memberNode->addr, tempAddr, (char *)newcreatemsg, sizeof(Message));
+   }
 }
 
 /**
@@ -226,34 +215,14 @@ void MP2Node::clientUpdate(string key, string value){
 	/*
 	 * Implement this
 	 */
-	   cout<<"thisNode = ";
-		 Address *tempAddr = &memberNode->addr;
-		 printAddress(tempAddr);
-	   cout<<"clientUpdate: coordinator client\n";
-     int transaction_id = cmdtb->getTransId(key);
-		 cout<<"clientUpdate: transID to search = "<<transaction_id<<"\n";
-		 cout<<"clientUpdate: key to search = "<<key<<"\n";
-
-			if ( transaction_id != -1 ){
-
-				Message *newcreatemsg = new Message(transaction_id, this->memberNode->addr, UPDATE, key, value);
-				cmdtb->setTrans(key, UPDATE);
-
-				int msgSize = sizeof(MessageType) //message type = UPDATE
-		                  + 2*sizeof(string)  //key, value
-		                  + sizeof(Address)   //address
-		                  + sizeof(int);      //transID
-		    //Finds the replicas of the key
-		    //vector<Node> repNode;
-		    hasMyReplicas = findNodes(key);
-		    for(Node node: hasMyReplicas){
-		    	Address *tempAddr = &node.nodeAddress;
-		      emulNet->ENsend(&memberNode->addr, tempAddr, (char *)newcreatemsg, msgSize);
-		    }
-			} else {
-				//key not found
-				this->log->logUpdateFail(&memberNode->addr, true, transaction_id, key, value);
-			}
+	 int id = setTransTable(g_transID, key, UPDATE, value);
+	 int replica_count = 0;
+	 hasMyReplicas = findNodes(key);
+	 for(Node node: hasMyReplicas){
+		 Message *newcreatemsg = new Message(id, this->memberNode->addr, UPDATE, key, value, ReplicaType(replica_count++));
+	   Address *tempAddr = &node.nodeAddress;
+		 emulNet->ENsend(&memberNode->addr, tempAddr, (char *)newcreatemsg, sizeof(Message));
+	 }
 }
 
 /**
@@ -269,29 +238,15 @@ void MP2Node::clientDelete(string key){
 	/*
 	 * Implement this
 	 */
-	 cout<<"thisNode = ";
-	 Address *tempAddr = &memberNode->addr;
-	 printAddress(tempAddr);
-	 int transaction_id = cmdtb->getTransId(key);
-	 cout<<"clientDelete: transID to search = "<<transaction_id<<"\n";
-	 cout<<"clientDelete: key to search = "<<key<<"\n";
-	 cout<<"\n";
-	 //delete the key from the coordinatorAddr
-	 //int dbg_cnt = 0;
-	 if ( transaction_id != -1 ){
-		 //dbg_cnt++;
-		 //this->log->logDeleteSuccess(&memberNode->addr, false, transaction_id, key);
-		 //this->deletekey(key);
-	   Message *newcreatemsg = new Message(transaction_id, this->memberNode->addr, DELETE, key);
-		 cmdtb->setTrans(key, DELETE);
-     hasMyReplicas = findNodes(key);
-     for(Node node: hasMyReplicas){
-    	 Address *tempAddr = &node.nodeAddress;
-       emulNet->ENsend(&memberNode->addr, tempAddr, (char *)newcreatemsg, sizeof(Message));
-     }
-	 } else { // if ( transaction_id != -1 )
-		 //this->log->logDeleteFail()
-	}
+
+	 //create the transactionTable
+	 int id = setTransTable(g_transID, key, DELETE, "");
+	 Message *newcreatemsg = new Message(id, this->memberNode->addr, DELETE, key);
+   hasMyReplicas = findNodes(key);
+   for(Node node: hasMyReplicas){
+     Address *tempAddr = &node.nodeAddress;
+     emulNet->ENsend(&memberNode->addr, tempAddr, (char *)newcreatemsg, sizeof(Message));
+  }
 }
 
 /**
@@ -307,10 +262,6 @@ bool MP2Node::createKeyValue(string key, string value, ReplicaType replica) {
 	 * Implement this
 	 */
 	// Insert key, value, replicaType into the hash table
-  //this->trace->funcEntry("createKeyValue");
-	//cout<<"creating entry for node =";
-	//Address *tempAddr = &this->memberNode->addr;
-	//printAddress(tempAddr);
 	bool res = ht->create(key, value);
 	if (res){
 	  this->entry = new Entry(value, par->getcurrtime(), replica);
@@ -393,9 +344,6 @@ void MP2Node::checkMessages() {
 	char * data;
 	int size;
 	this->trace->funcEntry("checkMessages");
-	map <int, int> success_calc; //for transID, count
-	map <int, int> failure_calc; //for transID, count
-
 	/*
 	 * Declare your local variables here
 	 */
@@ -418,262 +366,172 @@ void MP2Node::checkMessages() {
 		/*
 		 * Handle the message types here
 		 */
-		 bool is_coodinator = ((msg->fromAddr == memberNode->addr));
-		 //cout<<"This is coordinator = "<<is_coodinator<<"\n";
-		 string read_message;
-		 switch(msg->type){
-			 case CREATE:{
-
-				bool res = false;
-				//if (!(this->getMemberNode()->bFailed)){
-					//cout<<"memberNode = ";
-					Address *tempAddr = &memberNode->addr;
-					//printAddress(tempAddr);
-					//cout<<"CREATE: msg->key = "<<msg->key<<" trans_id = "<<msg->transID<<"\n";
-					cmdtb->setTransId(msg->key, msg->transID);
-				  res = createKeyValue(msg->key, msg->value, msg->replica);
-				//}
+		bool is_coodinator = ((msg->fromAddr == memberNode->addr));
+		//cout<<"This is coordinator = "<<is_coodinator<<"\n";
+		string read_message;
+		switch(msg->type){
+		  case CREATE:{
+			  bool res = false;
+				Address *tempAddr = &memberNode->addr;
+				res = createKeyValue(msg->key, msg->value, msg->replica);
 				if (is_coodinator){
-					if (res){
-						//this->hasMyReplicas = findNodes(msg->key);
+				  if (res){
 					  this->log->logCreateSuccess(&memberNode->addr, true, msg->transID, msg->key, msg->value);
-					} else {
-						this->log->logCreateFail(&memberNode->addr, true, msg->transID, msg->key, msg->value);
+				  } else {
+					  this->log->logCreateFail(&memberNode->addr, true, msg->transID, msg->key, msg->value);
 					}
 				} else {
-					if (res){
-						  //this->haveReplicasOf = findNodes(msg->key);
-							this->log->logCreateSuccess(&memberNode->addr, false, msg->transID, msg->key, msg->value);
+				  if (res){
+						this->log->logCreateSuccess(&memberNode->addr, false, msg->transID, msg->key, msg->value);
 					} else {
 						  this->log->logCreateFail(&memberNode->addr, false, msg->transID, msg->key, msg->value);
 					}
-				}
-		   }
-		   break;
-			 case READ:{
-			 	string tempstr = msg->toString();
+			  }
+		  }
+		  break;
+			case READ:{
+			  string tempstr = msg->toString();
 				cout<<"READ: message = "<<tempstr<<"\n";
 				read_message = readKey(msg->key);
 				cout<<"READ: Read message = "<<read_message<<"\n";
-
 				if (read_message != ""){
-					  Message *newcreatemsg = new Message(msg->transID, memberNode->addr, REPLY, true);
-					  cout<<"READ: newcreatemsg = "<<newcreatemsg->toString()<<"\n";
-						emulNet->ENsend(&memberNode->addr, &msg->fromAddr, (char *)newcreatemsg, sizeof(Message));
-					} else {
-						Message *newcreatemsg = new Message(msg->transID, this->memberNode->addr, REPLY, false);
-						emulNet->ENsend(&memberNode->addr, &msg->fromAddr, (char *)newcreatemsg, sizeof(Message));
-					}
-
-		   }
-			 break;
-			 case UPDATE:
-			 {
-			   cout<<"UPDATE: msg->key = "<<msg->key<<"\n";
-				 int transaction_id = cmdtb->getTransId(msg->key);
-
-				 cout<<"UPDATE: transaction_id = "<<transaction_id<<"\n";
-				 //cout<<"size of haveReplicasOf = "<<haveReplicasOf.size()<<"\n";
-				 if (transaction_id != -1){
-					 cmdtb->setTrans(msg->key, UPDATE);
-					 cout<<"UPDATE: message present, sending Success REPLY\n";
-					 Message *newcreatemsg = new Message(transaction_id, this->memberNode->addr, REPLY, true);
-					 cout<<"UPDATE: message = "<<newcreatemsg->toString()<<"\n";
-					 //cout<<"UPDATE: msgSize = "<<msgSize<<"\n";
-					 cout<<"Sending REPLY to address = ";
-					 Address *tempAddr = &msg->fromAddr;
-					 printAddress(tempAddr);
-					 cout<<"UPDATE: sending success as = "<<newcreatemsg->success<<"\n";
-					 emulNet->ENsend(&memberNode->addr,tempAddr,(char *)newcreatemsg, sizeof(Message));
-				 } else{
-					 cout<<"UPDATE: message absent, sending Failure REPLY\n";
-					 Message *newcreatemsg = new Message(transaction_id, this->memberNode->addr, REPLY, false);
-					 Address *tempAddr = &msg->fromAddr;
-					 emulNet->ENsend(&memberNode->addr, tempAddr, (char *)newcreatemsg, sizeof(Message));
+					 //send READREPLY
+					 Message *newcreatemsg = new Message(msg->transID, memberNode->addr, read_message);
+					 cout<<"READ: newcreatemsg = "<<newcreatemsg->toString()<<"\n";
+					 newcreatemsg->success = 1;
+					 this->log->logReadSuccess(&msg->fromAddr, false, msg->transID, msg->key, msg->value);
+					 emulNet->ENsend(&memberNode->addr, &msg->fromAddr, (char *)newcreatemsg, sizeof(Message));
+				} else {
+				  //send fail ReadReply
+					Message *newcreatemsg = new Message(msg->transID, this->memberNode->addr, read_message);
+					newcreatemsg->success = 0;
+					this->log->logReadFail(&msg->fromAddr, false, msg->transID, msg->key);
+					emulNet->ENsend(&memberNode->addr, &msg->fromAddr, (char *)newcreatemsg, sizeof(Message));
 				}
-			 } //case UPDATE
-			 break;
-			 case DELETE:
-			 {
-				 cout<<"DELETE: msg->key = "<<msg->key<<"\n";
-
-				 int transaction_id = cmdtb->getTransId(msg->key);
-				 //cout<<"DELETE: transaction_id = "<<transaction_id<<"\n";
-
-				 if (transaction_id != -1){
-					 //deleting the keys
-					 this->deletekey(msg->key);
-					 cmdtb->setTrans(msg->key, DELETE);
-					 //this->log->logDeleteSuccess(&memberNode->addr, false, transaction_id, msg->key);
-					 //sending the reply message
-					 Message *newcreatemsg = new Message(transaction_id, this->memberNode->addr, REPLY, true);
-					 Address *tempAddr = &msg->fromAddr;
-					 cout<<"sending REPLY to=";
-					 printAddress(tempAddr);
-					 cout<<"\n";
-					 //cout<<"DELETE: sending success as = "<<newcreatemsg->success<<"\n";
-					 emulNet->ENsend(&memberNode->addr,tempAddr,(char *)newcreatemsg, sizeof(Message));
-				 } else {
-					 cout<<"DELETE: message absent, sending Failure REPLY\n";
-					 //this->log->logDeleteFail(&memberNode->addr, false, transaction_id, msg->key);
+		  }
+			break;
+			case UPDATE:
+			{
+			  //try updating the key in this node
+				int res_update = updateKeyValue(msg->key, msg->value, msg->replica);
+				if (res_update){
+				  Message *newcreatemsg = new Message(msg->transID, this->memberNode->addr, REPLY, true);
+					cout<<"UPDATE: message = "<<newcreatemsg->toString()<<"\n";
+					Address *tempAddr = &msg->fromAddr;
+					emulNet->ENsend(&memberNode->addr,tempAddr,(char *)newcreatemsg, sizeof(Message));
+				 } else{
+				   cout<<"UPDATE: message absent, sending Failure REPLY\n";
 					 Message *newcreatemsg = new Message(msg->transID, this->memberNode->addr, REPLY, false);
 					 Address *tempAddr = &msg->fromAddr;
-					 emulNet->ENsend(&memberNode->addr, tempAddr, (char *)newcreatemsg, sizeof(Message));
+				   emulNet->ENsend(&memberNode->addr, tempAddr, (char *)newcreatemsg, sizeof(Message));
 				 }
-			 }
-			 break;
-			 case REPLY:
-			 {
-				 //check timeOutCounter at the coordinatorAddr
-				 //this->checkTimeout(msg);
-				 //cout<<"REPLY: dbg_cnt = "<<dbg_cnt<<"\n";
-				 cout<<"REPLY: message = "<<msg->toString()<<"\n";
-				 cout<<"msg->transID = "<<msg->transID<<"\n";
-				 Address *tempAddr = &this->memberNode->addr;
-         cout<<"REPLY: this node address =";
-			   printAddress(tempAddr);
-				 tempAddr = &msg->fromAddr;
-				 cout<<"REPLY: from Address =";
-				 printAddress(tempAddr);
-				 string temp_key = cmdtb->getKeyFromId(msg->transID);
-				 cout<<"REPLY: temp_key = "<<temp_key<<"\n";
-
-			   cout<<"Reply message to the Coordinator\n";
-			   cout<<"REPLY: msg->success = "<<(msg->success)<<"\n";
-
-
-				 cout<<"REPLY: cmdtb->getTrans(temp_key) = "<<cmdtb->getTrans(temp_key)<<"\n";
-				 cout<<"\n";
-			   if (cmdtb->getTrans(temp_key) == UPDATE
-				   || cmdtb->getTrans(temp_key) == DELETE
-					 || cmdtb->getTrans(temp_key) == READ)
-			   {
-
-					 //no quorum for deleteTest
-					 // if (cmdtb->getTrans(temp_key) == DELETE){
-						//  cout<<"logging success of the delete\n";
-						// 	this->log->logDeleteSuccess(&memberNode->addr, true, msg->transID, temp_key);
-						// 	this->deletekey(temp_key);
-					 // }
-
-				   cout<<"par->getcurrtime() = "<<par->getcurrtime()<<"\n";
-				   cout<<"cmdtb->getTransTimestamp(temp_key) = "<<cmdtb->getTransTimestamp(temp_key)<<"\n";
-				   if (!msg->success || (par->getcurrtime() - cmdtb->getTransTimestamp(temp_key)) > 10){
-					 cmdtb->setFailureCount(temp_key);
-				 } else {
-					 cmdtb->setsuccessCount(temp_key);
-				 }
-
-				 //checking for quorum
-				 cout<<"Checking the quorum\n";
-				 int temp_failure = cmdtb->getFailureCount(temp_key);
-				 int temp_success = cmdtb->getsuccessCount(temp_key);
-				 cout<<"REPLY: temp_failure = "<<temp_failure<<"\n";
-				 cout<<"REPLY: temp_success = "<<temp_success<<"\n";
-
-				//no quorum check for deleteTest
-				if (cmdtb->getTrans(temp_key) == DELETE){
-					this->log->logDeleteSuccess(&memberNode->addr, true, msg->transID, temp_key);
-					this->deletekey(temp_key);
-					//client delete
-					this->log->logDeleteSuccess(&msg->fromAddr, false, msg->transID, temp_key);
+			} //case UPDATE
+			break;
+			case DELETE:
+			{
+			  cout<<"DELETE: msg->key = "<<msg->key<<"\n";
+				//deleting the keys
+				bool res_del = this->deletekey(msg->key);
+				if (res_del){
+				  //sending the reply message
+					Message *newcreatemsg = new Message(msg->transID, this->memberNode->addr, REPLY, true);
+					Address *tempAddr = &msg->fromAddr;
+					emulNet->ENsend(&memberNode->addr,tempAddr,(char *)newcreatemsg, sizeof(Message));
+				} else {
+				  cout<<"DELETE: message absent, sending Failure REPLY\n";
+					Message *newcreatemsg = new Message(msg->transID, this->memberNode->addr, REPLY, false);
+					Address *tempAddr = &msg->fromAddr;
+					emulNet->ENsend(&memberNode->addr, tempAddr, (char *)newcreatemsg, sizeof(Message));
 				}
+			}
+			break;
+			case REPLY:
+			{
+			  cout<<"REPLY: message = "<<msg->toString()<<"\n";
+				Address *tempAddr = &this->memberNode->addr;
+        cout<<"REPLY: this node address =";
+			  printAddress(tempAddr);
+				tempAddr = &msg->fromAddr;
+				cout<<"REPLY: from Address =";
+				printAddress(tempAddr);
+				cout<<"\n";
 
-				 if ((temp_failure + temp_success) >=2 || temp_success >= 2 || temp_failure >= 2){
-					 if (temp_success >= 2){
-						 //quorum received
-						 //sending READREPLY as success
-						 Message *newcreatemsg = new Message(msg->transID, this->memberNode->addr, msg->value);
-						 int msgSize =   sizeof(Address)
-														 + sizeof(int)
-														 + sizeof(string);
-
-						 //checking the transaction type and logging message
-						 cout<<"REPLY: cmdtb->getTrans(temp_key) = "<<cmdtb->getTrans(temp_key)<<"\n";
-						 switch(cmdtb->getTrans(temp_key)){
+				map<int, transaction_performed*>::iterator search;
+				search = transID_map.find(msg->transID);
+				if (!msg->success || par->getcurrtime() - search->second->timestamp > 10){
+					search->second->failure_count++;
+				} else {
+					if(msg->success){
+						search->second->success_count++;
+					}
+				}
+				//checking for quorum
+				cout<<"Checking the quorum\n";
+				if ((search->second->failure_count + search->second->success_count) >=2
+				    &&(search->second->success_count >= 2 || search->second->failure_count >= 2)) {
+							if (search->second->success_count >= 2){
+					  //quorum received
+						 switch(search->second->type){
 							 case UPDATE:
-								this->log->logUpdateSuccess(&memberNode->addr, true, msg->transID, temp_key, msg->value);
-								//client Fail
-								this->log->logUpdateSuccess(&msg->fromAddr, false, msg->transID, temp_key, msg->value);
-								this->updateKeyValue(temp_key, msg->value, msg->replica);
-								//sends a REPLY message to the replica
-							 emulNet->ENsend(&memberNode->addr, &msg->fromAddr, (char *)newcreatemsg, sizeof(Message));
-							 break;
-							 case READ:
-								 //no need to send the ReadReply. just log the success
-								 //coordinator logReadSuccess
-								 this->log->logReadSuccess(&memberNode->addr, true, msg->transID, temp_key, msg->value);
-								 //replica logReadSuccess
-								 this->log->logReadSuccess(&msg->fromAddr, false, msg->transID, temp_key, msg->value);
+								 this->log->logUpdateSuccess(&memberNode->addr, true, msg->transID, search->second->key, search->second->value);
+								 //client Fail
+								 this->log->logUpdateSuccess(&msg->fromAddr, false, msg->transID, search->second->key, search->second->value);
+								 this->updateKeyValue(msg->key, msg->value, msg->replica);
 							 break;
 							 case DELETE:
-							 cout<<"logging success of the delete\n";
-								// this->log->logDeleteSuccess(&memberNode->addr, true, msg->transID, temp_key);
-								// this->deletekey(temp_key);
-								// //client delete
-								// this->log->logDeleteSuccess(&msg->fromAddr, false, msg->transID, temp_key);
-								//sends a REPLY message to the coordinator
-							 //emulNet->ENsend(&memberNode->addr, &msg->fromAddr, (char *)newcreatemsg, sizeof(Message));
+							   cout<<"logging success of the delete\n";
+							   this->log->logDeleteSuccess(&memberNode->addr, true, msg->transID, search->second->key);
+		 					   //client delete
+		 					   this->log->logDeleteSuccess(&msg->fromAddr, false, msg->transID, search->second->key);
+								 this->deletekey(msg->key);
 							 break;
-
 						 }
 					 } else {
-						 //quorum Failed
-						 //no need to send message. just log the failures
-
-						 switch(cmdtb->getTrans(temp_key)){
-							 case UPDATE:
-								 //coordinator fail
-								 this->log->logUpdateFail(&memberNode->addr, true, msg->transID, temp_key, msg->value);
+					   //quorum Failed
+						 if (search->second->failure_count >= 2){
+						 switch(search->second->type){
+						   case UPDATE:
+						     //coordinator fail
+								 this->log->logUpdateFail(&memberNode->addr, true, msg->transID, search->second->key, search->second->value);
 								 //replica failed logging
-								 this->log->logUpdateFail(&msg->fromAddr, false, msg->transID, temp_key, msg->value);
+								 this->log->logUpdateFail(&msg->fromAddr, false, msg->transID, search->second->key, search->second->value);
 							 break;
-							 case READ:
-								 //coordinator failed
-								 this->log->logReadFail(&memberNode->addr, true, msg->transID, temp_key);
-								 //replica failed
-								 this->log->logReadFail(&msg->fromAddr, false, msg->transID, temp_key);
-							 break;
-
 							 case DELETE:
-								//coordinator fail
-								this->log->logDeleteFail(&memberNode->addr, true, msg->transID, temp_key);
-								//replica fail
-								this->log->logDeleteFail(&msg->fromAddr, false, msg->transID, temp_key);
+							   //coordinator fail
+								 this->log->logDeleteFail(&memberNode->addr, true, msg->transID, search->second->key);
+								 //replica fail
+								 this->log->logDeleteFail(&msg->fromAddr, false, msg->transID, search->second->key);
 							 break;
-
-							 }
-						 }
-					 } //if ((failure_calc.size() + success_calc.size()) == this->hasMyReplicas.size())
-			   }	//		 if (tran_performed[msg->transID] == UPDATE || tran_performed[msg->transID] == DELETE|| tran_performed[msg->transID] == READ)
-		   } //READ
+				     }
+					 }
+				   }
+				 }
+			 }	//REPLY
 			 break;
 			 case READREPLY:
-		   {
-			 cout<<"ReadReply from the coordinator to the REPLY\n";
-			 	if (msg->success){
-					//log and update according to the transaction tran_performed
-					switch(cmdtb->getTrans(msg->key)){
-						case UPDATE:
-						 this->log->logUpdateSuccess(&memberNode->addr, false, msg->transID, msg->key, msg->value);
-						 //void logUpdateSuccess(Address * address, bool isCoordinator, int transID, string key, string newValue);
-						 this->updateKeyValue(msg->key, msg->value, msg->replica);
-						break;
-						case READ:
-						 //this->log->logReadSuccess(&memberNode->addr, true, msg->transID, msg->key, msg->value);
-						break;
-						case DELETE:
-						 //this->log->logDeleteSuccess(&memberNode->addr, true, msg->transID, msg->key);
-						 this->deletekey(msg->key);
-						break;
+	     {
+			   cout<<"ReadReply from the coordinator to the REPLY\n";
+				 //check QUORUM
+				 map<int, transaction_performed*>::iterator search;
+				 search = transID_map.find(msg->transID);
+				 if (!msg->success || par->getcurrtime() - search->second->timestamp > 10){
+ 					search->second->failure_count++;
+ 				} else {
+ 					if(msg->success)
+ 					  search->second->success_count++;
+ 				}
+				if ((search->second->failure_count + search->second->success_count) >=2
+						|| search->second->success_count >= 2
+						|| search->second->failure_count >= 2) {
+					if (search->second->success_count >= 2){
+					//void logReadSuccess(Address * address, bool isCoordinator, int transID, string key, string value);
+						this->log->logReadSuccess(&msg->fromAddr, true, msg->transID, search->second->key, msg->value);
+					} else {
+						this->log->logReadFail(&msg->fromAddr, true, msg->transID, search->second->key);
 					}
-				} else{
 				}
-				cmdtb->removeTrans(msg->key);
-				cmdtb->removesuccessCount(msg->key);
-				cmdtb->removeFailureCount(msg->key);
-				break;
-		 } //ReadReply
+	       break;
+	     } //ReadReply
 	 } //switch
 
 	 this->trace->funcEntry("Leaving checkMessages");
@@ -684,20 +542,6 @@ void MP2Node::checkMessages() {
 	 * This function should also ensure all READ and UPDATE operation
 	 * get QUORUM replies
 	 */
-}
-
-void MP2Node::checkTimeout(Message *msg){
-	//check for timeouts
-	int tran_logged = cmdtb->getTransTimestamp(msg->key);
-	cout<<"checkMessages: tran_logged = "<<tran_logged<<"\n";
-	int current_time = par->getcurrtime();
-	if ((current_time - tran_logged) > 10 || tran_logged == -1){
-		int transaction_id = cmdtb->getTransId(msg->key);
-		//send REPLY to the coordinatorAddr
-		Message *newcreatemsg = new Message(transaction_id, this->memberNode->addr, REPLY, false);
-		Address *tempAddr = &msg->fromAddr;
-		emulNet->ENsend(&memberNode->addr, tempAddr, (char *)newcreatemsg, sizeof(Message));
-	}
 }
 
 /**
@@ -774,40 +618,10 @@ void MP2Node::stabilizationProtocol() {
 	 vector<Node>num_replicas;
 	 for (it = ht->hashTable.begin(); it != ht->hashTable.end();it++){
 		 num_replicas = findNodes(it->first);
-		 //get transID
-		 //put g_transID to 0 and begin again
-		 g_transID = 0;
-
-		 //int temp_transId = cmdtb->getTransId(it->first);
 		 for(auto replica: num_replicas){
-			 if (replica.nodeAddress == memberNode->addr){
-			 } else {
-				 //create a createmessage
-				 Message *newcreatemsg = new Message(g_transID, this->memberNode->addr, CREATE, it->first, it->second, this->entry->replica);
-					 //send create message to the node1
-					 emulNet->ENsend(&memberNode->addr, &replica.nodeAddress, (char *)newcreatemsg, sizeof(Message));
-			 }
-		 } //for each num_replicas
-		 //this->hasMyReplicas = num_replicas;
-		 g_transID++;
-	 } //each entry in hashtable
-
-
-}
-
-bool MP2Node::compareNode(vector<Node> &node1, vector<Node> &node2){
-	int len = node1.size();
-	int i;
-	for(i=0;i<len;i++){
-		if (node1[i].nodeAddress == node2[i].nodeAddress){
-
-		} else{
-			return false;
-		}
-	}
-	return true;
-}
-
-bool MP2Node::check(){
-	return true;
+			 Message *newcreatemsg = new Message(-1, this->memberNode->addr, CREATE, it->first, it->second);
+			 //send create message to the node1
+			 emulNet->ENsend(&memberNode->addr, &replica.nodeAddress, (char *)newcreatemsg, sizeof(Message));
+		 }
+	 } //for each num_replicas
 }
