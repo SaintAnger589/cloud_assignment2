@@ -60,6 +60,7 @@ private:
 		string value;
 		int success_count;
 		int failure_count;
+		int is_logged;
 	} transaction_performed;
 	map<int, transaction_performed*> transID_map;
 
