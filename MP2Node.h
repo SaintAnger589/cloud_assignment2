@@ -61,6 +61,7 @@ private:
 		int success_count;
 		int failure_count;
 		int is_logged;
+		vector<Address> timeoutNode;
 	} transaction_performed;
 	map<int, transaction_performed*> transID_map;
 

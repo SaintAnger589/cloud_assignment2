@@ -467,6 +467,7 @@ void MP2Node::checkMessages() {
 						search->second->failure_count++;
 					} else {
 						if(msg->success){
+							search->second->timeoutNode.push_back(msg->fromAddr);
 							search->second->success_count++;
 						}
 					}
@@ -482,10 +483,13 @@ void MP2Node::checkMessages() {
 								 //for each node set log
 								 hasMyReplicas = findNodes(search->second->key);
 								   for(Node node: hasMyReplicas){
+										 //find the timeout node1
  									   this->updateKeyValue(msg->key, msg->value, msg->replica);
 										 if (!search->second->is_logged){
 											   //server success message
-											   this->log->logUpdateSuccess(&node.nodeAddress, false, msg->transID, search->second->key, search->second->value);
+												 if (find(search->second->timeoutNode.begin(), search->second->timeoutNode.end(), node.nodeAddress) != search->second->timeoutNode.end()){
+													 this->log->logUpdateSuccess(&node.nodeAddress, false, msg->transID, search->second->key, search->second->value);
+												 }
 									   }
 									 }
 									 //coordinator successful
@@ -503,7 +507,9 @@ void MP2Node::checkMessages() {
 									   this->deletekey(search->second->key);
 										 if (!search->second->is_logged){
 										   //server delete
-											 this->log->logDeleteSuccess(&node.nodeAddress, false, msg->transID, search->second->key);
+											 //if (find(search->second->timeoutNode.begin(), search->second->timeoutNode.end(), node.nodeAddress) != search->second->timeoutNode.end()){
+												 this->log->logDeleteSuccess(&node.nodeAddress, false, msg->transID, search->second->key);
+											 //}
 										 }
 									 }
 									 if (!search->second->is_logged)
