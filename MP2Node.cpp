@@ -422,7 +422,7 @@ void MP2Node::checkMessages() {
 					emulNet->ENsend(&memberNode->addr,tempAddr,(char *)newcreatemsg, sizeof(Message));
 				 } else{
 				   cout<<"UPDATE: message absent, sending Failure REPLY\n";
-					 this->log->logUpdateFail(&memberNode->addr, false, msg->transID, msg->key, msg->value);
+					 //this->log->logUpdateFail(&memberNode->addr, false, msg->transID, msg->key, msg->value);
 					 Message *newcreatemsg = new Message(msg->transID, this->memberNode->addr, REPLY, false);
 					 Address *tempAddr = &msg->fromAddr;
 				   emulNet->ENsend(&memberNode->addr, tempAddr, (char *)newcreatemsg, sizeof(Message));
@@ -460,11 +460,15 @@ void MP2Node::checkMessages() {
 
 				map<int, transaction_performed*>::iterator search;
 				search = transID_map.find(msg->transID);
-				if (!msg->success || par->getcurrtime() - search->second->timestamp > 10){
+				if ((par->getcurrtime() - search->second->timestamp) > 10){
 					search->second->failure_count++;
 				} else {
-					if(msg->success){
-						search->second->success_count++;
+					if (!msg->success){
+						search->second->failure_count++;
+					} else {
+						if(msg->success){
+							search->second->success_count++;
+						}
 					}
 				}
 				//checking for quorum
@@ -477,36 +481,34 @@ void MP2Node::checkMessages() {
 							 case UPDATE:
 								 //for each node set log
 								 hasMyReplicas = findNodes(search->second->key);
-								 if (!search->second->is_logged){
-									 //setting is_logged for the transID
-									 search->second->is_logged = 1;
 								   for(Node node: hasMyReplicas){
-									   this->updateKeyValue(msg->key, msg->value, msg->replica);
-										   if (node.nodeAddress == memberNode->addr)
-									       this->log->logUpdateSuccess(&node.nodeAddress, true, msg->transID, search->second->key, search->second->value);
-										   else{
+ 									   this->updateKeyValue(msg->key, msg->value, msg->replica);
+										 if (!search->second->is_logged){
 											   //server success message
 											   this->log->logUpdateSuccess(&node.nodeAddress, false, msg->transID, search->second->key, search->second->value);
-										   }
 									   }
-								 }
+									 }
+									 //coordinator successful
+									 if (!search->second->is_logged)
+									   this->log->logUpdateSuccess(&memberNode->addr, true, msg->transID, search->second->key, search->second->value);
+									 search->second->is_logged = 1;
 							 break;
 							 case DELETE:
 							   cout<<"logging success of the delete\n";
 								 hasMyReplicas = findNodes(search->second->key);
-								 if (!search->second->is_logged){
-									 //setting is_logged
-									 search->second->is_logged = 1;
 								   for(Node node: hasMyReplicas){
+										 cout<<"Node Address = ";
+										 Address *tempAddr = &node.nodeAddress;
+										 printAddress(tempAddr);
 									   this->deletekey(search->second->key);
-										   if (node.nodeAddress == memberNode->addr)
-									       this->log->logDeleteSuccess(&node.nodeAddress, true, msg->transID, search->second->key);
-										   else {
-											   //server delete
-										     this->log->logDeleteSuccess(&node.nodeAddress, false, msg->transID, search->second->key);
-										   }
+										 if (!search->second->is_logged){
+										   //server delete
+											 this->log->logDeleteSuccess(&node.nodeAddress, false, msg->transID, search->second->key);
+										 }
 									 }
-								 }
+									 if (!search->second->is_logged)
+									   this->log->logDeleteSuccess(&memberNode->addr, true, msg->transID, search->second->key);
+									 search->second->is_logged = 1;
 							 break;
 						 }
 					 } else {
@@ -515,35 +517,28 @@ void MP2Node::checkMessages() {
 						 switch(search->second->type){
 						   case UPDATE:
 							   hasMyReplicas = findNodes(search->second->key);
-								 if (!search->second->is_logged){
-									 //setting is_logged
-									 search->second->is_logged = 1;
 							     for(Node node: hasMyReplicas){
-										 if (node.nodeAddress == memberNode->addr){
-											 //coordinator fail
-										   this->log->logUpdateFail(&node.nodeAddress, true, msg->transID, search->second->key, search->second->value);
-										 } else {
+										 if (!search->second->is_logged){
 											 //replica failed logging
-											 this->log->logUpdateFail(&node.nodeAddress, false, msg->transID, search->second->key, search->second->value);
-										 }
+											   this->log->logUpdateFail(&node.nodeAddress, false, msg->transID, search->second->key, search->second->value);
 									 }
 								 }
+								 //coordinator successful
+								 if (!search->second->is_logged)
+								   this->log->logUpdateFail(&memberNode->addr, true, msg->transID, search->second->key, search->second->value);
+								 search->second->is_logged = 1;
 							 break;
 							 case DELETE:
 							   hasMyReplicas = findNodes(search->second->key);
-								 if (!search->second->is_logged){
-									 //setting is_logged
-									 search->second->is_logged = 1;
-							     for(Node node: hasMyReplicas){
-										 if (node.nodeAddress == memberNode->addr){
-								       //coordinator fail
-									     this->log->logDeleteFail(&node.nodeAddress, true, msg->transID, search->second->key);
-										 } else {
-											 //replica fail
+								 for(Node node: hasMyReplicas){
+									 if (!search->second->is_logged){
+										 //replica fail
 										   this->log->logDeleteFail(&node.nodeAddress, false, msg->transID, search->second->key);
-										 }
 									 }
 								 }
+								 if (!search->second->is_logged)
+								   this->log->logDeleteFail(&memberNode->addr, true, msg->transID, search->second->key);
+								 search->second->is_logged = 1;
 							 break;
 				     } //switch(search->second->type)
 					 } //if (search->second->failure_count >= 2)
