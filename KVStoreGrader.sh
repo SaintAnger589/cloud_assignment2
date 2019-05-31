@@ -272,6 +272,9 @@ do
 		read_op_test3_part1_time="${time}"
 		read_op_test3_part1_key=`grep -i "${READ_OPERATION}" dbg.log | grep "${read_op_test3_part1_time}" | cut -d" " -f7`
 		read_op_test3_part1_value=`grep -i "${READ_OPERATION}" dbg.log | grep "${read_op_test3_part1_time}" | cut -d" " -f9`
+    echo "read_op_test3_part1_time $read_op_test3_part1_time"
+    echo "read_op_test3_part1_key $read_op_test3_part1_key"
+    echo "read_op_test3_part1_value $read_op_test3_part1_value"
 	elif [ ${cnt} -eq 4 ]
 	then
 		echo "TEST 3 PART 2: Read the key after allowing stabilization protocol to kick in. Check for correct value being read at least in quorum of replicas"
@@ -303,12 +306,17 @@ then
 	while read success
 	do
 		time_of_this_success=`echo "${success}" | cut -d" " -f2 | tr -s '[' ' ' | tr -s ']' ' '`
+    echo "time_of_this_success $time_of_this_success"
+    echo "read_op_test1_time $read_op_test1_time"
+    echo "read_op_test2_time $read_op_test2_time"
+    echo "read_op_test3_part1_time $read_op_test3_part1_time"
 		if [ "${time_of_this_success}" -ge "${read_op_test1_time}" -a "${time_of_this_success}" -lt "${read_op_test2_time}" ]
 		then
 			read_test1_success_count=`expr ${read_test1_success_count} + 1`
 		elif [ "${time_of_this_success}" -ge "${read_op_test2_time}" -a "${time_of_this_success}" -lt "${read_op_test3_part1_time}" ]
 		then
 			read_test2_success_count=`expr ${read_test2_success_count} + 1`
+      echo "read_test2_success_count $read_test2_success_count"
 		elif [ "${time_of_this_success}" -ge "${read_op_test3_part2_time}" -a "${time_of_this_success}" -lt "${read_op_test4_time}" ]
 		then
 			read_test3_part2_success_count=`expr ${read_test3_part2_success_count} + 1`
@@ -345,7 +353,8 @@ then
 		fi
 	done <<<"${read_fails}"
 fi
-
+echo "read_test3_part1_fail_count $read_test3_part1_fail_count"
+echo "read_test2_success_count $read_test2_success_count"
 if [ "${read_test1_success_count}" -eq "${QUORUMPLUSONE}" -o "${read_test1_success_count}" -eq "${RFPLUSONE}" ]
 then
 	READ_TEST1_STATUS="${SUCCESS}"
@@ -469,9 +478,6 @@ do
 		update_op_test1_time="${time}"
 		update_op_test1_key=`grep -i "${UPDATE_OPERATION}" dbg.log | grep "${update_op_test1_time}" | cut -d" " -f7`
 		update_op_test1_value=`grep -i "${UPDATE_OPERATION}" dbg.log | grep "${update_op_test1_time}" | cut -d" " -f9`
-    echo "update_op_test1_time = $update_op_test1_time"
-    echo "update_op_test1_key = $update_op_test1_key"
-    echo "update_op_test1_value = $update_op_test1_value"
 	elif [ ${cnt} -eq 2 ]
 	then
 		echo "TEST 2: Update a key after failing a replica. Check for correct value being updated at least in quorum of replicas"
@@ -484,6 +490,9 @@ do
 		update_op_test3_part1_time="${time}"
 		update_op_test3_part1_key=`grep -i "${UPDATE_OPERATION}" dbg.log | grep "${update_op_test3_part1_time}" | cut -d" " -f7`
 		update_op_test3_part1_value=`grep -i "${UPDATE_OPERATION}" dbg.log | grep "${update_op_test3_part1_time}" | cut -d" " -f9`
+    echo "update_op_test3_part1_time $update_op_test3_part1_time"
+    echo "update_op_test3_part1_key $update_op_test3_part1_key"
+    echo "update_op_test3_part1_value $update_op_test3_part1_value"
 	elif [ ${cnt} -eq 4 ]
 	then
 		echo "TEST 3 PART 2: Update the key after allowing stabilization protocol to kick in. Check for correct value being updated at least in quorum of replicas"
@@ -496,11 +505,14 @@ do
 		update_op_test4_time="${time}"
 		update_op_test4_key="${update_op_test1_key}"
 		update_op_test4_value="${update_op_test1_value}"
+
+    echo "update_op_test4_time $update_op_test4_time"
+    echo "update_op_test4_key $update_op_test4_key"
+    echo "update_op_test4_value $update_op_test4_value"
 	elif [ ${cnt} -eq 6 ]
 	then
 		echo "TEST 5: Attempt update of an invalid key"
 		update_op_test5_time="${time}"
-    echo "update_op_test5_time = $update_op_test5_time"
 	fi
 	cnt=$(( ${cnt} + 1 ))
 done
@@ -511,27 +523,28 @@ update_test3_part2_success_count=0
 update_test4_success_count=0
 
 update_successes=`grep -i "${UPDATE_SUCCESS}" dbg.log | grep ${update_op_test1_key} | grep ${update_op_test1_value} 2>/dev/null`
-echo "update_successes = $update_successes"
+#echo "update_successes = $update_successes"
 
 if [ "${update_successes}" ]
 then
 	while read success
 	do
 		time_of_this_success=`echo "${success}" | cut -d" " -f2 | tr -s '[' ' ' | tr -s ']' ' '`
-    echo "time_of_this_success = $time_of_this_success"
+    #echo "time_of_this_success = $time_of_this_success"
 		if [ "${time_of_this_success}" -ge "${update_op_test1_time}" -a "${time_of_this_success}" -lt "${update_op_test2_time}" ]
 		then
 			update_test1_success_count=`expr ${update_test1_success_count} + 1`
-      echo "update_test1_success_count = $update_test1_success_count"
 		elif [ "${time_of_this_success}" -ge "${update_op_test2_time}" -a "${time_of_this_success}" -lt "${update_op_test3_part1_time}" ]
 		then
 			update_test2_success_count=`expr ${update_test2_success_count} + 1`
+      echo "update_test2_success_count $update_test2_success_count"
 		elif [ "${time_of_this_success}" -ge "${update_op_test3_part2_time}" -a "${time_of_this_success}" -lt "${update_op_test4_time}" ]
 		then
 			update_test3_part2_success_count=`expr ${update_test3_part2_success_count} + 1`
 		elif [ "${time_of_this_success}" -ge "${update_op_test4_time}" ]
 		then
 			update_test4_success_count=`expr ${update_test4_success_count} + 1`
+      #echo "update_test4_success_count $update_test4_success_count"
 		fi
 	done <<<"${update_successes}"
 fi
@@ -540,14 +553,19 @@ update_test3_part1_fail_count=0
 update_test5_fail_count=0
 
 update_fails=`grep -i "${UPDATE_FAILURE}" dbg.log 2>/dev/null`
+echo "update_fails $update_fails"
 if [ "${update_fails}" ]
 then
 	while read fail
 	do
 		time_of_this_fail=`echo "${fail}" | cut -d" " -f2 | tr -s '[' ' ' | tr -s ']' ' '`
+    echo "time_of_this_fail $time_of_this_fail"
+    echo "update_op_test3_part1_time $update_op_test3_part1_time"
+    echo "update_op_test3_part2_time $update_op_test3_part2_time"
 		if [ "${time_of_this_fail}" -ge "${update_op_test3_part1_time}" -a "${time_of_this_fail}" -lt "${update_op_test3_part2_time}" ]
 		then
 			actual_key=`echo "${fail}" | grep "${update_op_test3_part1_key}" | wc -l`
+      echo "actual_key $actual_key"
 			if [ "${actual_key}"  -eq 1 ]
 			then
 				update_test3_part1_fail_count=`expr ${update_test3_part1_fail_count} + 1`
@@ -555,11 +573,9 @@ then
 		elif [ "${time_of_this_fail}" -ge "${update_op_test5_time}" ]
 		then
 			actual_key=`echo "${fail}" | grep "${INVALID_KEY}" | wc -l`
-      echo "actual_key $actual_key"
 			if [ "${actual_key}" -eq 1 ]
 			then
 				update_test5_fail_count=`expr ${update_test5_fail_count} + 1`
-        echo "update_test5_fail_count $update_test5_fail_count"
 			fi
 		fi
 	done <<<"${update_fails}"
