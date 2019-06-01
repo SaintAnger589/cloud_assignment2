@@ -82,7 +82,6 @@ public:
   MessageHdr * createMessage(MsgTypes t);
   Address* getAddr(MemberListEntry e);
     Address* getNodeAddress(int id, short port);
-    int getMemberPosition(MemberListEntry *e);
   void heartBeat(MessageHdr *m);
     MemberListEntry* findMember(int id, short port);
     MemberListEntry* findMember(Address *addr);

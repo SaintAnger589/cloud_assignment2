@@ -292,12 +292,11 @@ void MP1Node::heartBeat(MessageHdr *m) {
     // update other node counters
     for(int i = 0; i < m->countMembers; i++) {
         MemberListEntry gossipMember = m->members[i];
-        MemberListEntry *clusterMember = findMember(gossipMember.id, gossipMember.port);
-
-        if (clusterMember != nullptr) {
-            if (gossipMember.heartbeat > clusterMember->heartbeat) {
-                clusterMember->heartbeat = gossipMember.heartbeat;
-                clusterMember->timestamp = par->getcurrtime();
+        MemberListEntry *mem = findMember(gossipMember.id, gossipMember.port);
+        if (mem != nullptr) {
+            if (gossipMember.heartbeat > mem->heartbeat) {
+                mem->heartbeat = gossipMember.heartbeat;
+                mem->timestamp = par->getcurrtime();
             }
         } else {
 					Address *addr = getAddr(*e);
@@ -317,17 +316,6 @@ void MP1Node::heartBeat(MessageHdr *m) {
         }
     }
 }
-
-int MP1Node::getMemberPosition(MemberListEntry *e) {
-    for(int i = 0; i < memberNode->memberList.size(); i++) {
-        MemberListEntry clusterMemb = memberNode->memberList[i];
-
-        if (clusterMemb.id == e->id && clusterMemb.port == e->port) {
-            return i;
-        }
-    }
-}
-
 
 MemberListEntry* MP1Node::findMember(int id, short port) {
     for(int i = 0; i < memberNode->memberList.size(); i++) {
@@ -378,7 +366,15 @@ void MP1Node::nodeLoopOps() {
     for(MemberListEntry delMember: deleteMembers) {
         Address *deleteAddr = getAddr(delMember);
         log->logNodeRemove(&memberNode->addr, deleteAddr);
-        int delPos = getMemberPosition(&delMember);
+				//deleting the members
+				for(int i = 0; i < memberNode->memberList.size(); i++) {
+						MemberListEntry mem = memberNode->memberList[i];
+
+						if (mem.id == delMember->id && mem.port == delMember->port) {
+									int delPos = i;
+									break;
+						}
+				}
         memberNode->memberList.erase(memberNode->memberList.begin() + delPos);
     }
 
