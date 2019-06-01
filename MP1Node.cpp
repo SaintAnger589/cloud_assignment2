@@ -219,7 +219,7 @@ bool MP1Node::recvCallBack(void *env, char *data, int size ) {
 
     MessageHdr *msg = (MessageHdr *) data;
 
-    if (msg->msgType == MsgTypes::JOINREQ) {
+    if (msg->msgType == JOINREQ) {
 			int id = *(int*)(&m->addr.addr);
 			short port = *(short*)(&m->addr.addr[4]);
 
@@ -232,7 +232,7 @@ bool MP1Node::recvCallBack(void *env, char *data, int size ) {
 			MemberListEntry *newMemList = new MemberListEntry(id, port, 1, par->getcurrtime());
 			memberNode->memberList.push_back(*newMemList);
 
-      MessageHdr *repMsg = createMessage(MsgTypes:JOINREP);
+      MessageHdr *repMsg = createMessage(JOINREP);
 			//creating JOINREP
 			MessageHdr *responseMsg = new MessageHdr();
 			responseMsg->countMembers = memberNode->memberList.size();
@@ -242,13 +242,13 @@ bool MP1Node::recvCallBack(void *env, char *data, int size ) {
 					memcpy(responseMsg->members, memberNode->memberList.data(), sizeof(MemberListEntry) * memberNode->memberList.size());
 			}
 
-			responseMsg->msgType = MsgTypes::JOINREP;
+			responseMsg->msgType = JOINREP;
 			memcpy(&responseMsg->addr, &memberNode->addr, sizeof(Address));
 
 
       emulNet->ENsend(&memberNode->addr, &msg->addr, (char *) repMsg, sizeof(MessageHdr));
       delete repMsg;
-    } else if (msg->msgType == MsgTypes::JOINREP) {
+    } else if (msg->msgType == JOINREP) {
         memberNode->inGroup = true;
 				int id = *(int*)(&m->addr.addr);
 				short port = *(short*)(&m->addr.addr[4]);
@@ -262,7 +262,7 @@ bool MP1Node::recvCallBack(void *env, char *data, int size ) {
 				MemberListEntry *newMemList = new MemberListEntry(id, port, 1, par->getcurrtime());
 				memberNode->memberList.push_back(*newMemList);
 
-    } else if (msg->msgType == MsgTypes::HEARTBEAT) {
+    } else if (msg->msgType == HEARTBEAT) {
         heartBeat(msg);
     }
 
@@ -382,7 +382,7 @@ void MP1Node::nodeLoopOps() {
     }
 
 		//cout<<"Sending heartbeat"
-    MessageHdr * message = createMessage(MsgTypes::HEARTBEAT);
+    MessageHdr * message = createMessage(HEARTBEAT);
     for(MemberListEntry mem: memberNode->memberList) {
         Address *address = getAddr(mem);
         emulNet->ENsend(&memberNode->addr, address, (char *) message, sizeof(MessageHdr));
