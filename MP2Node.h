@@ -110,7 +110,7 @@ public:
 	int setTransTable(int transID, string key, MessageType type, string value);
 
 	bool read_val_success(int transID, string value, Address addr);
-	void checkTimeOut(Message *msg);
+	void checkTimeOut();
 
 	~MP2Node();
 

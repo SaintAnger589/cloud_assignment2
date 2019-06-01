@@ -306,10 +306,10 @@ then
 	while read success
 	do
 		time_of_this_success=`echo "${success}" | cut -d" " -f2 | tr -s '[' ' ' | tr -s ']' ' '`
-    echo "time_of_this_success $time_of_this_success"
-    echo "read_op_test1_time $read_op_test1_time"
-    echo "read_op_test2_time $read_op_test2_time"
-    echo "read_op_test3_part1_time $read_op_test3_part1_time"
+    #echo "time_of_this_success $time_of_this_success"
+    #echo "read_op_test1_time $read_op_test1_time"
+    #echo "read_op_test2_time $read_op_test2_time"
+    #echo "read_op_test3_part1_time $read_op_test3_part1_time"
 		if [ "${time_of_this_success}" -ge "${read_op_test1_time}" -a "${time_of_this_success}" -lt "${read_op_test2_time}" ]
 		then
 			read_test1_success_count=`expr ${read_test1_success_count} + 1`
@@ -537,7 +537,7 @@ then
 		elif [ "${time_of_this_success}" -ge "${update_op_test2_time}" -a "${time_of_this_success}" -lt "${update_op_test3_part1_time}" ]
 		then
 			update_test2_success_count=`expr ${update_test2_success_count} + 1`
-      echo "update_test2_success_count $update_test2_success_count"
+      #echo "update_test2_success_count $update_test2_success_count"
 		elif [ "${time_of_this_success}" -ge "${update_op_test3_part2_time}" -a "${time_of_this_success}" -lt "${update_op_test4_time}" ]
 		then
 			update_test3_part2_success_count=`expr ${update_test3_part2_success_count} + 1`

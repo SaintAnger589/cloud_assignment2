@@ -334,12 +334,15 @@ bool MP2Node::deletekey(string key) {
 	return res;
 }
 
-void MP2Node::checkTimeOut(Message *msg){
+void MP2Node::checkTimeOut(){
+	cout<<"Inside checkTimeOut()\n";
+
 	map<int, transaction_performed*>::iterator search;
-	search = transID_map.find(msg->transID);
-	if(search != transID_map.end()){
+  for(search = transID_map.begin(); search != transID_map.end(); ++search){
 		if ((par->getcurrtime() - search->second->timestamp) > 10){
+			cout<<"transID timeout = "<<search->first<<"\n";
 			if (!search->second->is_logged){
+				cout<<"checkTimeOut: printing timeout logfail\n";
 				switch(search->second->type){
 					case READ:
 					{
@@ -357,6 +360,9 @@ void MP2Node::checkTimeOut(Message *msg){
 					break;
 				}
 				search->second->is_logged = 1;
+				//remove all the transactions success or failure in vectors
+				search->second->successNode.clear();
+				search->second->failureNode.clear();
 			}
 		}
 	}
@@ -512,7 +518,7 @@ void MP2Node::checkMessages() {
 				cout<<"\n";
 				if ((par->getcurrtime() - search->second->timestamp) > 10){
 					cout<<"REPLY: timeout reached\n";
-					search->second->failure_count = 3;
+					//search->second->failure_count = 3;
 				} else {
 					if (!msg->success){
 						search->second->failure_count++;
@@ -551,6 +557,9 @@ void MP2Node::checkMessages() {
 									 if (!search->second->is_logged)
 									   this->log->logUpdateSuccess(&memberNode->addr, true, msg->transID, search->second->key, search->second->value);
 									 search->second->is_logged = 1;
+									 //remove all the transactions success or failure in vectors
+									 search->second->successNode.clear();
+									 search->second->failureNode.clear();
 								 }
 							 break;
 							 case DELETE:
@@ -572,6 +581,9 @@ void MP2Node::checkMessages() {
 									 if (!search->second->is_logged)
 									   this->log->logDeleteSuccess(&memberNode->addr, true, msg->transID, search->second->key);
 									 search->second->is_logged = 1;
+									 //remove all the transactions success or failure in vectors
+									 search->second->successNode.clear();
+									 search->second->failureNode.clear();
 							 break;
 						 }
 					 } else {
@@ -579,7 +591,7 @@ void MP2Node::checkMessages() {
 						 if (search->second->failure_count >= 2){
 						 switch(search->second->type){
 						   case UPDATE:
-							   hasMyReplicas = findNodes(search->second->key);
+								 hasMyReplicas = findNodes(search->second->key);
 							     for(Node node: search->second->failureNode){
 										 if (!search->second->is_logged){
 											 //replica failed logging
@@ -591,6 +603,9 @@ void MP2Node::checkMessages() {
 								 if (!search->second->is_logged)
 								   this->log->logUpdateFail(&memberNode->addr, true, msg->transID, search->second->key, search->second->value);
 								 search->second->is_logged = 1;
+								 //remove all the transactions success or failure in vectors
+								 search->second->successNode.clear();
+								 search->second->failureNode.clear();
 							 break;
 							 case DELETE:
 							   hasMyReplicas = findNodes(search->second->key);
@@ -604,6 +619,9 @@ void MP2Node::checkMessages() {
 								 if (!search->second->is_logged)
 								   this->log->logDeleteFail(&memberNode->addr, true, msg->transID, search->second->key);
 								 search->second->is_logged = 1;
+								 //remove all the transactions success or failure in vectors
+								 //search->second->successNode.clear();
+								 //search->second->failureNode.clear();
 							 break;
 				     } //switch(search->second->type)
 					 } //if (search->second->failure_count >= 2)
@@ -654,6 +672,9 @@ void MP2Node::checkMessages() {
 						this->log->logReadSuccess(&memberNode->addr, true, msg->transID, search->second->key, search->second->value);
 					}
 					search->second->is_logged = 1;
+					//remove all the transactions success or failure in vectors
+					//search->second->successNode.clear();
+					//search->second->failureNode.clear();
 					} else {
 						hasMyReplicas = findNodes(search->second->key);
 						for(Node node: search->second->failureNode){
@@ -667,13 +688,14 @@ void MP2Node::checkMessages() {
 						  this->log->logReadFail(&memberNode->addr, true, msg->transID, search->second->key);
 					  }
 						search->second->is_logged = 1;
+						//remove all the transactions success or failure in vectors
+						//search->second->successNode.clear();
+						//search->second->failureNode.clear();
 					}
 				}
 	     } //ReadReply
 			 break;
 	 } //switch
-	 checkTimeOut(msg);
-	 this->trace->funcEntry("Leaving checkMessages");
    //cout<<"Leaving checkMessages\n";
 	}
 
@@ -681,6 +703,8 @@ void MP2Node::checkMessages() {
 	 * This function should also ensure all READ and UPDATE operation
 	 * get QUORUM replies
 	 */
+	 checkTimeOut();
+	 this->trace->funcEntry("Leaving checkMessages");
 }
 
 bool MP2Node::read_val_success(int transID, string value, Address addr){
