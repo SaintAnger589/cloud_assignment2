@@ -299,7 +299,7 @@ void MP1Node::heartBeat(MessageHdr *m) {
                 mem->timestamp = par->getcurrtime();
             }
         } else {
-					Address *addr = getAddr(*e);
+					Address *addr = getAddr(gossipMember);
 
 					if (findMember(addr) != nullptr) {
 							return;
@@ -308,9 +308,9 @@ void MP1Node::heartBeat(MessageHdr *m) {
 							delete addr;
 							return;
 					}
-					if (par->getcurrtime() - e->timestamp < TREMOVE) {
+					if (par->getcurrtime() - gossipMember->timestamp < TREMOVE) {
 							log->logNodeAdd(&memberNode->addr, addr);
-							MemberListEntry *newMember = new MemberListEntry(e->id, e->port, e->heartbeat, par->getcurrtime());
+							MemberListEntry *newMember = new MemberListEntry(gossipMember->id, gossipMember->port, gossipMember->heartbeat, par->getcurrtime());
 							memberNode->memberList.push_back(*newMember);
 					}
         }
