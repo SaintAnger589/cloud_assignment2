@@ -447,7 +447,7 @@ void MP2Node::checkMessages() {
 				  //send fail ReadReply
 					Message *newcreatemsg = new Message(msg->transID, this->memberNode->addr, read_message);
 					newcreatemsg->success = false;
-					this->log->logReadFail(&msg->fromAddr, false, msg->transID, msg->key);
+					//this->log->logReadFail(&msg->fromAddr, false, msg->transID, msg->key);
 					emulNet->ENsend(&memberNode->addr, &msg->fromAddr, (char *)newcreatemsg, sizeof(Message));
 				}
 		  }
@@ -516,6 +516,7 @@ void MP2Node::checkMessages() {
 				} else {
 					if (!msg->success){
 						search->second->failure_count++;
+						search->second->failureNode.push_back(msg->fromAddr);
 					} else {
 						if(msg->success){
 							search->second->successNode.push_back(msg->fromAddr);
@@ -579,7 +580,7 @@ void MP2Node::checkMessages() {
 						 switch(search->second->type){
 						   case UPDATE:
 							   hasMyReplicas = findNodes(search->second->key);
-							     for(Node node: hasMyReplicas){
+							     for(Node node: search->second->failureNode){
 										 if (!search->second->is_logged){
 											 //replica failed logging
 											 this->log->logUpdateFail(&node.nodeAddress, false, msg->transID, search->second->key, search->second->value);
@@ -618,17 +619,21 @@ void MP2Node::checkMessages() {
 				 map<int, transaction_performed*>::iterator search;
 				 search = transID_map.find(msg->transID);
 				 cout<<"READREPLY: transId = "<<search->first<<" success = "<<msg->success<<"\n";
-				 if (!msg->success || par->getcurrtime() - search->second->timestamp > 10){
- 					search->second->failure_count++;
-					if (!search->second->is_logged){
-					  this->log->logReadFail(&msg->fromAddr, true, msg->transID, search->second->key);
-					  search->second->is_logged = 1;
-					}
- 				} else {
+
+				 if ((par->getcurrtime() - search->second->timestamp) > 10){
+						hasMyReplicas = findNodes(search->second->key);
+						for(Node node: hasMyReplicas){
+						  if (!search->second->is_logged){
+						    this->log->logReadFail(&node.nodeAddress, true, msg->transID, search->second->key);
+						  }
+						}
+						search->second->is_logged = 1;
+ 				} else if (!msg->success){
+					search->second->failure_count++;
+					search->second->failureNode.push_back(msg->fromAddr);
+				}else {
  					if(msg->success){
-						cout<<"ReadReply: msg->value = "<<msg->value<<"\n";
-						cout<<"ReadReply: msg->transID = "<<msg->transID<<"\n";
-						read_val_success(msg->transID, msg->value);
+						read_val_success(msg->transID, msg->value, msg->fromAddr);
 					}
 
  				}
@@ -638,7 +643,7 @@ void MP2Node::checkMessages() {
 					if (search->second->success_count >= 2){
 						hasMyReplicas = findNodes(search->second->key);
 							int cnt = 0;
-							for(Node node: hasMyReplicas){
+							for(Node node: search->second->successNode){
 					      if (!search->second->is_logged){
 						      this->log->logReadSuccess(&node.nodeAddress, true, msg->transID, search->second->key, search->second->value);
 									//search->second->is_logged = 1;
@@ -650,7 +655,8 @@ void MP2Node::checkMessages() {
 					}
 					search->second->is_logged = 1;
 					} else {
-						for(Node node: hasMyReplicas){
+						hasMyReplicas = findNodes(search->second->key);
+						for(Node node: search->second->failureNode){
 							 if (!search->second->is_logged){
 						      this->log->logReadFail(&msg->fromAddr, true, msg->transID, search->second->key);
 									//search->second->is_logged = 1;
@@ -677,17 +683,20 @@ void MP2Node::checkMessages() {
 	 */
 }
 
-bool MP2Node::read_val_success(int transID, string value){
+bool MP2Node::read_val_success(int transID, string value, Address addr){
 	map<int, transaction_performed*>::iterator search;
 	search = transID_map.find(transID);
 	bool read_s = find(search->second->readval.begin(), search->second->readval.end(), value) != search->second->readval.end();
 	cout<<"read_successful ="<<read_s<<"\n";
+	search->second->successNode.push_back(addr);
 	if (find(search->second->readval.begin(), search->second->readval.end(), value) != search->second->readval.end()){
 		//some value matches
 		search->second->value = value;
 		search->second->success_count++;
+
 	} else {
 		search->second->readval.push_back(value);
+		search->second->success_count = 1;
 	}
 }
 

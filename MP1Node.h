@@ -18,8 +18,8 @@
 /**
  * Macros
  */
-#define TREMOVE 20
-#define TFAIL 5
+#define TREMOVE 5
+#define TFAIL 2
 
 /*
  * Note: You can change/add any functions in MP1Node.{h,cpp}
@@ -31,8 +31,7 @@
 enum MsgTypes{
     JOINREQ,
     JOINREP,
-    DUMMYLASTMSGTYPE,
-    RETIRENODE
+    PING
 };
 
 /**
@@ -42,6 +41,9 @@ enum MsgTypes{
  */
 typedef struct MessageHdr {
 	enum MsgTypes msgType;
+	Address addr;
+	int countMembers = 0;
+	MemberListEntry *members;
 }MessageHdr;
 
 /**
@@ -56,6 +58,15 @@ private:
 	Params *par;
 	Member *memberNode;
 	char NULLADDR[6];
+	MessageHdr * createMessage(MsgTypes t);
+	void addNewMember(MessageHdr *m);
+    void addNewMember(MemberListEntry *e);
+	Address* getAddr(MemberListEntry e);
+    Address* getAddr(int id, short port);
+    int getMemberPosition(MemberListEntry *e);
+	void pingHandler(MessageHdr *m);
+    MemberListEntry* findMember(int id, short port);
+    MemberListEntry* findMember(Address *addr);
 
 public:
 	MP1Node(Member *, Params *, EmulNet *, Log *, Address *);
@@ -76,8 +87,6 @@ public:
 	Address getJoinAddress();
 	void initMemberListTable(Member *memberNode);
 	void printAddress(Address *addr);
-	void send_heartbeat();
-	Address getNodeAddress(int id, short port);
 	virtual ~MP1Node();
 };
 

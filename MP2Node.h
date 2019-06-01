@@ -62,6 +62,7 @@ private:
 		int failure_count;
 		int is_logged;
 		vector<Address> successNode;
+		vector<Address> failureNode;
 		vector<string> readval;
 	} transaction_performed;
 	map<int, transaction_performed*> transID_map;
@@ -108,7 +109,7 @@ public:
 
 	int setTransTable(int transID, string key, MessageType type, string value);
 
-	bool read_val_success(int transID, string value);
+	bool read_val_success(int transID, string value, Address addr);
 	void checkTimeOut(Message *msg);
 
 	~MP2Node();
