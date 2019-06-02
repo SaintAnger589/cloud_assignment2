@@ -234,20 +234,22 @@ bool MP1Node::recvCallBack(void *env, char *data, int size ) {
 			/*******************************************************/
 
 			/*******************************************************/
-        MessageHdr *repMsg = createMessage(JOINREP);
-
+				MessageHdr *repMsg = new MessageHdr();
+				repMsg->countMembers = memberNode->memberList.size();
+				if (memberNode->memberList.size() > 0) {
+						repMsg->members = new MemberListEntry[memberNode->memberList.size()];
+						memcpy(repMsg->members, memberNode->memberList.data(), sizeof(MemberListEntry) * memberNode->memberList.size());
+				}
+				repMsg->msgType = JOINREP;
+				memcpy(&repMsg->addr, &memberNode->addr, sizeof(Address));
 			/*******************************************************/
 
         emulNet->ENsend(&memberNode->addr, &msg->addr, (char *) repMsg, sizeof(MessageHdr));
-        std::cout << "send [" << par->getcurrtime() << "] JOINREP [" << memberNode->addr.getAddress() << "] to " << msg->addr.getAddress() << std::endl;
 
         delete repMsg;
     } else if (msg->msgType == JOINREP) {
         memberNode->inGroup = true;
-
-        std::cout << "receive [" << par->getcurrtime() << "]  JOINREP [" << memberNode->addr.getAddress() << "] from " << msg->addr.getAddress() << std::endl;
 /****************************************************/
-				//addNewMember(msg);
 				int id = *(int*)(&msg->addr.addr);
 				short port = *(short*)(&msg->addr.addr[4]);
 
@@ -260,50 +262,41 @@ bool MP1Node::recvCallBack(void *env, char *data, int size ) {
 				}
 /**************************************************/
     } else if (msg->msgType == HEARTBEAT) {
-        std::cout << "receive [" << par->getcurrtime() << "] PING [" << memberNode->addr.getAddress() << "] from " << msg->addr.getAddress() << std::endl;
-        pingHandler(msg);
+			/*****************************************************/
+				// update current node counter
+				MemberListEntry *localMember = findMember(&msg->addr);
+
+				if (localMember != nullptr) {
+						localMember->heartbeat += 1;
+						localMember->timestamp = par->getcurrtime();
+				} else {
+						//addNewMember(m);
+						int id = *(int*)(&msg->addr.addr);
+						short port = *(short*)(&msg->addr.addr[4]);
+						if (findMember(id, port) != nullptr) {
+						} else {
+							log->logNodeAdd(&memberNode->addr, &msg->addr);
+							MemberListEntry *newMemeb = new MemberListEntry(id, port, 1, par->getcurrtime());
+							memberNode->memberList.push_back(*newMemeb);
+						}
+				}
+				// update other node counters
+				for(int i = 0; i < msg->countMembers; i++) {
+						MemberListEntry gossipMember = msg->members[i];
+						MemberListEntry *mem = findMember(gossipMember.id, gossipMember.port);
+						if (mem != nullptr) {
+								if (gossipMember.heartbeat > mem->heartbeat) {
+										mem->heartbeat = gossipMember.heartbeat;
+										mem->timestamp = par->getcurrtime();
+								}
+						} else {
+								addNewMember(&gossipMember);
+						}
+				}
+			/*****************************************************/
     }
 
     free(msg);
-}
-
-void MP1Node::pingHandler(MessageHdr *m) {
-    // update current node counter
-    MemberListEntry *localMember = findMember(&m->addr);
-
-    if (localMember != nullptr) {
-        localMember->heartbeat += 1;
-        localMember->timestamp = par->getcurrtime();
-    } else {
-/************************************************/
-				//addNewMember(m);
-				int id = *(int*)(&m->addr.addr);
-				short port = *(short*)(&m->addr.addr[4]);
-
-				if (findMember(id, port) != nullptr) {
-				} else {
-					log->logNodeAdd(&memberNode->addr, &m->addr);
-
-					MemberListEntry *newMemeb = new MemberListEntry(id, port, 1, par->getcurrtime());
-					memberNode->memberList.push_back(*newMemeb);
-				}
-/************************************************/
-    }
-
-    // update other node counters
-    for(int i = 0; i < m->countMembers; i++) {
-        MemberListEntry gossipMember = m->members[i];
-        MemberListEntry *mem = findMember(gossipMember.id, gossipMember.port);
-
-        if (mem != nullptr) {
-            if (gossipMember.heartbeat > mem->heartbeat) {
-                mem->heartbeat = gossipMember.heartbeat;
-                mem->timestamp = par->getcurrtime();
-            }
-        } else {
-            addNewMember(&gossipMember);
-        }
-    }
 }
 
 int MP1Node::getMemberPosition(MemberListEntry *e) {
@@ -390,13 +383,23 @@ void MP1Node::nodeLoopOps() {
     }
 
     // send gossip ping
-    MessageHdr * message = createMessage(HEARTBEAT);
+		/****************************************************/
+		MessageHdr *repMsg = new MessageHdr();
+		repMsg->countMembers = memberNode->memberList.size();
+
+		if (memberNode->memberList.size() > 0) {
+				repMsg->members = new MemberListEntry[memberNode->memberList.size()];
+				memcpy(repMsg->members, memberNode->memberList.data(), sizeof(MemberListEntry) * memberNode->memberList.size());
+		}
+		repMsg->msgType = HEARTBEAT;
+		memcpy(&repMsg->addr, &memberNode->addr, sizeof(Address));
+		/****************************************************/
     for(MemberListEntry mem: memberNode->memberList) {
         Address *address = getAddr(mem);
-        emulNet->ENsend(&memberNode->addr, address, (char *) message, sizeof(MessageHdr));
+        emulNet->ENsend(&memberNode->addr, address, (char *) repMsg, sizeof(MessageHdr));
         delete address;
     }
-    delete message;
+    delete repMsg;
 }
 
 Address* MP1Node::getAddr(MemberListEntry e) {
@@ -415,21 +418,6 @@ Address* MP1Node::getAddr(int id, short port) {
     memcpy(address->addr + sizeof(int), &port, sizeof(short));
 
     return address;
-}
-
-MessageHdr* MP1Node::createMessage(MsgTypes t) {
-    MessageHdr *repMsg = new MessageHdr();
-    repMsg->countMembers = memberNode->memberList.size();
-
-    if (memberNode->memberList.size() > 0) {
-        repMsg->members = new MemberListEntry[memberNode->memberList.size()];
-        memcpy(repMsg->members, memberNode->memberList.data(), sizeof(MemberListEntry) * memberNode->memberList.size());
-    }
-
-    repMsg->msgType = t;
-    memcpy(&repMsg->addr, &memberNode->addr, sizeof(Address));
-
-    return repMsg;
 }
 
 /**
