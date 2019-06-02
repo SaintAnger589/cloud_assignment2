@@ -80,8 +80,7 @@ public:
 	void printAddress(Address *addr);
 
   /*************************************************/
-    void addNewMember(MemberListEntry *e);
-  Address* getAddr(MemberListEntry e);
+    Address* getAddr(MemberListEntry mem);
     Address* getAddrFromId(int id, short port);
     MemberListEntry* findMemberFromId(int id, short port);
     MemberListEntry* findMember(Address *addr);

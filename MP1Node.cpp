@@ -161,6 +161,8 @@ int MP1Node::finishUpThisNode(){
    /*
     * Your code goes here
     */
+		//initMemberListTable(memberNode);
+    //delete memberNode;
 }
 
 /**
@@ -233,7 +235,7 @@ if (msg->msgType == JOINREP) {
 			//cout<<"localMember: Inside heartbeat\n";
 				MemberListEntry *mem = findMember(&msg->addr);
 				if (mem != nullptr) {
-						mem->heartbeat += 1;
+						mem->heartbeat = mem->heartbeat + 1;
 						mem->timestamp = par->getcurrtime();
 				} else {
 						int id = *(int*)(&msg->addr.addr);
@@ -242,6 +244,8 @@ if (msg->msgType == JOINREP) {
 						} else {
 							//this is a new member to the list, add it
 							log->logNodeAdd(&memberNode->addr, &msg->addr);
+							//cout<<"HEARTBEAT: msg->addr = ";
+							//printAddress(msg->addr);
 							MemberListEntry *newMemeb = new MemberListEntry(id, port, 1, par->getcurrtime());
 							memberNode->memberList.push_back(*newMemeb);
 						}
@@ -264,11 +268,14 @@ if (msg->msgType == JOINREP) {
 								if (findMember(addr) != nullptr) {
 								} else {
 									if (*addr == memberNode->addr) {
+										//deleting the address
 											delete addr;
 									} else {
 										if (par->getcurrtime() - gossipMember.timestamp < TREMOVE) {
+											  //adding the log message
 												log->logNodeAdd(&memberNode->addr, addr);
 												MemberListEntry *newMember = new MemberListEntry(gossipMember.id, gossipMember.port, gossipMember.heartbeat, par->getcurrtime());
+												//pushing the node to the getMembershipList
 												memberNode->memberList.push_back(*newMember);
 										}
 									}
@@ -283,23 +290,25 @@ if (msg->msgType == JOINREP) {
 						} else {
 							//add the log message
 							log->logNodeAdd(&memberNode->addr, &msg->addr);
-
+							//cout<<"msg->addr = ";
+							//printAddress(msg->addr)l
 							MemberListEntry *newMemeb = new MemberListEntry(id, port, 1, par->getcurrtime());
 							memberNode->memberList.push_back(*newMemeb);
 						}
 						//create a JOINREP message
-						MessageHdr *repMsg = new MessageHdr();
-						repMsg->countMembers = memberNode->memberList.size();
+						MessageHdr *responseMsg = new MessageHdr();
+						responseMsg->countMembers = memberNode->memberList.size();
 						if (memberNode->memberList.size() > 0) {
-								repMsg->members = new MemberListEntry[memberNode->memberList.size()];
-								memcpy(repMsg->members, memberNode->memberList.data(), sizeof(MemberListEntry) * memberNode->memberList.size());
+							//if size is greater then 0, add the response message
+								responseMsg->members = new MemberListEntry[memberNode->memberList.size()];
+								//create the response
+								memcpy(responseMsg->members, memberNode->memberList.data(), sizeof(MemberListEntry) * memberNode->memberList.size());
 						}
-						repMsg->msgType = JOINREP;
-						memcpy(&repMsg->addr, &memberNode->addr, sizeof(Address));
+						responseMsg->msgType = JOINREP;
+						memcpy(&responseMsg->addr, &memberNode->addr, sizeof(Address));
 						//send the JOINREP message
-		        emulNet->ENsend(&memberNode->addr, &msg->addr, (char *) repMsg, sizeof(MessageHdr));
-
-		        delete repMsg;
+		        emulNet->ENsend(&memberNode->addr, &msg->addr, (char *) responseMsg, sizeof(MessageHdr));
+		        delete responseMsg;
 		    }
 
     free(msg);
@@ -308,12 +317,10 @@ if (msg->msgType == JOINREP) {
 MemberListEntry* MP1Node::findMemberFromId(int id, short port) {
     for(int i = 0; i < memberNode->memberList.size(); i++) {
         MemberListEntry *mem = memberNode->memberList.data() + i;
-
         if (mem->id == id && mem->port == port) {
             return mem;
         }
     }
-
     return nullptr;
 }
 
@@ -321,14 +328,11 @@ MemberListEntry* MP1Node::findMember(Address *addr) {
     for(int i = 0; i < memberNode->memberList.size(); i++) {
         MemberListEntry *mem = memberNode->memberList.data() + i;
         Address *memberAddr = getAddrFromId(mem->id, mem->port);
-
         if (*addr == *memberAddr) {
             return mem;
         }
-
         delete memberAddr;
     }
-
     return nullptr;
 }
 
@@ -340,50 +344,51 @@ MemberListEntry* MP1Node::findMember(Address *addr) {
  * 				Propagate your membership list
  */
 void MP1Node::nodeLoopOps() {
-    memberNode->heartbeat += 1;
-
-    vector<MemberListEntry> deleteMembers;
-
-    // check local members status
+	  vector<MemberListEntry> deleteMembers;
+		//increase the memberNode heartbeat
+    memberNode->heartbeat = memberNode->heartbeat + 1;
+		//check for member timestamp is greater then TREMOVE
     for(MemberListEntry mem: memberNode->memberList) {
         if (par->getcurrtime() - mem.timestamp >= TREMOVE ) {
+					//push in delete vector
             deleteMembers.push_back(mem);
         }
     }
-
+		//cout<<"nodeLoopOps: deleteMembers.size() = "<<deleteMembers.size()<<"\n";
     for(MemberListEntry delMember: deleteMembers) {
         Address *deleteAddr = getAddr(delMember);
+				//add the logNodeRemove message
         log->logNodeRemove(&memberNode->addr, deleteAddr);
-
-				//get the delete position
-          int delPos;
+				//find the delete Position
+          int delPosition;
 				for(int i = 0; i < memberNode->memberList.size(); i++) {
 						MemberListEntry mem = memberNode->memberList[i];
-						//if the memlist id and port are equal, return
 						if (mem.id == delMember.id && mem.port == delMember.port) {
-								delPos = i;
+							  //cout<<"nodeLoopOps: delPosition = "<<delPosition<<"\n";
+								//cout<<"nodeLoopOps: delMember:id = "<<delMember.id<<"\n";
+								//cout<<"nodeLoopOps: delMember:port = "<<delMember.port<<"\n";
+								delPosition = i;
 								break;
 						}
 				}
-				/***********************************************/
-        memberNode->memberList.erase(memberNode->memberList.begin() + delPos);
+				//erase the node from the list
+        memberNode->memberList.erase(memberNode->memberList.begin() + delPosition);
     }
-
-		MessageHdr *repMsg = new MessageHdr();
-		repMsg->countMembers = memberNode->memberList.size();
-
+		MessageHdr *responseMsg = new MessageHdr();
+		responseMsg->countMembers = memberNode->memberList.size();
 		if (memberNode->memberList.size() > 0) {
-				repMsg->members = new MemberListEntry[memberNode->memberList.size()];
-				memcpy(repMsg->members, memberNode->memberList.data(), sizeof(MemberListEntry) * memberNode->memberList.size());
+				responseMsg->members = new MemberListEntry[memberNode->memberList.size()];
+				memcpy(responseMsg->members, memberNode->memberList.data(), sizeof(MemberListEntry) * memberNode->memberList.size());
 		}
-		repMsg->msgType = HEARTBEAT;
-		memcpy(&repMsg->addr, &memberNode->addr, sizeof(Address));
+		responseMsg->msgType = HEARTBEAT;
+		memcpy(&responseMsg->addr, &memberNode->addr, sizeof(Address));
     for(MemberListEntry mem: memberNode->memberList) {
         Address *address = getAddr(mem);
-        emulNet->ENsend(&memberNode->addr, address, (char *) repMsg, sizeof(MessageHdr));
+				//sending the heartbeat
+        emulNet->ENsend(&memberNode->addr, address, (char *) responseMsg, sizeof(MessageHdr));
         delete address;
     }
-    delete repMsg;
+    delete responseMsg;
 }
 
 Address* MP1Node::getAddr(MemberListEntry memList) {
@@ -400,7 +405,6 @@ Address* MP1Node::getAddrFromId(int id, short port) {
     memset(address->addr, 0, sizeof(address->addr));
     memcpy(address->addr, &id, sizeof(int));
     memcpy(address->addr + sizeof(int), &port, sizeof(short));
-
     return address;
 }
 

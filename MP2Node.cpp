@@ -60,7 +60,7 @@ void MP2Node::updateRing() {
 	 sort(curMemList.begin(), curMemList.end());
   bool changed = false;
 	 if (!ring.empty()) {
-		 cout<<"Inside ring not empty\n";
+		 //cout<<"Inside ring not empty\n";
 		for (int i = 0; i < curMemList.size(); i++) {
 			if (curMemList[i].getHashCode() != ring[i].getHashCode()) {
 				changed = true;
@@ -68,7 +68,7 @@ void MP2Node::updateRing() {
 			}
 		}
 	}
-	cout<<"updateRing: curMemList.size() = "<<curMemList.size()<<"\n";
+	//cout<<"updateRing: curMemList.size() = "<<curMemList.size()<<"\n";
   //cout<<"updateRing: changed ="<<changed<<"\n";
 	 this->ring = curMemList;
 	 //cout<<"updateRing: after ring creation\n";
@@ -335,14 +335,14 @@ bool MP2Node::deletekey(string key) {
 }
 
 void MP2Node::checkTimeOut(){
-	cout<<"Inside checkTimeOut()\n";
+	//cout<<"Inside checkTimeOut()\n";
 
 	map<int, transaction_performed*>::iterator search;
   for(search = transID_map.begin(); search != transID_map.end(); ++search){
 		if ((par->getcurrtime() - search->second->timestamp) > 10){
-			cout<<"transID timeout = "<<search->first<<"\n";
+			//cout<<"transID timeout = "<<search->first<<"\n";
 			if (!search->second->is_logged){
-				cout<<"checkTimeOut: printing timeout logfail\n";
+				//cout<<"checkTimeOut: printing timeout logfail\n";
 				switch(search->second->type){
 					case READ:
 					{
@@ -435,16 +435,16 @@ void MP2Node::checkMessages() {
 		  break;
 			case READ:{
 			  string tempstr = msg->toString();
-				cout<<"READ: message = "<<tempstr<<"\n";
+				//cout<<"READ: message = "<<tempstr<<"\n";
 				read_message = readKey(msg->key);
-				cout<<"READ: Read message = "<<read_message<<"\n";
+				//cout<<"READ: Read message = "<<read_message<<"\n";
 				// map<int, transaction_performed*>::iterator search;
 				// search = transID_map.find(msg->transID);
 				// search->second->is_logged[msg->replica] = 0;
 				if (read_message != ""){
 					 //send READREPLY
 					 Message *newcreatemsg = new Message(msg->transID, memberNode->addr, read_message);
-					 cout<<"READ: newcreatemsg = "<<newcreatemsg->toString()<<"\n";
+					 //cout<<"READ: newcreatemsg = "<<newcreatemsg->toString()<<"\n";
 					 newcreatemsg->success = true;
 					 newcreatemsg->replica = msg->replica;
 					 //this->log->logReadSuccess(&msg->fromAddr, false, msg->transID, msg->key, msg->value);
@@ -467,11 +467,11 @@ void MP2Node::checkMessages() {
 				// search->second->is_logged[msg->replica] = 0;
 				if (res_update){
 				  Message *newcreatemsg = new Message(msg->transID, this->memberNode->addr, REPLY, true);
-					cout<<"UPDATE: message = "<<newcreatemsg->toString()<<"\n";
+					//cout<<"UPDATE: message = "<<newcreatemsg->toString()<<"\n";
 					Address *tempAddr = &msg->fromAddr;
 					emulNet->ENsend(&memberNode->addr,tempAddr,(char *)newcreatemsg, sizeof(Message));
 				 } else{
-				   cout<<"UPDATE: message absent, sending Failure REPLY\n";
+				   //cout<<"UPDATE: message absent, sending Failure REPLY\n";
 					 //this->log->logUpdateFail(&memberNode->addr, false, msg->transID, msg->key, msg->value);
 					 Message *newcreatemsg = new Message(msg->transID, this->memberNode->addr, REPLY, false);
 					 Address *tempAddr = &msg->fromAddr;
@@ -481,7 +481,7 @@ void MP2Node::checkMessages() {
 			break;
 			case DELETE:
 			{
-			  cout<<"DELETE: msg->key = "<<msg->key<<"\n";
+			  //cout<<"DELETE: msg->key = "<<msg->key<<"\n";
 				//deleting the keys
 				bool res_del = this->deletekey(msg->key);
 				// map<int, transaction_performed*>::iterator search;
@@ -493,7 +493,7 @@ void MP2Node::checkMessages() {
 					Address *tempAddr = &msg->fromAddr;
 					emulNet->ENsend(&memberNode->addr,tempAddr,(char *)newcreatemsg, sizeof(Message));
 				} else {
-				  cout<<"DELETE: message absent, sending Failure REPLY\n";
+				  //cout<<"DELETE: message absent, sending Failure REPLY\n";
 					Message *newcreatemsg = new Message(msg->transID, this->memberNode->addr, REPLY, false);
 					Address *tempAddr = &msg->fromAddr;
 					emulNet->ENsend(&memberNode->addr, tempAddr, (char *)newcreatemsg, sizeof(Message));
@@ -502,22 +502,22 @@ void MP2Node::checkMessages() {
 			break;
 			case REPLY:
 			{
-			  cout<<"REPLY: message = "<<msg->toString()<<"\n";
+			  //cout<<"REPLY: message = "<<msg->toString()<<"\n";
 				Address *tempAddr = &this->memberNode->addr;
-        cout<<"REPLY: this node address =";
-			  printAddress(tempAddr);
+        //cout<<"REPLY: this node address =";
+			  //printAddress(tempAddr);
 				tempAddr = &msg->fromAddr;
-				cout<<"REPLY: from Address =";
-				printAddress(tempAddr);
-				cout<<"\n";
+				//cout<<"REPLY: from Address =";
+				//printAddress(tempAddr);
+				//cout<<"\n";
 
 				map<int, transaction_performed*>::iterator search;
 				search = transID_map.find(msg->transID);
-				cout<<"REPLY: transID = "<<search->first<<"\n";
-				cout<<"REPLY: search->second->timestamp = "<<search->second->timestamp<<"\n";
-				cout<<"\n";
+				//cout<<"REPLY: transID = "<<search->first<<"\n";
+				//cout<<"REPLY: search->second->timestamp = "<<search->second->timestamp<<"\n";
+				//cout<<"\n";
 				if ((par->getcurrtime() - search->second->timestamp) > 10){
-					cout<<"REPLY: timeout reached\n";
+					//cout<<"REPLY: timeout reached\n";
 					//search->second->failure_count = 3;
 				} else {
 					if (!msg->success){
@@ -531,7 +531,7 @@ void MP2Node::checkMessages() {
 					}
 				}
 				//checking for quorum
-				cout<<"Checking the quorum\n";
+				//cout<<"Checking the quorum\n";
 				if ((search->second->failure_count + search->second->success_count) >=2
 				    &&(search->second->success_count >= 2 || search->second->failure_count >= 2)) {
 							if (search->second->success_count >= 2){
@@ -563,12 +563,12 @@ void MP2Node::checkMessages() {
 								 }
 							 break;
 							 case DELETE:
-							   cout<<"logging success of the delete\n";
+							   //cout<<"logging success of the delete\n";
 								 hasMyReplicas = findNodes(search->second->key);
 								   for(Node node: hasMyReplicas){
-										 cout<<"Node Address = ";
+										 //cout<<"Node Address = ";
 										 Address *tempAddr = &node.nodeAddress;
-										 printAddress(tempAddr);
+										 //printAddress(tempAddr);
 									   this->deletekey(search->second->key);
 										 if (!search->second->is_logged){
 										   //server delete
@@ -631,12 +631,12 @@ void MP2Node::checkMessages() {
 			 break;
 			 case READREPLY:
 	     {
-			   cout<<"ReadReply from the coordinator to the REPLY\n";
+			   //cout<<"ReadReply from the coordinator to the REPLY\n";
 
 				 //check QUORUM
 				 map<int, transaction_performed*>::iterator search;
 				 search = transID_map.find(msg->transID);
-				 cout<<"READREPLY: transId = "<<search->first<<" success = "<<msg->success<<"\n";
+				 //cout<<"READREPLY: transId = "<<search->first<<" success = "<<msg->success<<"\n";
 
 				 if ((par->getcurrtime() - search->second->timestamp) > 10){
 						hasMyReplicas = findNodes(search->second->key);
@@ -711,7 +711,7 @@ bool MP2Node::read_val_success(int transID, string value, Address addr){
 	map<int, transaction_performed*>::iterator search;
 	search = transID_map.find(transID);
 	bool read_s = find(search->second->readval.begin(), search->second->readval.end(), value) != search->second->readval.end();
-	cout<<"read_successful ="<<read_s<<"\n";
+	//cout<<"read_successful ="<<read_s<<"\n";
 	search->second->successNode.push_back(addr);
 	if (find(search->second->readval.begin(), search->second->readval.end(), value) != search->second->readval.end()){
 		//some value matches
@@ -792,7 +792,7 @@ void MP2Node::stabilizationProtocol() {
 	/*
 	 * Implement this
 	 */
-	 cout<<"Inside stabilizationProtocol\n";
+	 //cout<<"Inside stabilizationProtocol\n";
 	 this->trace->funcEntry("stabilizationProtocol");
    std::map<string, string>::iterator it;
 	 vector<Node>num_replicas;
