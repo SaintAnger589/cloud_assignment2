@@ -82,9 +82,8 @@ public:
   /*************************************************/
     void addNewMember(MemberListEntry *e);
   Address* getAddr(MemberListEntry e);
-    Address* getAddr(int id, short port);
-    int getMemberPosition(MemberListEntry *e);
-    MemberListEntry* findMember(int id, short port);
+    Address* getAddrFromId(int id, short port);
+    MemberListEntry* findMemberFromId(int id, short port);
     MemberListEntry* findMember(Address *addr);
 	virtual ~MP1Node();
 };
