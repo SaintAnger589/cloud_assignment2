@@ -78,14 +78,16 @@ public:
 	Address getJoinAddress();
 	void initMemberListTable(Member *memberNode);
 	void printAddress(Address *addr);
-  /********************************************/
+
+  /*************************************************/
   MessageHdr * createMessage(MsgTypes t);
+    void addNewMember(MemberListEntry *e);
   Address* getAddr(MemberListEntry e);
-    Address* getNodeAddress(int id, short port);
-  void heartBeat(MessageHdr *m);
+    Address* getAddr(int id, short port);
+    int getMemberPosition(MemberListEntry *e);
+  void pingHandler(MessageHdr *m);
     MemberListEntry* findMember(int id, short port);
     MemberListEntry* findMember(Address *addr);
-    /***************************************/
 	virtual ~MP1Node();
 };
 
